@@ -26,8 +26,13 @@ export default class DoctorWrapper extends TrackerReact(React.Component) {
   }
 
   render(){
+    const style = {
+      doctorList: {
+        "overflow":"scroll",
+      }
+    }
     return (
-      <div>
+      <div styles={style.doctorList}>
             {this.doctors().map((doctor)=>{
               return <DoctorList key={doctor._id} doctor={doctor} />
             })}

@@ -1,31 +1,21 @@
 Meteor.methods({
-  addResolution(resolution){
-    check(resolution, String);
+  addDoctor(doctor){
     if(!Meteor.userId()){
       throw new Meteor.Error('No esta autorizado');
     }
-      Resolutions.insert({
-        text: resolution,
+      Doctors.insert({
+        text: doctor.doctorName,
+        url: doctor.url,
         complete: false,
         createdAt: new Date(),
         user: Meteor.userId()
       });
     },
-    toggleResolution(resolution){
-      check(resolution, Object);
-
-      if(Meteor.userId() !== resolution.user){
+    deleteDoctor(doctor){
+      check(doctor, Object);
+      if(Meteor.userId() !== doctor.user){
         throw new Meteor.Error('Incorrect user');
       }
-      Resolutions.update(resolution._id, {
-        $set: {complete: !resolution.complete}
-      });
-    },
-    deleteResolution(resolution){
-      check(resolution, Object);
-      if(Meteor.userId() !== resolution.user){
-        throw new Meteor.Error('Incorrect user');
-      }
-      Resolutions.remove(resolution._id);
+      Doctors.remove(doctor._id);
     }
 });

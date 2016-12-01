@@ -1,14 +1,32 @@
 import React from 'react';
 import {mount} from 'react-mounter';
-
 import {MainLayout} from './layouts/MainLayout.jsx';
-import ResolutionsWrapper from './resolutions/ResolutionsWrapper.jsx';
 import About from './About.jsx'
-import ResolutionDetail from './resolutions/ResolutionDetail.jsx'
+import DoctorRegistrationForm from './doctors/DoctorRegistrationForm.jsx';
+import DoctorList from './doctors/DoctorList.jsx';
+import DoctorDetail from './doctors/DoctorDetail.jsx';
+import DoctorWrapper from './doctors/DoctorWrapper.jsx';
+
 FlowRouter.route('/', {
   action() {
     mount(MainLayout,{
-      content: (<ResolutionsWrapper />),
+      content: (<DoctorWrapper />),
+    })
+  }
+});
+
+FlowRouter.route('/doctors', {
+  action() {
+    mount(MainLayout,{
+      content: (<DoctorWrapper />),
+    })
+  }
+});
+
+FlowRouter.route('/registerMD', {
+  action() {
+    mount(MainLayout,{
+      content: (<DoctorRegistrationForm />),
     })
   }
 });
@@ -21,10 +39,10 @@ FlowRouter.route('/about', {
   }
 });
 
-FlowRouter.route('/resolutions/:id', {
+FlowRouter.route('/doctors/:id', {
   action(params) {
     mount(MainLayout,{
-      content: (<ResolutionDetail id={params.id} />),
+      content: (<DoctorDetail id={params.id} />),
     })
   }
 });

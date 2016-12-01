@@ -1,9 +1,9 @@
-Resolutions = new Mongo.Collection("resolutions");
+Doctors = new Mongo.Collection("doctors");
 
-Meteor.publish("allResolutions", function(){
-  return Resolutions.find();
+Meteor.publish("allDoctors", function(){
+  return Doctors.find();
 });
 
-Meteor.publish("userResolutions", function(){
-  return Resolutions.find({user: this.userId});
+Meteor.publish("userDoctors", function(){
+  return Doctors.find({user: this.userId});
 });

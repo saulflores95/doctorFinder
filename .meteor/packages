@@ -18,12 +18,26 @@ es5-shim@4.6.15                # ECMAScript 5 compatibility for older browsers.
 ecmascript@0.5.9              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.2.1            # Server-side component of the `meteor shell` command
 
-
 kadira:flow-router
+
 ultimatejs:tracker-react
+
 accounts-ui
+
+accounts-base
+
 accounts-password
+
 npm-bcrypt@0.8.7
+
 session
+
 themeteorchef:bert
+
 check
+
+mdg:geolocation
+
+react-meteor-data
+
+mizzao:user-status

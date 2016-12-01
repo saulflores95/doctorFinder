@@ -8,10 +8,10 @@ export default class DoctorRegistrationForm extends Component {
   addDoctor(event){
     event.preventDefault();
     var doctorName = this.refs.doctorName.getValue();
-    var url = this.refs.doctorImgUrl.getValue();
+    var imgUrl = this.refs.doctorImgUrl.getValue();
 
     console.log(doctorName);
-    console.log(url);
+    console.log(imgUrl);
 
     if(doctorName){
       Meteor.call('addDoctor', doctorName, imgUrl, (error, data)=>{
@@ -27,6 +27,7 @@ export default class DoctorRegistrationForm extends Component {
 }
 
   render(){
+
     return (
       <MuiThemeProvider>
       <form className="new-doctor" onSubmit={this.addDoctor.bind(this)}>

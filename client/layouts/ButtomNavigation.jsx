@@ -6,9 +6,11 @@ import FontIcon from 'material-ui/FontIcon';
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
 import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
+import ContentPaste from 'material-ui/svg-icons/content/content-paste'
+import LocalHospital from 'material-ui/svg-icons/maps/local-hospital';
 
-const recentsIcon = <FontIcon className="material-icons">Doctors</FontIcon>;
-const favoritesIcon = <FontIcon className="material-icons">Register</FontIcon>;
+const doctorIcon = <LocalHospital />;
+const registerIcon = <ContentPaste />;
 const nearbyIcon = <IconLocationOn />;
 injectTapEventPlugin();
 
@@ -41,12 +43,12 @@ export default class ButtomNavigation extends Component{
           <Paper zDepth={1}>
             <BottomNavigation selectedIndex={this.state.selectedIndex}>
               <BottomNavigationItem
-                icon={recentsIcon}
+                icon={doctorIcon}
                 onTouchTap={() => this.select(0)}
                  href="/"
               />
               <BottomNavigationItem
-                icon={favoritesIcon}
+                icon={registerIcon}
                 onTouchTap={() => this.select(1)}
                 href="/registermd"
               />

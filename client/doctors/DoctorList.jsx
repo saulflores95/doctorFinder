@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
-
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {List, ListItem} from 'material-ui/List';
+import Divider from 'material-ui/Divider';
+import Avatar from 'material-ui/Avatar';
+import ActionInfo from 'material-ui/svg-icons/action/info';
 
 export default class DoctorList extends Component {
 
@@ -16,23 +20,17 @@ deleteDoctor(){
 
     return(
       <div>
-        <ul className="collection">
-            <li className="collection-item avatar">
-              <div className="row">
-                <div className="col l11 m11 s11">
-                  <img src={this.props.doctor.url} alt="" className="circle" />
-                  <span className="title">{this.props.doctor.text}</span>
-                  <a href={`/doctors/${this.props.doctor._id}`} class="secondary-content"><i class="material-icons">mas info</i></a>
-                </div>
-                <div className="col l1 m1">
-                  <button className="btn-floating btn-large waves-effect waves-light red"
-                    onClick={this.deleteDoctor.bind(this)}>
-                    &times;
-                  </button>
-                </div>
-              </div>
-            </li>
-        </ul>
+      <MuiThemeProvider>
+          <List>
+            <ListItem
+              leftAvatar={<Avatar src={this.props.doctor.docImgUrl}/>}
+              rightIcon={<ActionInfo onClick={this.deleteDoctor.bind(this)}/>}
+              primaryText={this.props.doctor.docName}
+              href={`/doctors/${this.props.doctor._id}`}
+              />
+            <Divider inset={true} />
+          </List>
+      </MuiThemeProvider>
       </div>
 
     )

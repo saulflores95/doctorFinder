@@ -14,7 +14,7 @@ export default class DoctorRegistrationForm extends Component {
     console.log(url);
 
     if(doctorName){
-      Meteor.call('addDoctor', doctorName, url, (error, data)=>{
+      Meteor.call('addDoctor', doctorName, imgUrl, (error, data)=>{
         if(error){
           Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-right' );
         }else{

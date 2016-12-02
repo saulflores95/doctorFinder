@@ -55,7 +55,7 @@ export default class ButtomNavigation extends Component{
               <BottomNavigationItem
                 icon={nearbyIcon}
                 onTouchTap={() => this.select(2)}
-                href="/registermd"
+                href="/map"
               />
             </BottomNavigation>
           </Paper>

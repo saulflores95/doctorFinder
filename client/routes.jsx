@@ -39,6 +39,14 @@ FlowRouter.route('/about', {
   }
 });
 
+FlowRouter.route('/map', {
+  action() {
+    mount(MainLayout,{
+      content: (<About />),
+    })
+  }
+});
+
 FlowRouter.route('/doctors/:id', {
   action(params) {
     mount(MainLayout,{

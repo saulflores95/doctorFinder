@@ -1,12 +1,18 @@
 Meteor.methods({
-  addDoctor(doctorName, imgUrl){
+  addDoctor(doctor){
+    check(doctor, Object);
     if(!Meteor.userId()){
       throw new Meteor.Error('No esta autorizado');
     }
       Doctors.insert({
-        docName: doctorName,
-        docImgUrl: imgUrl,
-        complete: false,
+        name: doctor.name,
+        img: doctor.img,
+        curriculumOne: doctor.curriculum.one,
+        curriculumTwo: doctor.curriculum.two,
+        curriculumThree: doctor.curriculum.three,
+        curriculumFour: doctor.curriculum.four,
+        curriculumFive: doctor.curriculum.five,
+        email: doctor.email,
         createdAt: new Date(),
         user: Meteor.userId()
       });

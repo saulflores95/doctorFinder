@@ -23,9 +23,9 @@ deleteDoctor(){
       <MuiThemeProvider>
           <List>
             <ListItem
-              leftAvatar={<Avatar src={this.props.doctor.docImgUrl}/>}
+              leftAvatar={<Avatar src={this.props.doctor.img}/>}
               rightIcon={<ActionInfo onClick={this.deleteDoctor.bind(this)}/>}
-              primaryText={this.props.doctor.docName}
+              primaryText={this.props.doctor.name}
               href={`/doctors/${this.props.doctor._id}`}
               />
             <Divider inset={true} />

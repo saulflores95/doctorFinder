@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
+import DoctorHeader from './DoctorHeader.jsx';
+import DoctorExp from './DoctorExp.jsx';
 
 export default class DoctorDetail extends Component{
   constructor(){
@@ -12,25 +14,21 @@ export default class DoctorDetail extends Component{
     }
   }
 
-  componentDidMount(){
-    this.view = Blaze.render(Template.loginButtons,
-        ReactDOM.findDOMNode(this.refs.container));
-  }
-
   doctor(){
     return Doctors.findOne(this.props.id);
   }
 
 
   render(){
-    let doc = this.doctor();
-    if(!doc){
+    let doctor = this.doctor();
+    if(!doctor){
       return(<div>Loading...</div>);
     }
 
       return(
         <div>
-          <h1>{doc.text}</h1>
+          <DoctorHeader id={this.props.id} />
+          <DoctorExp id={this.props.id} />
         </div>
       )
   }

@@ -10,7 +10,7 @@ export default class GeneralMap extends Component {
       lat: 32.5194358,
       lng: -117.0101997,
       zoom: 15,
-    }
+    };
   }
 
   render() {
@@ -18,8 +18,8 @@ export default class GeneralMap extends Component {
     const styles = {
       leafletContainer: {
         width: '100%',
-        height: '100px',
-      },
+        height: '650'
+      }
     }
 
   const position = [this.state.lat, this.state.lng];

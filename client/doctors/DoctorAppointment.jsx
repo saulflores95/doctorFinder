@@ -5,10 +5,14 @@ import DatePicker from 'material-ui/DatePicker';
 export default class DoctorAppointment extends Component {
 
   render(){
-
+    const styles = {
+      'padding-bottom':'100',
+    };
     return (
       <MuiThemeProvider>
-        <DatePicker hintText="Set appointment" mode="landscape" />
+        <div style={styles}>
+          <DatePicker hintText="Set appointment" mode="landscape" />
+        </div>
       </MuiThemeProvider>
     )
   }

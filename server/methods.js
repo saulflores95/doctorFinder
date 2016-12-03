@@ -17,11 +17,14 @@ Meteor.methods({
         user: Meteor.userId()
       });
     },
-    deleteDoctor(doctor){
-      check(doctor, Object);
-      if(Meteor.userId() !== doctor.user){
-        throw new Meteor.Error('Incorrect user');
-      }
-      Doctors.remove(doctor._id);
+  deleteDoctor(doctor){
+    check(doctor, Object);
+    if(Meteor.userId() !== doctor.user){
+      throw new Meteor.Error('Incorrect user');
     }
+    Doctors.remove(doctor._id);
+  },
+  sendMessage(message){
+    console.log(message);
+  }
 });

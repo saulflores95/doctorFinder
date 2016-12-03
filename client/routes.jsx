@@ -6,6 +6,7 @@ import DoctorRegistrationForm from './doctors/DoctorRegistrationForm.jsx';
 import DoctorList from './doctors/DoctorList.jsx';
 import DoctorDetail from './doctors/DoctorDetail.jsx';
 import DoctorWrapper from './doctors/DoctorWrapper.jsx';
+import GeneralMap from './maps/GeneralMap.jsx';
 
 FlowRouter.route('/', {
   action() {
@@ -42,7 +43,7 @@ FlowRouter.route('/about', {
 FlowRouter.route('/map', {
   action() {
     mount(MainLayout,{
-      content: (<About />),
+      content: (<GeneralMap />),
     })
   }
 });

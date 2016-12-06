@@ -1,6 +1,7 @@
 import React from 'react';
 import ButtomNavigation from './ButtomNavigation.jsx';
 import UpperNavigation from './UpperNavigation.jsx';
+import {Container} from 'react-grid-system';
 
 export const MainLayout = ({content}) => (
   <div className="main-layout">
@@ -8,7 +9,7 @@ export const MainLayout = ({content}) => (
         <UpperNavigation />
     </header>
     <main>
-      {content}
+        {content}
     </main>
     <footer>
       <ButtomNavigation />

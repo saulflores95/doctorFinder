@@ -6,7 +6,7 @@ export default class DoctorAppointment extends Component {
 
   render(){
     const styles = {
-      'padding-bottom':'100',
+      'padding-bottom':'0',
     };
     return (
       <MuiThemeProvider>

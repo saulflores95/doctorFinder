@@ -3,7 +3,6 @@ import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import DoctorHeader from './DoctorHeader.jsx';
 import DoctorExp from './DoctorExp.jsx';
 import DoctorContactForm from './DoctorContactForm.jsx';
-import DoctorAppointment from './DoctorAppointment.jsx';
 
 export default class DoctorDetail extends Component{
   constructor(){
@@ -30,9 +29,7 @@ export default class DoctorDetail extends Component{
       return(
         <div>
           <DoctorHeader id={this.props.id} />
-          <DoctorExp id={this.props.id} />
           <DoctorContactForm id={this.props.id} />
-          <DoctorAppointment id={this.props.id} />
         </div>
       )
   }

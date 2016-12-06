@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
+import { Container, Row, Col, Visible, Hidden } from 'react-grid-system';
 
 export default class DoctorExp extends Component{
   constructor(){
@@ -20,25 +21,28 @@ export default class DoctorExp extends Component{
 
   render(){
     let doctor = this.doctor();
-    var imgUrl = 'http://photos.wikimapia.org/p/00/00/57/98/94_big.jpg';
-    var backgroundImg = {
-      'background': 'url('+ imgUrl + ') no-repeat center center fixed',
-      '-webkit-background-size': '350',
-      '-moz-background-size': 'cover',
-      '-o-background-size': 'cover',
-      'background-size': 'cover',
+    var styles = {
+      experienceContainer:{
+        height:'100%',
+      },
     };
 
     if(!doctor){
       return(<div>Loading...</div>);
     }
       return(
-        <div style={backgroundImg}>
-          <h3>{doctor.curriculumOne}</h3>
-          <h3>{doctor.curriculumTwo}</h3>
-          <h3>{doctor.curriculumThree}</h3>
-          <h3>{doctor.curriculumFour}</h3>
-          <h3>{doctor.curriculumFive}</h3>
+        <div style={styles.experienceContainer}>
+          <Row>
+          <Col sm={4}>
+              <h4>{doctor.curriculumOne}</h4>
+              <h4>{doctor.curriculumTwo}</h4>
+              <h4>{doctor.curriculumThree}</h4>
+              </Col>
+            <Col sm={4}>
+              <h4>{doctor.curriculumFour}</h4>
+              <h4>{doctor.curriculumFive}</h4>
+              </Col>
+          </Row>
         </div>
       )
   }

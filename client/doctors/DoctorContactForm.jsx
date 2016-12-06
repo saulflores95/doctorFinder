@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import Col from 'react-bootstrap/lib/Col';
-import Row from 'react-bootstrap/lib/Row';
 
 export default class DoctorContactForm extends Component {
 
@@ -64,13 +62,16 @@ export default class DoctorContactForm extends Component {
                   hintText="Messege"
                   ref="message"
                   fullWidth={true}
+                  multiLine={true}
+                  rows={2}
+                  rowsMax={4}
                 />
-
                 <RaisedButton
                   label="Contact Me"
                   type="submit"
                   className="button-submit"
                   primary={true}
+                  fullWidth={true}
                 />
             </form>
       </MuiThemeProvider>

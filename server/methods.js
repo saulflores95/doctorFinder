@@ -13,6 +13,8 @@ Meteor.methods({
         curriculumThree: doctor.curriculum.three,
         curriculumFour: doctor.curriculum.four,
         curriculumFive: doctor.curriculum.five,
+        curriculumSix: doctor.curriculum.six,
+        specialty:doctor.specialty,
         email: doctor.email,
         insurance: doctor.insurance,
         createdAt: new Date(),

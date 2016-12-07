@@ -20,12 +20,14 @@ export default class DoctorRegistrationForm extends Component {
     var img = this.refs.doctorImgUrl.getValue();
     var description = this.refs.description.getValue();
     var insurance = this.state.toogleState;
+    var specialty = this.refs.specialty.getValue();
     var curriculum = {
       one:this.refs.curriculumOne.getValue(),
       two:this.refs.curriculumTwo.getValue(),
       three:this.refs.curriculumThree.getValue(),
       four:this.refs.curriculumFour.getValue(),
-      five:this.refs.curriculumFive.getValue()
+      five:this.refs.curriculumFive.getValue(),
+      six:this.refs.curriculumSix.getValue()
     };
     var email =this.refs.email.getValue();
     var doctor = {
@@ -34,7 +36,8 @@ export default class DoctorRegistrationForm extends Component {
       description: description,
       insurance: insurance,
       curriculum: curriculum,
-      email: email
+      email: email,
+      specialty:specialty
     };
 
     console.log(name);
@@ -43,6 +46,7 @@ export default class DoctorRegistrationForm extends Component {
     console.log(insurance);
     console.log(curriculum);
     console.log(email);
+    console.log(specialty);
     console.log('*************************');
     console.log(doctor);
 
@@ -111,6 +115,11 @@ export default class DoctorRegistrationForm extends Component {
               <TextField
                 hintText="Work experience 5"
                 ref="curriculumFive"
+                fullWidth={true}
+              />
+              <TextField
+                hintText="Work experience 6"
+                ref="curriculumSix"
                 fullWidth={true}
               />
               <TextField

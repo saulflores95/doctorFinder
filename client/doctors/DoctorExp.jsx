@@ -37,11 +37,12 @@ export default class DoctorExp extends Component{
               <h4>{doctor.curriculumOne}</h4>
               <h4>{doctor.curriculumTwo}</h4>
               <h4>{doctor.curriculumThree}</h4>
-              </Col>
-            <Col sm={4}>
-              <h4>{doctor.curriculumFour}</h4>
-              <h4>{doctor.curriculumFive}</h4>
-              </Col>
+          </Col>
+          <Col sm={4}>
+            <h4>{doctor.curriculumFour}</h4>
+            <h4>{doctor.curriculumFive}</h4>
+            <h4>{doctor.curriculumSix}</h4>
+          </Col>
           </Row>
         </div>
       )

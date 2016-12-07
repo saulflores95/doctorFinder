@@ -48,33 +48,29 @@ export default class DoctorHeader extends Component{
     }
       return(
         <div>
-        <MuiThemeProvider>
-            <div style={styles.DoctorHeaderContainer}>
-              <Container>
-              <Row>
-                <Col sm={4}>
-                  <img style={styles.doctorImg} src={doctor.img} />
-                  <h1>{doctor.name}</h1>
-                  <DoctorAppointment id={this.props.id} />
-                  <FlatButton
-                    label="6218302"
-                    labelPosition="before"
-                    href="tel:+900300400"
-                    primary={true}
-                    icon={<ActionAndroid />}
-                  />
-                </Col>
-                <Col sm={4}>
-                </Col>
-                <Col sm={4}>
-                </Col>
-                <Col sm={4}>
-                  <DoctorExp id={this.props.id} />
-                </Col>
-              </Row>
-              </Container>
-            </div>
-        </MuiThemeProvider>
+          <MuiThemeProvider>
+              <div style={styles.DoctorHeaderContainer}>
+                <Container>
+                <Row>
+                  <Col sm={4}>
+                    <img style={styles.doctorImg} src={doctor.img} />
+                    <h1>{doctor.name}</h1>
+                    <DoctorAppointment id={this.props.id} />
+                    <FlatButton
+                      label="6218302"
+                      labelPosition="before"
+                      href="tel:+900300400"
+                      primary={true}
+                      icon={<ActionAndroid />}
+                    />
+                  </Col>
+                  <Col sm={4}>
+                    <DoctorExp id={this.props.id} />
+                  </Col>
+                </Row>
+                </Container>
+              </div>
+          </MuiThemeProvider>
         </div>
       )
   }

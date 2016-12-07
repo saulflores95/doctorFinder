@@ -12,8 +12,7 @@ export default class DoctorExp extends Component{
       }
     }
   }
-
-
+  
   doctor(){
     return Doctors.findOne(this.props.id);
   }
@@ -41,6 +40,7 @@ export default class DoctorExp extends Component{
             <Col sm={4}>
               <h4>{doctor.curriculumFour}</h4>
               <h4>{doctor.curriculumFive}</h4>
+              <h4>{doctor.curriculimSix}</h4>
               </Col>
           </Row>
         </div>

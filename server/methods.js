@@ -12,6 +12,7 @@ Meteor.methods({
         curriculumThree: doctor.curriculum.three,
         curriculumFour: doctor.curriculum.four,
         curriculumFive: doctor.curriculum.five,
+        curriculimSix: doctor.curriculum.six,
         email: doctor.email,
         createdAt: new Date(),
         user: Meteor.userId()

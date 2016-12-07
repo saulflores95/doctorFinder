@@ -4,6 +4,7 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Checkbox from 'material-ui/Checkbox';
 import { Container, Row, Col, Visible, Hidden } from 'react-grid-system';
+import Paper from 'material-ui/Paper';
 
 export default class DoctorRegistrationForm extends Component {
 
@@ -73,84 +74,146 @@ export default class DoctorRegistrationForm extends Component {
   }
 
   render(){
+
+    const styles = {
+      paper: {
+        width: '100%',
+        padding: '0 0 0 0',
+        marginTop: '50px'
+
+      },
+      formStyle: {
+      },
+      formDivisor: {
+          padding: '0 0 30px 0'
+      },
+      formMessageDivisor: {
+        padding: '0 0 10px 0'
+      }
+    }
+
     return (
       <MuiThemeProvider>
         <Container>
+        <Paper style={styles.paper} zDepth={3}>
+        <Container>
           <form className="new-doctor" onSubmit={this.addDoctor.bind(this)}>
-              <TextField
-                hintText="Agrega una doctor"
-                ref="doctorName"
-                fullWidth={true}
-              />
-              <TextField
-                hintText="url de imagen"
-                ref="doctorImgUrl"
-                fullWidth={true}
-              />
+          <div style={styles.formDivisor}>
+            <Row>
+              <Col sm={6}>
+                <TextField
+                  hintText="Agrega una doctor"
+                  ref="doctorName"
+                  fullWidth={true}
+                />
+              </Col>
+              <Col sm={6}>
+                <TextField
+                  hintText="url de imagen"
+                  ref="doctorImgUrl"
+                  fullWidth={true}
+                />
+              </Col>
+            </Row>
               <TextField
                 hintText="Specialty"
                 ref="specialty"
                 fullWidth={true}
               />
-              <TextField
-                hintText="Work experience 1"
-                ref="curriculumOne"
-                fullWidth={true}
-              />
-              <TextField
-                hintText="Work experience 2"
-                ref="curriculumTwo"
-                fullWidth={true}
-              />
-              <TextField
-                hintText="Work experience 3"
-                ref="curriculumThree"
-                fullWidth={true}
-              />
-              <TextField
-                hintText="Work experience 4"
-                ref="curriculumFour"
-                fullWidth={true}
-              />
-              <TextField
-                hintText="Work experience 5"
-                ref="curriculumFive"
-                fullWidth={true}
-              />
-              <TextField
-                hintText="Work experience 6"
-                ref="curriculumSix"
-                fullWidth={true}
-              />
-              <TextField
-                hintText="Describe yourself or experience(do not be shy)"
-                ref="description"
-                fullWidth={true}
-                multiLine={true}
-                rows={3}
-                rowsMax={6}
-              />
-              <Checkbox
-                label="USA insurance?"
-                onClick={this.toggleChecked.bind(this)}
-              />
-              <TextField
-                hintText="E-mail"
-                ref="email"
-                fullWidth={false}
-              />
-              <TextField
-                hintText="Phone Number"
-                ref="phone"
-                fullWidth={false}
-              />
-              <RaisedButton
-                label="Register"
-                type="submit"
-                className="button-submit"
-                primary={true}
-              />
+          </div>
+          <div style={styles.formDivisor}>
+            <Row>
+              <Col sm={6}>
+                <TextField
+                  hintText="Work experience 1"
+                  ref="curriculumOne"
+                  fullWidth={true}
+                />
+              </Col>
+              <Col sm={6}>
+                <TextField
+                  hintText="Work experience 2"
+                  ref="curriculumTwo"
+                  fullWidth={true}
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col sm={6}>
+                <TextField
+                  hintText="Work experience 3"
+                  ref="curriculumThree"
+                  fullWidth={true}
+                />
+              </Col>
+              <Col sm={6}>
+                <TextField
+                  hintText="Work experience 4"
+                  ref="curriculumFour"
+                  fullWidth={true}
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col sm={6}>
+                <TextField
+                  hintText="Work experience 5"
+                  ref="curriculumFive"
+                  fullWidth={true}
+                />
+              </Col>
+              <Col sm={6}>
+                <TextField
+                  hintText="Work experience 6"
+                  ref="curriculumSix"
+                  fullWidth={true}
+                />
+              </Col>
+            </Row>
+          </div>
+          <div style={styles.formMessageDivisor}>
+            <TextField
+              hintText="Describe yourself or experience(do not be shy)"
+              ref="description"
+              fullWidth={true}
+              multiLine={true}
+              rows={3}
+              rowsMax={6}
+            />
+          </div>
+          <div style={styles.formDivisor}>
+            <Checkbox
+              label="USA insurance?"
+              onClick={this.toggleChecked.bind(this)}
+            />
+            <Row>
+              <Col sm={3}>
+                <TextField
+                  hintText="E-mail"
+                  ref="email"
+                  fullWidth={false}
+                />
+              </Col>
+              <Col sm={3}>
+                <TextField
+                  hintText="Phone Number"
+                  ref="phone"
+                  fullWidth={false}
+                />
+              </Col>
+              <Col sm={2}>
+                <RaisedButton
+                  label="Register"
+                  type="submit"
+                  className="button-submit"
+                  primary={true}
+                />
+              </Col>
+            </Row>
+          </div>
           </form>
+          </Container>
+        </Paper>
         </Container>
       </MuiThemeProvider>
     )

@@ -7,12 +7,14 @@ Meteor.methods({
       Doctors.insert({
         name: doctor.name,
         img: doctor.img,
+        description:doctor.description,
         curriculumOne: doctor.curriculum.one,
         curriculumTwo: doctor.curriculum.two,
         curriculumThree: doctor.curriculum.three,
         curriculumFour: doctor.curriculum.four,
         curriculumFive: doctor.curriculum.five,
         email: doctor.email,
+        insurance: doctor.insurance,
         createdAt: new Date(),
         user: Meteor.userId()
       });

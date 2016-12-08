@@ -5,9 +5,11 @@ import DoctorAppointment from './DoctorAppointment.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
 import { Container, Row, Col, Visible, Hidden } from 'react-grid-system';
-import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
 import ActionAndroid from 'material-ui/svg-icons/action/android';
+import FaPhone from 'react-icons/lib/fa/phone';
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 export default class DoctorHeader extends Component{
   constructor(){
@@ -52,23 +54,22 @@ export default class DoctorHeader extends Component{
             <div style={styles.DoctorHeaderContainer}>
               <Container>
               <Row>
-                <Col sm={4}>
+                <Col sm={6} md={6} lg={2}>
                   <img style={styles.doctorImg} src={doctor.img} />
                   <h1>{doctor.name}</h1>
+                  <h3>{doctor.specialty}</h3>
+                </Col>
+                <Col sm={6} md={6} lg={6}>
                   <DoctorAppointment id={this.props.id} />
-                  <FlatButton
+                  <RaisedButton
                     label="6218302"
                     labelPosition="before"
                     href="tel:+900300400"
                     primary={true}
-                    icon={<ActionAndroid />}
+                    icon={<FaPhone />}
                   />
                 </Col>
-                <Col sm={4}>
-                </Col>
-                <Col sm={4}>
-                </Col>
-                <Col sm={4}>
+                <Col sm={12} md={12} lg={4}>
                   <DoctorExp id={this.props.id} />
                 </Col>
               </Row>

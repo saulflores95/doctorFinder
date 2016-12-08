@@ -33,12 +33,12 @@ export default class DoctorExp extends Component{
       return(
         <div style={styles.experienceContainer}>
           <Row>
-          <Col sm={4}>
+          <Col xs={6} sm={6} md={6} lg={6}>
               <h4>{doctor.curriculumOne}</h4>
               <h4>{doctor.curriculumTwo}</h4>
               <h4>{doctor.curriculumThree}</h4>
           </Col>
-          <Col sm={4}>
+          <Col xs={6} sm={6} md={6} lg={6}>
             <h4>{doctor.curriculumFour}</h4>
             <h4>{doctor.curriculumFive}</h4>
             <h4>{doctor.curriculumSix}</h4>

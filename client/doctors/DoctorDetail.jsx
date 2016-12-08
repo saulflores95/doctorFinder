@@ -7,7 +7,7 @@ import DoctorMap from '../maps/DoctorMap.jsx';
 import DoctorDescription from './DoctorDescription.jsx';
 import {Container, Row, Col, Visible, Hidden } from 'react-grid-system';
 
-export default class DoctorDetail extends Component{
+export default class DoctorDetail extends TrackerReact(React.Component){
   constructor(){
     super();
 

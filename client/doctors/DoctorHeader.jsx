@@ -33,9 +33,9 @@ export default class DoctorHeader extends Component{
     var imgUrl = 'http://photos.wikimapia.org/p/00/00/57/98/94_big.jpg';
     var styles = {
       DoctorHeaderContainer:{
-        height:150,
-        paddingTop:55,
-        paddingBottom:100,
+        'height':150,
+        'paddingTop':55,
+        'paddingBottom':100,
       },
      doctorImg: {
       'border-radius': '50%',

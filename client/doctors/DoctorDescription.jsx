@@ -13,7 +13,17 @@ export default class DoctorDescription extends Component {
 
   constructor() {
     super();
-    this.state = {open: false};
+    this.state = {
+      open: false,
+      subscription: {
+        doctors: Meteor.subscribe("userDoctors")
+      }
+    };
+  }
+
+
+  doctor(){
+    return Doctors.findOne(this.props.id);
   }
 
   handleOpen() {
@@ -25,6 +35,7 @@ export default class DoctorDescription extends Component {
   }
 
   render(){
+    let doctor = this.doctor();
     const styles = {
       paper: {
         padding: '5px 0 10px 0',

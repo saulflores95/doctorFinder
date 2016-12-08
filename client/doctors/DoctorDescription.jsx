@@ -51,7 +51,8 @@ export default class DoctorDescription extends Component {
       p: {
         lineHeight: '20px',
         width: '100%',
-        height: '60px'
+        height: '60px',
+        overflow:'hidden'
       }
     }
 
@@ -68,7 +69,6 @@ export default class DoctorDescription extends Component {
           <Paper zDepth={1} style={styles.paper}>
             <Container>
             <div style={styles.text}>
-              <h3> Description: </h3>
               <p style={styles.p}>{doctor.description}</p>
               <RaisedButton label="Read more" onTouchTap={this.handleOpen.bind(this)}/>
               </div>

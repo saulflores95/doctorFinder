@@ -25,18 +25,24 @@ export default class DoctorDetail extends TrackerReact(React.Component){
 
   render(){
     let doctor = this.doctor();
+    const styles = {
+      divContainer:{
+        'paddingBottom':'100',
+      },
+    }
     if(!doctor){
       return(<div>Loading...</div>);
     }
 
       return(
-        <div>
+        <div style={styles.divContainer}>
         <Container>
           <Row>
             <Col xs={12} sm={12} md={12} lg={12}><DoctorHeader id={this.props.id} /></Col>
             <Col xs={12} sm={12} md={12} lg={12}><DoctorDescription id={this.props.id} /></Col>
             <Col xs={12} sm={6} md={6} lg={6}><DoctorContactForm id={this.props.id} /></Col>
             <Col xs={12} sm={6} md={6} lg={6}><DoctorMap id={this.props.id} /></Col>
+
           </Row>
         </Container>
         </div>

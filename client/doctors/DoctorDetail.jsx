@@ -32,9 +32,9 @@ export default class DoctorDetail extends Component{
         <div>
         <Container>
           <Row>
-            <DoctorHeader id={this.props.id} />
-            <Col xs={12} sm={12} md={6} lg={6}><DoctorContactForm id={this.props.id} /></Col>
-            <Col xs={12} sm={12} md={6} lg={6}><DoctorMap id={this.props.id} /></Col>
+            <Col xs={12} sm={12} md={12} lg={12}><DoctorHeader id={this.props.id} /></Col>
+            <Col xs={12} sm={6} md={6} lg={6}><DoctorContactForm id={this.props.id} /></Col>
+            <Col xs={12} sm={6} md={6} lg={6}><DoctorMap id={this.props.id} /></Col>
           </Row>
         </Container>
         </div>

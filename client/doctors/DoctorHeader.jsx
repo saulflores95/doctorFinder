@@ -4,7 +4,7 @@ import DoctorExp from './DoctorExp.jsx';
 import DoctorAppointment from './DoctorAppointment.jsx';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
-import { Container, Row, Col, Visible, Hidden } from 'react-grid-system';
+import {Row, Col, Visible, Hidden } from 'react-grid-system';
 import FontIcon from 'material-ui/FontIcon';
 import ActionAndroid from 'material-ui/svg-icons/action/android';
 import FaPhone from 'react-icons/lib/fa/phone';
@@ -52,7 +52,6 @@ export default class DoctorHeader extends Component{
         <div>
         <MuiThemeProvider>
             <div style={styles.DoctorHeaderContainer}>
-              <Container>
               <Row>
                 <Col sm={6} md={6} lg={2}>
                   <img style={styles.doctorImg} src={doctor.img} />
@@ -73,7 +72,6 @@ export default class DoctorHeader extends Component{
                   <DoctorExp id={this.props.id} />
                 </Col>
               </Row>
-              </Container>
             </div>
         </MuiThemeProvider>
         </div>

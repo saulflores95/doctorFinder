@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import FontIcon from 'material-ui/FontIcon';
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
@@ -12,7 +11,6 @@ import LocalHospital from 'material-ui/svg-icons/maps/local-hospital';
 const doctorIcon = <LocalHospital />;
 const registerIcon = <ContentPaste />;
 const nearbyIcon = <IconLocationOn />;
-injectTapEventPlugin();
 
 const styles = {
   footer: {

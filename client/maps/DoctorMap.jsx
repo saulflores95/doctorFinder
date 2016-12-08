@@ -25,7 +25,7 @@ export default class DoctorMap extends Component {
     const styles = {
       leafletContainer: {
         width: '100%',
-        height: '300',
+        height: '100',
       },
     }
 

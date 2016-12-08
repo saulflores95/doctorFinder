@@ -24,7 +24,12 @@ export default class DoctorDescription extends Component {
     this.setState({open: false});
   }
 
+  doctor(){
+    return Doctors.findOne(this.props.id);
+  }
+
   render(){
+    let doctor = this.doctor();
     const styles = {
       paper: {
         padding: '5px 0 10px 0',
@@ -32,6 +37,11 @@ export default class DoctorDescription extends Component {
       },
       text: {
         textAlign: 'center'
+      },
+      p: {
+        lineHeight: '20px',
+        width: '100%',
+        height: '60px'
       }
     }
 
@@ -49,7 +59,7 @@ export default class DoctorDescription extends Component {
             <Container>
             <div style={styles.text}>
               <h3> Description: </h3>
-              <p>{doctor.description}</p>
+              <p style={styles.p}>{doctor.description}</p>
               <RaisedButton label="Read more" onTouchTap={this.handleOpen.bind(this)}/>
               </div>
             </Container>

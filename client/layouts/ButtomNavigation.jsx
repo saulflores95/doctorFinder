@@ -7,7 +7,9 @@ import Paper from 'material-ui/Paper';
 import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 import ContentPaste from 'material-ui/svg-icons/content/content-paste'
 import LocalHospital from 'material-ui/svg-icons/maps/local-hospital';
+import Assignment from 'material-ui/svg-icons/action/assignment';
 
+const assignment = <Assignment />;
 const doctorIcon = <LocalHospital />;
 const registerIcon = <ContentPaste />;
 const nearbyIcon = <IconLocationOn />;
@@ -18,6 +20,7 @@ const styles = {
     left: "0",
     bottom: "0",
     width: "100%",
+    zIndex: '1000'
   }
 };
 
@@ -54,6 +57,11 @@ export default class ButtomNavigation extends Component{
                 icon={nearbyIcon}
                 onTouchTap={() => this.select(2)}
                 href="/map"
+              />
+              <BottomNavigationItem
+                icon={assignment}
+                onTouchTap={() => this.select(3)}
+                href="/registerClinic"
               />
             </BottomNavigation>
           </Paper>

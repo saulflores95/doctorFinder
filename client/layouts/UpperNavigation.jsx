@@ -11,7 +11,16 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import AccountsUI from '../AccountsUI.jsx';
 
 
-const styles = {};
+const styles = {
+  header: {
+    position: "fixed",
+    left: "0",
+    top: "0",
+    width: "100%",
+    zIndex: '1000'
+  }
+};
+
 
 export default class UpperNavigation extends Component{
 
@@ -22,7 +31,7 @@ export default class UpperNavigation extends Component{
 
   render(){
     return(
-      <div>
+      <div style={styles.header}>
         <MuiThemeProvider>
           <AppBar
             title="Healthcare Baja"

@@ -28,6 +28,20 @@ Meteor.methods({
     }
     Doctors.remove(doctor._id);
   },
+  addClinic(clinic){
+    check(clinic, Object);
+    if(!Meteor.userId()){
+      throw new Meteor.Error('No esta autorizado');
+    }
+      Clinics.insert({
+        name: clinic.name,
+        img: clinic.img,
+        specific: clinic.specific,
+        email: clinic.email,
+        createdAt: new Date(),
+        user: Meteor.userId()
+      });
+    },
   sendMessage(message){
     console.log(message);
   }

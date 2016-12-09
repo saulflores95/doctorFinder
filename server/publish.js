@@ -1,4 +1,5 @@
 Doctors = new Mongo.Collection("doctors");
+Clinics = new Mongo.Collection("clinics");
 
 Meteor.publish("allDoctors", function(){
   return Doctors.find();
@@ -6,4 +7,8 @@ Meteor.publish("allDoctors", function(){
 
 Meteor.publish("userDoctors", function(){
   return Doctors.find({user: this.userId});
+});
+
+Meteor.publish("allClinics", function(){
+  return Clinics.find();
 });

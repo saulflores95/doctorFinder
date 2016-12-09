@@ -187,21 +187,21 @@ export default class DoctorRegistrationForm extends Component {
               onClick={this.toggleChecked.bind(this)}
             />
             <Row>
-              <Col sm={3}>
+              <Col sm={6} md={6} lg={6}>
                 <TextField
                   hintText="E-mail"
                   ref="email"
                   fullWidth={false}
                 />
               </Col>
-              <Col sm={3}>
+              <Col sm={6} md={6} lg={6}>
                 <TextField
                   hintText="Phone Number"
                   ref="phone"
                   fullWidth={false}
                 />
               </Col>
-              <Col sm={2}>
+              <Col sm={12} md={6} lg={6}>
                 <RaisedButton
                   label="Register"
                   type="submit"

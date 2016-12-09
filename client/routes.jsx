@@ -7,6 +7,7 @@ import DoctorList from './doctors/DoctorList.jsx';
 import DoctorDetail from './doctors/DoctorDetail.jsx';
 import DoctorWrapper from './doctors/DoctorWrapper.jsx';
 import GeneralMap from './maps/GeneralMap.jsx';
+import ClinicRegistrationForm from './clinics/ClinicRegistrationForm.jsx';
 
 FlowRouter.route('/', {
   action() {
@@ -52,6 +53,14 @@ FlowRouter.route('/doctors/:id', {
   action(params) {
     mount(MainLayout,{
       content: (<DoctorDetail id={params.id} />),
+    })
+  }
+});
+
+FlowRouter.route('/registerClinic', {
+  action() {
+    mount(MainLayout,{
+      content: (<ClinicRegistrationForm />),
     })
   }
 });

@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Checkbox from 'material-ui/Checkbox';
 import { Container, Row, Col, Visible, Hidden } from 'react-grid-system';
 import Paper from 'material-ui/Paper';
-import DropDownMenu from 'material-ui/DropDownMenu';
+import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
 export default class ClinicRegistrationForm extends Component {
@@ -13,7 +13,8 @@ export default class ClinicRegistrationForm extends Component {
   constructor(){
     super();
     this.state = {
-      toogleState: false
+      toogleState: false,
+      value:'Podologia',
     }
   }
 
@@ -21,7 +22,7 @@ export default class ClinicRegistrationForm extends Component {
     event.preventDefault();
     var name = this.refs.clinicName.getValue();
     var img = this.refs.clinicImgUrl.getValue();
-    var specialty = this.refs.specialty.getValue();
+    var specialty = this.state.value;
     var specific = {
       one:this.refs.specificOne.getValue(),
       two:this.refs.specificTwo.getValue(),
@@ -51,6 +52,8 @@ export default class ClinicRegistrationForm extends Component {
     }
   }
 
+
+
   toggleChecked(Checkbox){
     console.log('this was pressed');
     if(this.state.toogleState == false){
@@ -60,6 +63,11 @@ export default class ClinicRegistrationForm extends Component {
     }
     console.log(this.state.toogleState);
   }
+
+  handleChange(event, index, value){
+    this.setState({value: value});
+  }
+
 
   render(){
 
@@ -79,7 +87,7 @@ export default class ClinicRegistrationForm extends Component {
         padding: '0 0 10px 0'
       },
       customWidth: {
-        width: '100%',
+        width: '95%',
       },
     }
 
@@ -105,28 +113,26 @@ export default class ClinicRegistrationForm extends Component {
                     fullWidth={true}
                   />
                 </Col>
+                <Col sm={12} md={12} lg={12}>
+                <SelectField
+                  floatingLabelText="Frequency"
+                  value={this.state.value}
+                  onChange={this.handleChange.bind(this)}
+                >
+                  <MenuItem value={'Podologia'} primaryText="Podologia" />
+                  <MenuItem value={'Oftalmología'} primaryText="Oftalmología " />
+                  <MenuItem value={'Traumatología'} primaryText="Traumatología  " />
+                  <MenuItem value={'Oncología'} primaryText="Oncología " />
+                  <MenuItem value={'Otorrinolaringología'} primaryText="Otorrinolaringología " />
+                  <MenuItem value={'Deontología'} primaryText="Deontología " />
+                  <MenuItem value={'Bariatría'} primaryText="Bariatría " />
+                  <MenuItem value={'Dermatologia'} primaryText="Dermatologia " />
+                  <MenuItem value={'Gerontología'} primaryText="Gerontología " />
+                  <MenuItem value={'Quiropráctica'} primaryText="Quiropráctica  " />
+                </SelectField>
+                </Col>
               </Row>
-              <TextField
-                hintText="Specialty"
-                ref="specialty"
-                fullWidth={true}
-              />
-              <DropDownMenu
-                value={this.state.value}
-                onChange={this.handleChange}
-                style={styles.customWidth}
-                autoWidth={false}>
-                <MenuItem value={1} primaryText="Podologia" />
-                <MenuItem value={2} primaryText="Oftalmología " />
-                <MenuItem value={3} primaryText="Traumatología  " />
-                <MenuItem value={4} primaryText="Oncología " />
-                <MenuItem value={5} primaryText="Otorrinolaringología " />
-                <MenuItem value={6} primaryText="Deontología " />
-                <MenuItem value={7} primaryText="Bariatría " />
-                <MenuItem value={8} primaryText="Dermatologia " />
-                <MenuItem value={9} primaryText="Gerontología " />
-                <MenuItem value={10} primaryText="Quiropráctica  " />
-              </DropDownMenu>
+
 
             </div>
             <div style={styles.formDivisor}>

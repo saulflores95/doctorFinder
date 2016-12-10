@@ -13,6 +13,9 @@ const assignment = <Assignment />;
 const doctorIcon = <LocalHospital />;
 const registerIcon = <ContentPaste />;
 const nearbyIcon = <IconLocationOn />;
+const clinicIcon = <FontIcon className="fa fa-heartbeat"></FontIcon>
+const hospitalIcon = <FontIcon className="fa fa-hospital-o"></FontIcon>
+
 
 const styles = {
   footer: {
@@ -62,6 +65,16 @@ export default class ButtomNavigation extends Component{
                 icon={assignment}
                 onTouchTap={() => this.select(3)}
                 href="/registerClinic"
+              />
+              <BottomNavigationItem
+                icon={clinicIcon}
+                onTouchTap={() => this.select(4)}
+                href="/clinics"
+              />
+              <BottomNavigationItem
+                icon={hospitalIcon}
+                onTouchTap={() => this.select(5)}
+                href="/hospitals"
               />
             </BottomNavigation>
           </Paper>

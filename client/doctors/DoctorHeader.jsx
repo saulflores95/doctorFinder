@@ -9,7 +9,7 @@ import FontIcon from 'material-ui/FontIcon';
 import ActionAndroid from 'material-ui/svg-icons/action/android';
 import FaPhone from 'react-icons/lib/fa/phone';
 import RaisedButton from 'material-ui/RaisedButton';
-
+import DoctorRaiting from './DoctorRaiting.jsx';
 
 export default class DoctorHeader extends Component{
   constructor(){
@@ -22,11 +22,9 @@ export default class DoctorHeader extends Component{
     }
   }
 
-
   doctor(){
     return Doctors.findOne(this.props.id);
   }
-
 
   render(){
     let doctor = this.doctor();
@@ -67,6 +65,7 @@ export default class DoctorHeader extends Component{
                     primary={true}
                     icon={<FaPhone />}
                   />
+                  <DoctorRaiting />
                 </Col>
                 <Col sm={12} md={12} lg={4}>
                   <DoctorExp id={this.props.id} />

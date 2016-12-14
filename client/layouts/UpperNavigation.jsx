@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import FontIcon from 'material-ui/FontIcon';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
@@ -18,6 +19,9 @@ const styles = {
     top: "0",
     width: "100%",
     zIndex: '1000'
+  },
+  icon: {
+    marginTop: '11px'
   }
 };
 
@@ -28,7 +32,6 @@ export default class UpperNavigation extends Component{
     super();
   }
 
-
   render(){
     return(
       <div style={styles.header}>
@@ -36,6 +39,7 @@ export default class UpperNavigation extends Component{
           <AppBar
             title="Healthcare Baja"
             iconElementRight={<AccountsUI />}
+            iconElementLeft={<FontIcon style={styles.icon} className="fa fa-arrow-circle-left"></FontIcon>}
           />
         </MuiThemeProvider>
       </div>

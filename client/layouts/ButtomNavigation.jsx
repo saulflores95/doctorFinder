@@ -9,15 +9,11 @@ import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 import ContentPaste from 'material-ui/svg-icons/content/content-paste'
 import LocalHospital from 'material-ui/svg-icons/maps/local-hospital';
 import Assignment from 'material-ui/svg-icons/action/assignment';
-import FaIconPack from 'react-icons/lib/fa'
 
 const assignment = <Assignment />;
 const doctorIcon = <LocalHospital />;
 const registerIcon = <ContentPaste />;
 const nearbyIcon = <IconLocationOn />;
-const clinicIcon = <FontIcon className="fa fa-heartbeat"></FontIcon>
-const hospitalIcon = <FontIcon className="fa fa-hospital-o"></FontIcon>
-
 
 const styles = {
   footer: {
@@ -26,15 +22,12 @@ const styles = {
     bottom: "0",
     width: "100%",
     zIndex: '1000',
-  //  '@media (max-width: 785px)': {
-    //  height: '200px'
-  //  },
+
   },
-//  test2: {
-  //  '@media (max-width: 785px)': {
-  //    height: '200px'
-    //},
-  //},
+  icon: {
+    textAlign: 'center',
+  },
+
 };
 
 export default class ButtomNavigation extends Component{
@@ -82,13 +75,13 @@ export default class ButtomNavigation extends Component{
 
               />
               <BottomNavigationItem
-                icon={clinicIcon}
+                icon={<FontIcon style={styles.icon} className="fa fa-heartbeat"></FontIcon>}
                 onTouchTap={() => this.select(4)}
                 href="/clinics"
 
               />
               <BottomNavigationItem
-                icon={hospitalIcon}
+                icon={<FontIcon style={styles.icon} className="fa fa-hospital-o"></FontIcon>}
                 onTouchTap={() => this.select(5)}
                 href="/hospitals"
 

@@ -11,13 +11,13 @@ export default class ClinicList extends Component {
         width: '100%',
         height: '250px',
         position: 'relative',
-        filter: 'blur(5px)',
+        filter: 'brightness(40%)',
         transition: '1s',
 
         ':hover': {
            borderRadius: '50%',
            transition: '1s',
-        }
+        },
       },
       h2: {
         position: 'absolute',
@@ -26,14 +26,11 @@ export default class ClinicList extends Component {
         left: '0px',
         color: 'white',
         textAlign: 'center',
-        backgroundColor: 'rgb(0, 188, 212)',
-        opacity: '0.8',
         marginLeft: '10%',
         height: '15%',
       },
       back: {
-        borderStyle: 'solid',
-        borderWidth: '5px',
+        overflow: 'hidden',
         height: '250px',
         width: '100%',
         marginTop: '30px',
@@ -43,7 +40,12 @@ export default class ClinicList extends Component {
     return(
       <Col xs={12} sm={6} md={6} lg={4}>
           <div style={styles.back}>
-            <img href="/" key={this.props.clinic._id} style={styles.img} src={this.props.clinic.img}/>
+              <a href={`/clinics/${this.props.clinic._id}`}>
+                <img
+                  style={styles.img}
+                  src={this.props.clinic.img}
+                />
+              </a>
             <h1 style={styles.h2}> {this.props.clinic.name} </h1>
           </div>
       </Col>

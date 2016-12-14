@@ -29,17 +29,15 @@ export default class ClinicWrapper extends TrackerReact(React.Component) {
   render(){
 
     return (
-      <div>
-        <Container>
-          <Row>
-            {this.clinics().map((clinic)=>{
-              return <ClinicList key={clinic._id} clinic={clinic} />
-          })}
-          </Row>
-        </Container>
-      </div>
-
-
-    )
+        <div>
+          <Container>
+            <Row>
+              {this.clinics().map((clinic)=>{
+                return <ClinicList key={clinic._id} clinic={clinic} />
+            })}
+            </Row>
+          </Container>
+        </div>
+      )
+    }
   }
-}

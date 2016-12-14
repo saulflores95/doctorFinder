@@ -9,6 +9,7 @@ import DoctorWrapper from './doctors/DoctorWrapper.jsx';
 import GeneralMap from './maps/GeneralMap.jsx';
 import ClinicRegistrationForm from './clinics/ClinicRegistrationForm.jsx';
 import ClinicWrapper from './clinics/ClinicWrapper.jsx';
+import ClinicDetail from './clinics/ClinicDetail.jsx';
 
 FlowRouter.route('/', {
   action() {
@@ -70,6 +71,14 @@ FlowRouter.route('/clinics', {
   action() {
     mount(MainLayout,{
       content: (<ClinicWrapper />),
+    })
+  }
+});
+
+FlowRouter.route('/clinics/:id', {
+  action(params) {
+    mount(MainLayout,{
+      content: (<ClinicDetail id={params.id} />),
     })
   }
 });

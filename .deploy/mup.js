@@ -1,6 +1,7 @@
 module.exports = {
   servers: {
     one: {
+      host: 'healthcarebaja.com',
       username: 'root',
       // pem:
       password: 'poloboy1',
@@ -19,19 +20,12 @@ module.exports = {
     },
     env: {
       ROOT_URL: 'https://healthcarebaja.com',
-      MONGO_URL: 'mongodb://localhost/meteor',
+      //MONGO_URL: 'mongodb://localhost/meteor',
+      MONGO_URL: 'mongodb://pekub:hypogrifo#2016@ds041556.mlab.com:41556/heroku_cqm1l378',
       PORT:3000,
     },
 
-    //dockerImage: 'kadirahq/meteord'
+    dockerImage: 'abernix/meteord:base',
     deployCheckWaitTime: 60
-  },
-
-  mongo: {
-    oplog: true,
-    port: 27017,
-    servers: {
-      one: {},
-    },
   },
 };

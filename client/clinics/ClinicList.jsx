@@ -49,7 +49,6 @@ export default class ClinicList extends Component {
             <h1 style={styles.h2}> {this.props.clinic.name} </h1>
           </div>
       </Col>
-
     )
   }
 }

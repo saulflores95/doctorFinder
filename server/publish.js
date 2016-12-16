@@ -1,5 +1,6 @@
 Doctors = new Mongo.Collection("doctors");
 Clinics = new Mongo.Collection("clinics");
+Pharmacies = new Mongo.Collection("pharmacies");
 
 Meteor.publish("allDoctors", function(){
   return Doctors.find();

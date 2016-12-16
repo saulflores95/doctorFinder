@@ -11,23 +11,28 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import AccountsUI from '../AccountsUI.jsx';
 
+
+const styles = {
+  header: {
+    position: "fixed",
+    left: "0",
+    top: "0",
+    width: "100%",
+    zIndex: '1000'
+  },
+  icon: {
+    marginTop: '11px'
+  }
+};
+
+
 export default class UpperNavigation extends Component{
 
+  constructor() {
+    super();
+  }
+
   render(){
-    const styles = {
-      header: {
-        position: "fixed",
-        left: "0",
-        top: "0",
-        width: "100%",
-        zIndex: '1000'
-      },
-      icon: {
-        marginTop: '11px'
-      }
-    };
-
-
     return(
       <div style={styles.header}>
         <MuiThemeProvider>

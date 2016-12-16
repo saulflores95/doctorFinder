@@ -48,9 +48,10 @@ export default class ClinicRegistrationForm extends Component {
             Bert.alert( 'Registrado!', 'info', 'fixed-top' );
           }
       });
+
     }
-    console.log(specific);
   }
+
 
 
   toggleChecked(Checkbox){

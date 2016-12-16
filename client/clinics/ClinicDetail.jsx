@@ -4,7 +4,6 @@ import LoadingComponent from '../layouts/LoadingComponent.jsx'
 import {Container, Row, Col, Visible, Hidden } from 'react-grid-system';
 import ClinicList from './ClinicList.jsx';
 import ClinicHeader from './ClinicHeader.jsx';
-import ClinicMap from '../maps/ClinicMap.jsx';
 
 export default class ClinicDetail extends TrackerReact(React.Component){
   constructor(){
@@ -33,8 +32,7 @@ export default class ClinicDetail extends TrackerReact(React.Component){
           <div>
             <Container>
               <Row>
-                <Col xs={12} sm={12} md={12} lg={12}><ClinicHeader id={this.props.id}/></Col>
-                <Col xs={12} sm={12} md={12} lg={12}><ClinicMap id={this.props.id}/></Col>
+                <ClinicHeader />
               </Row>
             </Container>
           </div>

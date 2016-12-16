@@ -12,7 +12,3 @@ Meteor.publish("userDoctors", function(){
 Meteor.publish("allClinics", function(){
   return Clinics.find();
 });
-
-Meteor.publish("userClinics", function(){
-  return Clinics.find({user: this.userId});
-});

@@ -48,7 +48,6 @@ export default class DoctorWrapper extends TrackerReact(React.Component) {
     const styles = {
       input: {
         transition: '1s',
-        marginTop: '10px',
         width: '85px',
         border: '0',
         outline: '0',
@@ -60,7 +59,7 @@ export default class DoctorWrapper extends TrackerReact(React.Component) {
         padding: '12px 12px 12px 40px',
         backgroundRepeat: 'no-repeat',
         ':focus': {
-          width: '200px',
+          width: '240px',
           ':hover': {
                   }
         }

@@ -12,7 +12,7 @@ export default class PharmacieWrapper extends TrackerReact(React.Component) {
 
     this.state = {
       subscription: {
-        pharmacies: Meteor.subscribe("allpharmacies")
+        pharmacies: Meteor.subscribe("allPharmacies")
       }
     }
   }

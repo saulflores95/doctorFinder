@@ -27,7 +27,12 @@ export default class PharmacieMap extends Component {
 
   render() {
     const position = [this.state.lat, this.state.lng];
-
+    const styles = {
+      leafletContainer: {
+        width: '100%',
+        height: 600,
+      },
+    }
     var stationMarker = L.icon({
       iconUrl: 'https://s15.postimg.org/x8j35nsqz/Icon.png',
       iconSize: [80, 80],
@@ -39,20 +44,21 @@ export default class PharmacieMap extends Component {
     });
 
     return (
-      <Map center={position} zoom={this.state.zoom}>
-        <TileLayer
-          attribution='<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-        />
-        {this.pharmacies().map((pharmacie)=>{
-          return <Marker icon={stationMarker} position={[pharmacie.latitud, pharmacie.longitud]}>
-            <Popup>
-              <span>Location. <br/>{pharmacie.name}</span>
-            </Popup>
-          </Marker>
-        })}
-        <OnlineUserMarker />
-      </Map>
+      <div style={styles.leafletContainer}>
+        <Map center={position} zoom={this.state.zoom}>
+          <TileLayer
+            attribution='<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+          />
+          {this.pharmacies().map((pharmacie, index)=>{
+            return <Marker icon={stationMarker} position={[pharmacie.coordenates.lat[index], pharmacie.coordenates.lng[index]]}>
+              <Popup>
+                <span>Location. <br/>{pharmacie.name}</span>
+              </Popup>
+            </Marker>
+          })}
+        </Map>
+      </div>
     );
   }
 

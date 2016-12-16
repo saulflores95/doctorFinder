@@ -13,6 +13,7 @@ import ClinicDetail from './clinics/ClinicDetail.jsx';
 import PharmacieWrapper from './pharmacies/PharmacieWrapper.jsx';
 import PharmacieDetail from './pharmacies/PharmacieDetail.jsx';
 import PharmacieRegistrationForm from './pharmacies/PharmacieRegistrationForm.jsx';
+import PharmacieMap from './maps/PharmacieMap.jsx';
 
 FlowRouter.route('/', {
   action() {
@@ -107,6 +108,14 @@ FlowRouter.route('/Pharmacies/:id', {
   action(params){
     mount(MainLayout,{
       content: (<PharmacieDetail id={params.id} />),
+    })
+  }
+});
+
+FlowRouter.route('/pmap', {
+  action(params){
+    mount(MainLayout,{
+      content: (<PharmacieMap />),
     })
   }
 });

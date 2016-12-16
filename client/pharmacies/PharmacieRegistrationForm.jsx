@@ -8,7 +8,6 @@ import Paper from 'material-ui/Paper';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Close from 'material-ui/svg-icons/navigation/close';
-
 export default class PharmacieRegistrationForm extends Component {
 
   constructor(){

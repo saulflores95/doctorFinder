@@ -36,7 +36,12 @@ Meteor.methods({
       Clinics.insert({
         name: clinic.name,
         img: clinic.img,
-        specific: clinic.specific,
+        specificOne: clinic.specific.one,
+        specificTwo: clinic.specific.two,
+        specificThree: clinic.specific.three,
+        specificFour: clinic.specific.four,
+        specificFive: clinic.specific.five,
+        specificSix: clinic.specific.six,
         email: clinic.email,
         createdAt: new Date(),
         user: Meteor.userId()

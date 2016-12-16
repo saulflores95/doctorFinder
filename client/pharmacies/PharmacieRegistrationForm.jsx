@@ -16,7 +16,7 @@ export default class PharmacieRegistrationForm extends Component {
     this.state = {
       toogleState: false,
       value:'Podologia',
-      inputs:[0],
+      inputs:[1],
     }
   }
 
@@ -25,14 +25,23 @@ export default class PharmacieRegistrationForm extends Component {
     var name = this.refs.clinicName.getValue();
     var img = this.refs.clinicImgUrl.getValue();
     var phone = this.refs.phone.getValue();
+    var lat = [];
+    var lng = [];
     var coordenates = [];
 
     let formElements = event.target.elements;
      Object.keys(formElements).forEach((key) => {
-       if (key.search('cord') != -1) {
-         coordenates.push(formElements[key].value)
+       if(key.search('lat') != -1){
+         lat.push(formElements[key].value)
+       }else if (key.search('lng') != -1) {
+         lng.push(formElements[key].value)
        }
      });
+
+     coordenates = {
+       lat: lat,
+       lng: lng
+     }
     console.log('Coordenates:', coordenates);
 
     var pharmacie = {
@@ -65,10 +74,6 @@ export default class PharmacieRegistrationForm extends Component {
     event.preventDefault();
     this.state.inputs.pop();
     this.setState({});
-  }
-
-  renderInputs() {
-    return this.state.inputs.map((input, index) =>  <Col key={index} sm={6} md={6} lg={6}><TextField ref={'row-'+index} name="cord" key={index} type="dynamic" hintText="Add Coordenates"/></Col>)
   }
 
   render(){
@@ -119,7 +124,16 @@ export default class PharmacieRegistrationForm extends Component {
                   <button type="button" onClick={this.addInputField.bind(this)}>Add input field</button>
                   <button type="button" onClick={this.removeInputField.bind(this)}>Remove input field</button>
                 </Col>
-                     {this.renderInputs()}
+                {this.state.inputs.map((input, index)=>{
+                  return <div key={index}>
+                    <Col sm={6} md={6} lg={6}>
+                      <TextField name="lat" type="dynamic" hintText="Add Latitude"/>
+                    </Col>
+                    <Col sm={6} md={6} lg={6}>
+                    <TextField name="lng" type="dynamic" hintText="Add Longitude"/>
+                    </Col>
+                  </div>
+                })}
               </Row>
             </div>
             <div style={styles.formDivisor}>

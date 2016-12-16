@@ -47,6 +47,20 @@ Meteor.methods({
         user: Meteor.userId()
       });
     },
+  addPharmacie(pharmacie){
+    check(pharmacie, Object);
+    if (!Meteor.userId()) {
+      throw  new Meteor.Error('No esta autorizado');
+    }
+    Pharmacies.insert({
+      name: pharmacie.name,
+      img: pharmacie.img,
+      coordenates: pharmacie.coordenates,
+      phone: pharmacie.phone,
+      createdAt: new Date(),
+      user: Meteor.userId()
+    });
+  },
   sendMessage(message){
     console.log(message);
   }

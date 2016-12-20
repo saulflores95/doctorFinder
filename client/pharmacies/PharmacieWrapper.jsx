@@ -18,7 +18,7 @@ export default class PharmacieWrapper extends TrackerReact(React.Component) {
   }
 
   componentWillUnmount(){
-    this.state.subscription.clinics.stop();
+    this.state.subscription.pharmacies.stop();
   }
 
   pharmacies(){

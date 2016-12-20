@@ -21,12 +21,14 @@ export default class PharmacieMap extends Component {
     this.state.subscription.pharmacies.stop();
   }
 
-  pharmacies(){
-    return Pharmacies.find().fetch();
+  pharmacie(){
+    return Pharmacies.findOne(this.props.id);
   }
 
   render() {
     const position = [this.state.lat, this.state.lng];
+    let pharmacie = this.pharmacie();
+
     const styles = {
       leafletContainer: {
         width: '100%',
@@ -50,13 +52,15 @@ export default class PharmacieMap extends Component {
             attribution='<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
           />
-          {this.pharmacies().map((pharmacie, index)=>{
-            return <Marker icon={stationMarker} position={[pharmacie.coordenates.lat[index], pharmacie.coordenates.lng[index]]}>
+          {pharmacie.coordenates.lat.map((lat ,index)=>
+            <div>
+            <Marker icon={stationMarker} position={[pharmacie.coordenates.lat[index], pharmacie.coordenates.lng[index]]}>
               <Popup>
                 <span>Location. <br/>{pharmacie.name}</span>
               </Popup>
             </Marker>
-          })}
+            </div>
+          )}
         </Map>
       </div>
     );

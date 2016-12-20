@@ -111,11 +111,3 @@ FlowRouter.route('/Pharmacies/:id', {
     })
   }
 });
-
-FlowRouter.route('/pmap', {
-  action(params){
-    mount(MainLayout,{
-      content: (<PharmacieMap />),
-    })
-  }
-});

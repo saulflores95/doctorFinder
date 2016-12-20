@@ -33,18 +33,8 @@ export default class PharmacieDetail extends TrackerReact(React.Component){
           <div>
             <Container>
               <Row>
-                <Col sm={6} md={6} lg={6}>
-                  <h1>{pharmacie.name}</h1>
-                </Col>
-                <Col sm={6} md={6} lg={6}>
-                  {pharmacie.coordenates.lat.map((lat ,index)=>
-                    <div>
-                      <h1>latitude: {pharmacie.coordenates.lat[index]}</h1>
-                      <h1>Longitude: {pharmacie.coordenates.lng[index]}</h1>
-                    </div>
-                  )}
-                </Col>
-                <PharmacieMap id={this.props.id} />
+              <Col xs={12} sm={12} md={12} lg={12}><PharmacieHeader id={this.props.id}/></Col>
+              <Col xs={12} sm={12} md={12} lg={12}> <PharmacieMap id={this.props.id} /></Col>
               </Row>
             </Container>
           </div>

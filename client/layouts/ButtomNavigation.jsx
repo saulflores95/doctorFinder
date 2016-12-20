@@ -81,8 +81,14 @@ export default class ButtomNavigation extends Component{
 
               />
               <BottomNavigationItem
-                icon={<FontIcon style={styles.icon} className="fa fa-hospital-o"></FontIcon>}
+                icon={<FontIcon style={styles.icon} className="fa fa-book"></FontIcon>}
                 onTouchTap={() => this.select(5)}
+                href="/pharmaciesRegistration"
+
+              />
+              <BottomNavigationItem
+                icon={<FontIcon style={styles.icon} className="fa fa-hospital-o"></FontIcon>}
+                onTouchTap={() => this.select(6)}
                 href="/Pharmacies"
 
               />

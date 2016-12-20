@@ -28,4 +28,12 @@ module.exports = {
     dockerImage: 'abernix/meteord:base',
     deployCheckWaitTime: 60
   },
+
+    mongo: { // (optional)
+    oplog: true,
+    port: 27017,
+    servers: {
+      one: {},
+    },
+  },
 };

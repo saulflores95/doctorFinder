@@ -10,7 +10,6 @@ import FlatButton from 'material-ui/FlatButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import AccountsUI from '../AccountsUI.jsx';
-
 export default class UpperNavigation extends Component{
 
   render(){

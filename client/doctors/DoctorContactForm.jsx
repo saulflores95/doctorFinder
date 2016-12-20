@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import FaPhone from 'react-icons/lib/fa/phone';
 
 export default class DoctorContactForm extends Component {
 
@@ -67,11 +68,16 @@ export default class DoctorContactForm extends Component {
                   rowsMax={4}
                 />
                 <RaisedButton
-                  label="Contact Me"
+                  label="Send"
                   type="submit"
-                  className="button-submit"
                   primary={true}
-                  fullWidth={true}
+
+                />
+                <RaisedButton
+                  label="Call"
+                  labelPosition="before"
+                  primary={false}
+                  icon={<FaPhone />}
                 />
             </form>
       </MuiThemeProvider>

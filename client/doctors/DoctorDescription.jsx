@@ -6,6 +6,7 @@ import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import FlatButton from 'material-ui/FlatButton';
+import Divider from 'material-ui/Divider';
 
 injectTapEventPlugin();
 
@@ -53,7 +54,10 @@ export default class DoctorDescription extends Component {
         width: '100%',
         height: '60px',
         overflow:'hidden'
-      }
+      },
+      divider:{
+        'paddingTop':75,
+      },
     }
 
     const actions = [
@@ -78,7 +82,7 @@ export default class DoctorDescription extends Component {
         <div>
           <MuiThemeProvider>
             <Dialog
-             title="Dialog With Actions"
+             title="Doctor Description"
              actions={actions}
              modal={false}
              open={this.state.open}

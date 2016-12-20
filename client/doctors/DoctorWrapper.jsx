@@ -45,6 +45,7 @@ export default class DoctorWrapper extends TrackerReact(React.Component) {
         return doctor.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
       }
     );
+
     const styles = {
       input: {
         transition: '1s',
@@ -71,16 +72,16 @@ export default class DoctorWrapper extends TrackerReact(React.Component) {
             {filteredDoctors.map((doctor)=>{
               return <DoctorList key={doctor._id} doctor={doctor} />
             })}
-
+            
             <input type="text"
-              value={this.state.search}
-              onChange={this.updateSearch.bind(this)}
-              onClick={this.updatePlaceholder.bind(this)}
-              onBlur={this.updatePlaceholder2.bind(this)}
-              style={styles.input}
-              placeholder={this.state.placeholder}
-              ref="searchbar"
-              />
+            value={this.state.search}
+            onChange={this.updateSearch.bind(this)}
+            onClick={this.updatePlaceholder.bind(this)}
+            onBlur={this.updatePlaceholder2.bind(this)}
+            style={styles.input}
+            placeholder={this.state.placeholder}
+            ref="searchbar"
+            />
       </div>
 
     )

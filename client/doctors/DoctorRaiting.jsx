@@ -21,7 +21,7 @@ export default class DoctorRaiting extends Component {
             <div>
                 <StarRatingComponent
                     name="rate1"
-                    starCount={10}
+                    starCount={5}
                     value={rating}
                     onStarClick={this.onStarClick.bind(this)}
                 />

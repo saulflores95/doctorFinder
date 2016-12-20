@@ -7,9 +7,8 @@ import Paper from 'material-ui/Paper';
 import {Row, Col, Visible, Hidden } from 'react-grid-system';
 import FontIcon from 'material-ui/FontIcon';
 import ActionAndroid from 'material-ui/svg-icons/action/android';
-import FaPhone from 'react-icons/lib/fa/phone';
-import RaisedButton from 'material-ui/RaisedButton';
 import DoctorRaiting from './DoctorRaiting.jsx';
+import Divider from 'material-ui/Divider';
 
 export default class DoctorHeader extends Component{
   constructor(){
@@ -31,15 +30,27 @@ export default class DoctorHeader extends Component{
     var imgUrl = 'http://photos.wikimapia.org/p/00/00/57/98/94_big.jpg';
     var styles = {
       DoctorHeaderContainer:{
-        'height':150,
-        'paddingTop':55,
-        'paddingBottom':100,
+        'height':200,
+        'paddingTop':75,
+        'paddingBottom':75,
+        'font-family': 'Roboto',
+      },
+      h1:{
+        'font-weight': 'bold',
+        'font-size':'larger',
       },
      doctorImg: {
       'border-radius': '50%',
-      'height': '150',
+      'height': '175',
       'width':'150',
     },
+    specialtyText:{
+      'font-weight': 100,
+      'font-size': 'larger',
+    },
+    divider:{
+      'paddingTop':75,
+    }
   }
 
 
@@ -53,22 +64,20 @@ export default class DoctorHeader extends Component{
               <Row>
                 <Col sm={6} md={6} lg={2}>
                   <img style={styles.doctorImg} src={doctor.img} />
-                  <h1>{doctor.name}</h1>
-                  <h3>{doctor.specialty}</h3>
                 </Col>
                 <Col sm={6} md={6} lg={6}>
-                  <DoctorAppointment id={this.props.id} />
-                  <RaisedButton
-                    label="6218302"
-                    labelPosition="before"
-                    href="tel:+900300400"
-                    primary={true}
-                    icon={<FaPhone />}
-                  />
+                  <h1 style={styles.h1}>{doctor.name}</h1>
+                  <span style={styles.specialtyText}>{doctor.specialty}</span>
                   <DoctorRaiting />
+                  <DoctorAppointment id={this.props.id} />
                 </Col>
                 <Col sm={12} md={12} lg={4}>
                   <DoctorExp id={this.props.id} />
+                </Col>
+                <Col sm={12} md={12} lg={12}>
+                  <div style={styles.divider}>
+                    <Divider />
+                  </div>
                 </Col>
               </Row>
             </div>

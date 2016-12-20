@@ -25,6 +25,10 @@ export default class DoctorExp extends Component{
       experienceContainer:{
         height:'100%',
       },
+      expText:{
+        'font-size': 'x-large',
+        'fontWeight': 100,
+      }
     };
 
     if(!doctor){
@@ -34,14 +38,14 @@ export default class DoctorExp extends Component{
         <div style={styles.experienceContainer}>
           <Row>
           <Col xs={6} sm={6} md={6} lg={6}>
-              <h4>{doctor.curriculumOne}</h4>
-              <h4>{doctor.curriculumTwo}</h4>
-              <h4>{doctor.curriculumThree}</h4>
+              <p style={styles.expText}>{doctor.curriculumOne}</p>
+              <p style={styles.expText}>{doctor.curriculumTwo}</p>
+              <p style={styles.expText}>{doctor.curriculumThree}</p>
           </Col>
           <Col xs={6} sm={6} md={6} lg={6}>
-            <h4>{doctor.curriculumFour}</h4>
-            <h4>{doctor.curriculumFive}</h4>
-            <h4>{doctor.curriculumSix}</h4>
+            <p style={styles.expText}>{doctor.curriculumFour}</p>
+            <p style={styles.expText}>{doctor.curriculumFive}</p>
+            <p style={styles.expText}>{doctor.curriculumSix}</p>
           </Col>
           </Row>
         </div>

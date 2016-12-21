@@ -34,6 +34,7 @@ export default class DoctorHeader extends Component{
         'paddingTop':75,
         'paddingBottom':75,
         'font-family': 'Roboto',
+        'color':'white',
       },
       h1:{
         'font-weight': 'bold',
@@ -49,7 +50,7 @@ export default class DoctorHeader extends Component{
       'font-size': 'larger',
     },
     divider:{
-      'paddingTop':75,
+      'paddingTop': 25,
     }
   }
 

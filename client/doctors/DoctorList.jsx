@@ -4,6 +4,7 @@ import {List, ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Avatar from 'material-ui/Avatar';
 import ActionInfo from 'material-ui/svg-icons/action/info';
+import DoctorRaiting from './DoctorRaiting.jsx';
 
 export default class DoctorList extends Component {
 
@@ -22,12 +23,13 @@ deleteDoctor(){
       <div>
       <MuiThemeProvider>
           <List>
-            <ListItem
+              <ListItem
               leftAvatar={<Avatar src={this.props.doctor.img}/>}
               rightIcon={<ActionInfo onClick={this.deleteDoctor.bind(this)}/>}
-              primaryText={this.props.doctor.name}
               href={`/doctors/${this.props.doctor._id}`}
-              />
+              primaryText={this.props.doctor.name}
+              secondaryText={this.props.doctor.specialty}
+            />
             <Divider inset={true} />
           </List>
       </MuiThemeProvider>

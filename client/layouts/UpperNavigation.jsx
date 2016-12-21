@@ -10,9 +10,13 @@ import FlatButton from 'material-ui/FlatButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import AccountsUI from '../AccountsUI.jsx';
+import {red500, yellow500, blue500} from 'material-ui/styles/colors';
+
+
 export default class UpperNavigation extends Component{
 
   render(){
+    const imgUrl = 'https://s30.postimg.org/biuab6sk1/image.jpg';
     const styles = {
       header: {
         position: "fixed",
@@ -23,7 +27,13 @@ export default class UpperNavigation extends Component{
       },
       icon: {
         marginTop: '11px'
-      }
+      },
+      AppBar:{
+        backgroundColor: 'white',
+      },
+      iconMenu:{
+        color: 'rgb(0, 188, 212)',
+      },
     };
 
 
@@ -31,9 +41,22 @@ export default class UpperNavigation extends Component{
       <div style={styles.header}>
         <MuiThemeProvider>
           <AppBar
-            title="Healthcare Baja"
-            iconElementRight={<AccountsUI />}
-            iconElementLeft={<FontIcon style={styles.icon} className="fa fa-arrow-circle-left"></FontIcon>}
+            title=""
+            style={styles.AppBar}
+            iconElementLeft={<img src={imgUrl}/>}
+            iconElementRight={
+              <IconMenu
+                iconButtonElement={<IconButton><MoreVertIcon color="red" /></IconButton>}
+                anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+                targetOrigin={{horizontal: 'right', vertical: 'top'}}
+              >
+                <AccountsUI />
+                <MenuItem primaryText="Refresh" />
+                <MenuItem primaryText="Send feedback" />
+                <MenuItem primaryText="Settings" />
+                <MenuItem primaryText="Help" />
+              </IconMenu>
+            }
           />
         </MuiThemeProvider>
       </div>

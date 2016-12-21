@@ -6,7 +6,7 @@ import {StyleRoot} from 'radium';
 
 const styles = {
   content:{
-    paddingTop:50
+    paddingTop:50,
   }
 };
 export const MainLayout = ({content}) => (

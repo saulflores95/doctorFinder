@@ -35,7 +35,12 @@ export default class ClinicHeader extends Component {
         height: '200px'
       },
       container: {
-        marginTop: '30px'
+        'paddingTop':75,
+        'paddingBottom':75,
+        'height':200,
+        'font-family': 'Roboto',
+        'color':'white',
+        'height':200,
       }
     }
     return(
@@ -43,9 +48,9 @@ export default class ClinicHeader extends Component {
         <Row>
           <Col sm={6} md={6} lg={3}>
             <img style={styles.img} src={clinic.img} />
-            <h1>{clinic.name}</h1>
           </Col>
           <Col sm={6} md={6} lg={3}>
+            <h1>{clinic.name}</h1>
             <ClinicRaiting />
           </Col>
           <Col sm={12} md={12} lg={6}>

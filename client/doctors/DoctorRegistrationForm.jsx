@@ -5,13 +5,16 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Checkbox from 'material-ui/Checkbox';
 import { Container, Row, Col, Visible, Hidden } from 'react-grid-system';
 import Paper from 'material-ui/Paper';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 
 export default class DoctorRegistrationForm extends Component {
 
   constructor(){
     super();
     this.state = {
-      toogleState: false
+      toogleState: false,
+      value:'Podologia',
     }
   }
 
@@ -21,7 +24,7 @@ export default class DoctorRegistrationForm extends Component {
     var img = this.refs.doctorImgUrl.getValue();
     var description = this.refs.description.getValue();
     var insurance = this.state.toogleState;
-    var specialty = this.refs.specialty.getValue();
+    var specialty = this.state.value;
     var curriculum = {
       one:this.refs.curriculumOne.getValue(),
       two:this.refs.curriculumTwo.getValue(),
@@ -73,6 +76,10 @@ export default class DoctorRegistrationForm extends Component {
     console.log(this.state.toogleState);
   }
 
+  handleChange(event, index, value){
+    this.setState({value: value});
+  }
+
   render(){
 
     const styles = {
@@ -115,11 +122,39 @@ export default class DoctorRegistrationForm extends Component {
                 />
               </Col>
             </Row>
-              <TextField
-                hintText="Specialty"
-                ref="specialty"
-                fullWidth={true}
-              />
+            <SelectField
+              floatingLabelText="Specialty"
+              value={this.state.value}
+              onChange={this.handleChange.bind(this)}
+            >
+              <MenuItem value={'Audiologist'} primaryText="Audiologist" />
+              <MenuItem value={'Allergist'} primaryText="Allergist " />
+              <MenuItem value={'Anesthesiologist'} primaryText="Anesthesiologist  " />
+              <MenuItem value={'Cardiologist'} primaryText="Cardiologist " />
+              <MenuItem value={'Dentist'} primaryText="Dentist " />
+              <MenuItem value={'Dermatologist'} primaryText="Dermatologist " />
+              <MenuItem value={'Endocrinologist'} primaryText="Endocrinologist " />
+              <MenuItem value={'Epidemiologist'} primaryText="Epidemiologist " />
+              <MenuItem value={'Gynecologist'} primaryText="Gynecologist " />
+              <MenuItem value={'Infectious Disease Specialist'} primaryText="Infectious Disease Specialist  " />
+              <MenuItem value={'Internal Medicine Specialist'} primaryText="Internal Medicine Specialist  " />
+              <MenuItem value={'Medical Geneticist'} primaryText="Medical Geneticist  " />
+              <MenuItem value={'Microbiologist'} primaryText="Microbiologist  " />
+              <MenuItem value={'Neonatologist'} primaryText="Neonatologist  " />
+              <MenuItem value={'Neurologist'} primaryText="Neurologist  " />
+              <MenuItem value={'Obstetrician'} primaryText="Obstetrician  " />
+              <MenuItem value={'Oncologist'} primaryText="Oncologist  " />
+              <MenuItem value={'Orthopedic Surgeon'} primaryText="Orthopedic Surgeon  " />
+              <MenuItem value={'ENT Specialist'} primaryText="ENT Specialist  " />
+              <MenuItem value={'Pediatrician'} primaryText="Pediatrician  " />
+              <MenuItem value={'Plastic Surgeon'} primaryText="Plastic Surgeon  " />
+              <MenuItem value={'Podiatrist'} primaryText="Podiatrist  " />
+              <MenuItem value={'Psychiatrist'} primaryText="Psychiatrist  " />
+              <MenuItem value={'Radiologist'} primaryText="Radiologist  " />
+              <MenuItem value={'Rheumatologist'} primaryText="Rheumatologist  " />
+              <MenuItem value={'Surgeon'} primaryText="Surgeon  " />
+              <MenuItem value={'Urologist'} primaryText="Urologist  " />
+            </SelectField>
           </div>
           <div style={styles.formDivisor}>
             <Row>

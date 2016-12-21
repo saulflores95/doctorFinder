@@ -5,7 +5,7 @@ export default class PharmacieRaiting extends Component {
   constructor() {
        super();
        this.state = {
-           rating: 1
+           rating: 3,
        };
    }
 
@@ -21,7 +21,7 @@ export default class PharmacieRaiting extends Component {
             <div>
                 <StarRatingComponent
                     name="rate1"
-                    starCount={10}
+                    starCount={5}
                     value={rating}
                     onStarClick={this.onStarClick.bind(this)}
                 />

@@ -35,8 +35,8 @@ export default class PharmacieHeader extends Component {
         height: '200px'
       },
       container: {
-        marginTop: '30px'
-      }
+        marginTop: '30px',
+      },
     }
     return(
       <div style={styles.container}>

@@ -14,7 +14,7 @@ export default class ClinicRegistrationForm extends Component {
     super();
     this.state = {
       toogleState: false,
-      value:'Podologia',
+      value:'Dermatology',
     }
   }
 
@@ -114,20 +114,20 @@ export default class ClinicRegistrationForm extends Component {
                 </Col>
                 <Col sm={12} md={12} lg={12}>
                 <SelectField
-                  floatingLabelText="Frequency"
+                  floatingLabelText="Specialty"
                   value={this.state.value}
                   onChange={this.handleChange.bind(this)}
                 >
-                  <MenuItem value={'Podologia'} primaryText="Podologia" />
-                  <MenuItem value={'Oftalmología'} primaryText="Oftalmología " />
-                  <MenuItem value={'Traumatología'} primaryText="Traumatología  " />
-                  <MenuItem value={'Oncología'} primaryText="Oncología " />
-                  <MenuItem value={'Otorrinolaringología'} primaryText="Otorrinolaringología " />
-                  <MenuItem value={'Deontología'} primaryText="Deontología " />
-                  <MenuItem value={'Bariatría'} primaryText="Bariatría " />
-                  <MenuItem value={'Dermatologia'} primaryText="Dermatologia " />
-                  <MenuItem value={'Gerontología'} primaryText="Gerontología " />
-                  <MenuItem value={'Quiropráctica'} primaryText="Quiropráctica  " />
+                  <MenuItem value={'Dermatology'} primaryText="Dermatology" />
+                  <MenuItem value={'Dental'} primaryText="Dental " />
+                  <MenuItem value={'Hair Transplant'} primaryText="Hair Transplant  " />
+                  <MenuItem value={'Foot'} primaryText="Foot " />
+                  <MenuItem value={'Oncology'} primaryText="Oncology " />
+                  <MenuItem value={'Fertility Control '} primaryText="Fertility Control  " />
+                  <MenuItem value={'Eye'} primaryText="Eye " />
+                  <MenuItem value={'SPA '} primaryText="SPA  " />
+                  <MenuItem value={'Pediatric'} primaryText="Pediatric " />
+                  <MenuItem value={'Plastic Surgery'} primaryText="Plastic Surgery  " />
                 </SelectField>
                 </Col>
               </Row>

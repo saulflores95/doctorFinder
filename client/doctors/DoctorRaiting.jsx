@@ -5,7 +5,7 @@ export default class DoctorRaiting extends Component {
   constructor() {
        super();
        this.state = {
-           rating: 1
+           rating: 3
        };
    }
 

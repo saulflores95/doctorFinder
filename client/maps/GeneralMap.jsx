@@ -18,7 +18,7 @@ export default class GeneralMap extends Component {
     const styles = {
       leafletContainer: {
         width: '100%',
-        height: '600',
+        height: '800',
       },
     }
 

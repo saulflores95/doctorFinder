@@ -11,6 +11,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import AccountsUI from '../AccountsUI.jsx';
 import {red500, yellow500, blue500} from 'material-ui/styles/colors';
+import FileCloudDownload from 'material-ui/svg-icons/file/cloud-download';
 
 
 export default class UpperNavigation extends Component{
@@ -46,7 +47,7 @@ export default class UpperNavigation extends Component{
             iconElementLeft={<img src={imgUrl}/>}
             iconElementRight={
               <IconMenu
-                iconButtonElement={<IconButton><MoreVertIcon color="red" /></IconButton>}
+                iconButtonElement={<MoreVertIcon />}
                 anchorOrigin={{horizontal: 'right', vertical: 'top'}}
                 targetOrigin={{horizontal: 'right', vertical: 'top'}}
               >

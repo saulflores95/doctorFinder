@@ -18,7 +18,11 @@ deleteDoctor(){
 
 
   render(){
-
+    const styles = {
+      ListItem:{
+        color:'white',
+      }
+    }
     return(
       <div>
       <MuiThemeProvider>
@@ -29,6 +33,7 @@ deleteDoctor(){
               href={`/doctors/${this.props.doctor._id}`}
               primaryText={this.props.doctor.name}
               secondaryText={this.props.doctor.specialty}
+              style={styles.ListItem}
             />
             <Divider inset={true} />
           </List>

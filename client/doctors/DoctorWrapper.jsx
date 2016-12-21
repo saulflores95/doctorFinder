@@ -39,6 +39,19 @@ export default class DoctorWrapper extends TrackerReact(React.Component) {
     return Doctors.find().fetch();
   }
 
+  /*
+  <input type="text"
+  value={this.state.search}
+  onChange={this.updateSearch.bind(this)}
+  onClick={this.updatePlaceholder.bind(this)}
+  onBlur={this.updatePlaceholder2.bind(this)}
+  style={styles.input}
+  placeholder={this.state.placeholder}
+  ref="searchbar"
+  />
+
+  */
+
   render(){
     let filteredDoctors = this.doctors().filter(
       (doctor) => {
@@ -72,16 +85,7 @@ export default class DoctorWrapper extends TrackerReact(React.Component) {
             {filteredDoctors.map((doctor)=>{
               return <DoctorList key={doctor._id} doctor={doctor} />
             })}
-            
-            <input type="text"
-            value={this.state.search}
-            onChange={this.updateSearch.bind(this)}
-            onClick={this.updatePlaceholder.bind(this)}
-            onBlur={this.updatePlaceholder2.bind(this)}
-            style={styles.input}
-            placeholder={this.state.placeholder}
-            ref="searchbar"
-            />
+
       </div>
 
     )

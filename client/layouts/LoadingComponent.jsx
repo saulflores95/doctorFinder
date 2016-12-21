@@ -20,7 +20,7 @@ export default class ButtomNavigation extends Component{
     return (
       <div style={styles.centered}>
         <MuiThemeProvider>
-          <CircularProgress size={80} thickness={7}/>
+          <CircularProgress color='white' size={80} thickness={7}/>
         </MuiThemeProvider>
       </div>
     );

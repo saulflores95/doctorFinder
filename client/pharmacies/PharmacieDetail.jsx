@@ -24,17 +24,26 @@ export default class PharmacieDetail extends TrackerReact(React.Component){
 
   render(){
     let pharmacie = this.pharmacie();
+    const styles = {
+      container: {
+        height:200,
+        paddingTop:35,
+        paddingBottom:74,
+        color:'white',
+        fontFamily:'Roboto',
+      }
+    }
 
     if(!pharmacie){
       return(<div><LoadingComponent /></div>);
     }
 
       return(
-          <div>
+          <div style={styles.container}>
             <Container>
               <Row>
-              <Col xs={12} sm={12} md={12} lg={12}><PharmacieHeader id={this.props.id}/></Col>
-              <Col xs={12} sm={12} md={12} lg={12}> <PharmacieMap id={this.props.id} /></Col>
+                <Col xs={6} sm={6} md={4} lg={4}><PharmacieHeader id={this.props.id}/></Col>
+                <Col xs={6} sm={6} md={8} lg={8}> <PharmacieMap id={this.props.id} /></Col>
               </Row>
             </Container>
           </div>

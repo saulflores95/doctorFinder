@@ -52,10 +52,9 @@ export default class UpperNavigation extends Component{
                 targetOrigin={{horizontal: 'right', vertical: 'top'}}
               >
                 <AccountsUI />
-                <MenuItem primaryText="Refresh" />
-                <MenuItem primaryText="Send feedback" />
-                <MenuItem primaryText="Settings" />
-                <MenuItem primaryText="Help" />
+                <MenuItem href="/registermd" primaryText="Add Doctor" />
+                <MenuItem href="/Pharmacies" primaryText="Add Pharmacie" />
+                <MenuItem href="/registerClinic" primaryText="Add Clinic" />
               </IconMenu>
             }
           />

@@ -49,48 +49,25 @@ export default class ButtomNavigation extends Component{
         <MuiThemeProvider>
           <Paper zDepth={1}>
             <BottomNavigation selectedIndex={this.state.selectedIndex}>
-
               <BottomNavigationItem
                 icon={doctorIcon}
                 onTouchTap={() => this.select(0)}
                  href="/"
-
-              />
-              <BottomNavigationItem
-                icon={registerIcon}
-                onTouchTap={() => this.select(1)}
-                href="/registermd"
-
-              />
-              <BottomNavigationItem
-                icon={nearbyIcon}
-                onTouchTap={() => this.select(2)}
-                href="/map"
-
-              />
-              <BottomNavigationItem
-                icon={assignment}
-                onTouchTap={() => this.select(3)}
-                href="/registerClinic"
-
               />
               <BottomNavigationItem
                 icon={<FontIcon style={styles.icon} className="fa fa-heartbeat"></FontIcon>}
                 onTouchTap={() => this.select(4)}
                 href="/clinics"
-
-              />
-              <BottomNavigationItem
-                icon={<FontIcon style={styles.icon} className="fa fa-book"></FontIcon>}
-                onTouchTap={() => this.select(5)}
-                href="/pharmaciesRegistration"
-
               />
               <BottomNavigationItem
                 icon={<FontIcon style={styles.icon} className="fa fa-hospital-o"></FontIcon>}
                 onTouchTap={() => this.select(6)}
                 href="/Pharmacies"
-
+              />
+              <BottomNavigationItem
+                icon={nearbyIcon}
+                onTouchTap={() => this.select(2)}
+                href="/map"
               />
             </BottomNavigation>
           </Paper>

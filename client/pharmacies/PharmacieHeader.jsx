@@ -44,12 +44,7 @@ export default class PharmacieHeader extends Component {
           <Col sm={6} md={6} lg={3}>
             <img style={styles.img} src={pharmacie.img} />
             <h1>{pharmacie.name}</h1>
-          </Col>
-          <Col sm={6} md={6} lg={3}>
             <PharmacieRaiting />
-          </Col>
-          <Col sm={12} md={12} lg={6}>
-
           </Col>
         </Row>
       </div>

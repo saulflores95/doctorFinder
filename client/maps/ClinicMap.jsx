@@ -28,6 +28,10 @@ export default class ClinicMap extends Component {
         height: '250',
       },
     }
+    var clinicMapIcon = L.icon({
+      iconUrl: 'https://s27.postimg.org/cfa26e24z/clinic.png',
+      popupAnchor: [18, 0],
+    });
 
   const position = [this.state.lat, this.state.lng];
   let clinic = this.clinic();
@@ -39,7 +43,7 @@ export default class ClinicMap extends Component {
             attribution='<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
           />
-          <Marker position={position}>
+          <Marker icon={clinicMapIcon} position={position}>
             <Popup>
               <span>{clinic.name}</span>
             </Popup>

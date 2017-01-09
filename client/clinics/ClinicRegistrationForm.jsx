@@ -31,7 +31,7 @@ export default class ClinicRegistrationForm extends Component {
       five:this.refs.specificFive.getValue(),
       six:this.refs.specificSix.getValue()
     };
-    var email =this.refs.email.getValue();
+    var email = this.refs.email.getValue();
     var clinic = {
       name: name,
       img: img,

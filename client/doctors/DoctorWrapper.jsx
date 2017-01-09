@@ -39,25 +39,16 @@ export default class DoctorWrapper extends TrackerReact(React.Component) {
     return Doctors.find().fetch();
   }
 
-  /*
-  <input type="text"
-  value={this.state.search}
-  onChange={this.updateSearch.bind(this)}
-  onClick={this.updatePlaceholder.bind(this)}
-  onBlur={this.updatePlaceholder2.bind(this)}
-  style={styles.input}
-  placeholder={this.state.placeholder}
-  ref="searchbar"
-  />
-
-  */
-
   render(){
-    let filteredDoctors = this.doctors().filter(
-      (doctor) => {
-        return doctor.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+    var SpecialityDoctors = this.doctors().sort(function(a, b){
+      if (a.specialty > b.specialty) {
+        return 1;
       }
-    );
+      if (a.specialty < b.specialty) {
+        return -1;
+      }
+      return 0;
+    });
 
     const styles = {
       input: {
@@ -82,10 +73,9 @@ export default class DoctorWrapper extends TrackerReact(React.Component) {
     }
     return (
       <div style={styles.doctorList}>
-            {filteredDoctors.map((doctor)=>{
+            {SpecialityDoctors.map((doctor)=>{
               return <DoctorList key={doctor._id} doctor={doctor} />
             })}
-
       </div>
 
     )

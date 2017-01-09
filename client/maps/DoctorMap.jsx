@@ -28,7 +28,15 @@ export default class DoctorMap extends Component {
         height: '250',
       },
     }
-
+    var DoctorMapIcon = L.icon({
+      iconUrl: 'https://s28.postimg.org/3xsvniynh/doc.png',
+    //iconSize: [80, 80],
+    // iconAnchor: [38, 38],
+    popupAnchor: [18, 0],
+    //  shadowUrl: '',
+    //  shadowSize: [68, 95],
+    //  shadowAnchor: [22, 94]
+    });
   const position = [this.state.lat, this.state.lng];
   let doctor = this.doctor();
 
@@ -39,7 +47,7 @@ export default class DoctorMap extends Component {
             attribution='<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
           />
-          <Marker position={position}>
+          <Marker icon={DoctorMapIcon} position={position}>
             <Popup>
               <span>{doctor.name}</span>
             </Popup>

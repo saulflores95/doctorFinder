@@ -16,6 +16,8 @@ Meteor.methods({
         curriculumSix: doctor.curriculum.six,
         specialty:doctor.specialty,
         email: doctor.email,
+        latitude: doctor.latitude,
+        longitude: doctor.longitude,
         insurance: doctor.insurance,
         createdAt: new Date(),
         user: Meteor.userId()

@@ -35,11 +35,11 @@ export default class PharmacieMap extends Component {
         height: 600,
       },
     }
-    var stationMarker = L.icon({
-      iconUrl: 'https://s15.postimg.org/x8j35nsqz/Icon.png',
-      iconSize: [80, 80],
-      iconAnchor: [38, 38],
-      popupAnchor: [0, -30],
+    var PharmacieMapIcon = L.icon({
+      iconUrl: 'https://s23.postimg.org/m6i58o9a3/farmacies.png',
+    //iconSize: [80, 80],
+    // iconAnchor: [38, 38],
+    popupAnchor: [18, 0],
     //  shadowUrl: '',
     //  shadowSize: [68, 95],
     //  shadowAnchor: [22, 94]
@@ -54,7 +54,7 @@ export default class PharmacieMap extends Component {
           />
           {pharmacie.coordenates.lat.map((lat ,index)=>
             <div>
-            <Marker icon={stationMarker} position={[pharmacie.coordenates.lat[index], pharmacie.coordenates.lng[index]]}>
+            <Marker icon={PharmacieMapIcon} position={[pharmacie.coordenates.lat[index], pharmacie.coordenates.lng[index]]}>
               <Popup>
                 <span>Location. <br/>{pharmacie.name}</span>
               </Popup>

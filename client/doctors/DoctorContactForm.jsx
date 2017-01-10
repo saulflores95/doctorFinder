@@ -10,8 +10,8 @@ export default class DoctorContactForm extends Component {
     event.preventDefault();
     var firstName = this.refs.firstName.getValue();
     var lastName = this.refs.lastName.getValue();
-    var email =this.refs.email.getValue();
-    var message =this.refs.message.getValue();
+    var email = this.refs.email.getValue();
+    var message = this.refs.message.getValue();
 
     var message = {
       firstName: firstName,

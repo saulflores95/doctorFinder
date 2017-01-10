@@ -1,4 +1,5 @@
 Meteor.methods({
+/*Doctor methods*/
   addDoctor(doctor){
     check(doctor, Object);
     if(!Meteor.userId()){
@@ -30,6 +31,31 @@ Meteor.methods({
     }
     Doctors.remove(doctor._id);
   },
+  editDoctor(doctor, newDoctor){
+    check(doctor, Object);
+    if(!Meteor.userId()){
+      throw new Meteor.Error('No esta autorizado');
+    }
+    Doctors.update(doctor._id, {
+      $set:{
+        name: newDoctor.name,
+        img: newDoctor.img,
+        description:newDoctor.description,
+        curriculumOne: newDoctor.curriculum.one,
+        curriculumTwo: newDoctor.curriculum.two,
+        curriculumThree: newDoctor.curriculum.three,
+        curriculumFour: newDoctor.curriculum.four,
+        curriculumFive: newDoctor.curriculum.five,
+        curriculumSix: newDoctor.curriculum.six,
+        specialty:newDoctor.specialty,
+        email: newDoctor.email,
+        insurance: newDoctor.insurance,
+      },
+    });
+  },
+  /*Doctor methods End*/
+
+
   addClinic(clinic){
     check(clinic, Object);
     if(!Meteor.userId()){

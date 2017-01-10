@@ -6,6 +6,7 @@ import DoctorRegistrationForm from './doctors/DoctorRegistrationForm.jsx';
 import DoctorList from './doctors/DoctorList.jsx';
 import DoctorDetail from './doctors/DoctorDetail.jsx';
 import DoctorWrapper from './doctors/DoctorWrapper.jsx';
+import DoctorEditForm from './doctors/DoctorEditForm.jsx';
 import GeneralMap from './maps/GeneralMap.jsx';
 import ClinicRegistrationForm from './clinics/ClinicRegistrationForm.jsx';
 import ClinicWrapper from './clinics/ClinicWrapper.jsx';
@@ -63,6 +64,15 @@ FlowRouter.route('/doctors/:id', {
   }
 });
 
+FlowRouter.route('/doctors/:id/edit', {
+  action(params) {
+    mount(MainLayout,{
+      content: (<DoctorEditForm id={params.id} />),
+    })
+  }
+});
+
+
 FlowRouter.route('/registerClinic', {
   action() {
     mount(MainLayout,{
@@ -86,6 +96,7 @@ FlowRouter.route('/clinics/:id', {
     })
   }
 });
+
 
 FlowRouter.route('/Pharmacies', {
   action() {

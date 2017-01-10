@@ -127,6 +127,7 @@ export default class DoctorEditForm extends TrackerReact(React.Component){
       }
     }
     return (
+      <MuiThemeProvider>
         <Container>
         <Paper style={styles.paper} zDepth={3}>
         <Container>
@@ -286,6 +287,7 @@ export default class DoctorEditForm extends TrackerReact(React.Component){
           </Container>
         </Paper>
         </Container>
+      </MuiThemeProvider>
     )
   }
 

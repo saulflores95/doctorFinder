@@ -53,7 +53,7 @@ export default class UpperNavigation extends Component{
               >
                 <AccountsUI />
                 <MenuItem href="/registermd" primaryText="Add Doctor" />
-                <MenuItem href="/Pharmacies" primaryText="Add Pharmacie" />
+                <MenuItem href="/pharmaciesRegistration" primaryText="Add Pharmacie" />
                 <MenuItem href="/registerClinic" primaryText="Add Clinic" />
               </IconMenu>
             }

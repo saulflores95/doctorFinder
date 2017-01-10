@@ -35,6 +35,26 @@ export default class DoctorDetail extends TrackerReact(React.Component){
         'paddingBottom':'100',
       },
     }
+    var userChecker = null;
+    if(!Meteor.userId()){
+      userChecker = (
+        <div>
+          <h1>Log In to edit doctor</h1>
+        </div>
+      );
+    }else {
+      userChecker = (
+        <div>
+          <RaisedButton
+            label="Edit Doctor"
+            labelPosition="before"
+            primary={false}
+            href={`/doctors/${this.props.id}/edit`}
+          />
+        </div>
+      );
+    }
+
     if(!doctor){
       return(<div><LoadingComponent /></div>);
     }
@@ -48,7 +68,10 @@ export default class DoctorDetail extends TrackerReact(React.Component){
               <Col xs={12} sm={12} md={12} lg={12}><DoctorDescription id={this.props.id} /></Col>
               <Col xs={12} sm={6} md={6} lg={6}><DoctorContactForm id={this.props.id} /></Col>
               <Col xs={12} sm={6} md={6} lg={6}><DoctorMap id={this.props.id} /></Col>
-              <Col xs={12} sm={6} md={6} lg={6}><DoctorEditForm id={this.props.id} /></Col>
+              <Col xs={12} sm={6} md={6} lg={6}>
+                {userChecker}
+              </Col>
+
             </Row>
           </Container>
           </MuiThemeProvider>

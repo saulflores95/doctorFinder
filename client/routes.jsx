@@ -11,13 +11,16 @@ import GeneralMap from './maps/GeneralMap.jsx';
 import ClinicRegistrationForm from './clinics/ClinicRegistrationForm.jsx';
 import ClinicWrapper from './clinics/ClinicWrapper.jsx';
 import ClinicDetail from './clinics/ClinicDetail.jsx';
+import ClinicEditForm from './clinics/ClinicEditForm.jsx';
 import PharmacieWrapper from './pharmacies/PharmacieWrapper.jsx';
 import PharmacieDetail from './pharmacies/PharmacieDetail.jsx';
 import PharmacieRegistrationForm from './pharmacies/PharmacieRegistrationForm.jsx';
+import PharmacieEditForm from './pharmacies/PharmacieEditForm.jsx';
 import PharmacieMap from './maps/PharmacieMap.jsx';
 import HospitalWrapper from './hospitals/HospitalWrapper.jsx';
 import HospitalRegistrationForm from './hospitals/HospitalRegistrationForm.jsx';
 import HospitalDetail from './hospitals/HospitalDetail.jsx';
+import HospitalEditForm from './hospitals/HospitalEditForm.jsx';
 
 FlowRouter.route('/', {
   action() {
@@ -100,8 +103,15 @@ FlowRouter.route('/clinics/:id', {
   }
 });
 
+FlowRouter.route('/clinics/:id/edit', {
+  action(params) {
+    mount(MainLayout,{
+      content: (<ClinicEditForm id={params.id} />),
+    })
+  }
+});
 
-FlowRouter.route('/Pharmacies', {
+FlowRouter.route('/pharmacies', {
   action() {
     mount(MainLayout,{
       content: (<PharmacieWrapper />),
@@ -118,7 +128,7 @@ FlowRouter.route('/pharmaciesRegistration', {
 });
 
 
-FlowRouter.route('/Pharmacies/:id', {
+FlowRouter.route('/pharmacies/:id', {
   action(params){
     mount(MainLayout,{
       content: (<PharmacieDetail id={params.id} />),
@@ -126,7 +136,23 @@ FlowRouter.route('/Pharmacies/:id', {
   }
 });
 
-FlowRouter.route('/Hospitals', {
+FlowRouter.route('/pharmacies/:id/edit', {
+  action(params) {
+    mount(MainLayout,{
+      content: (<PharmacieEditForm id={params.id} />),
+    })
+  }
+});
+
+FlowRouter.route('/doctors/:id/edit', {
+  action(params) {
+    mount(MainLayout,{
+      content: (<DoctorEditForm id={params.id} />),
+    })
+  }
+});
+
+FlowRouter.route('/hospitals', {
   action() {
     mount(MainLayout,{
       content: (<HospitalWrapper />),
@@ -134,7 +160,7 @@ FlowRouter.route('/Hospitals', {
   }
 });
 
-FlowRouter.route('/HospitalRegistration', {
+FlowRouter.route('/hospitalRegistration', {
   action() {
     mount(MainLayout,{
       content: (<HospitalRegistrationForm />),
@@ -143,10 +169,18 @@ FlowRouter.route('/HospitalRegistration', {
 });
 
 
-FlowRouter.route('/Hospitals/:id', {
+FlowRouter.route('/hospitals/:id', {
   action(params){
     mount(MainLayout,{
       content: (<HospitalDetail id={params.id} />),
+    })
+  }
+});
+
+FlowRouter.route('/hospitals/:id/edit', {
+  action(params) {
+    mount(MainLayout,{
+      content: (<HospitalEditForm id={params.id} />),
     })
   }
 });

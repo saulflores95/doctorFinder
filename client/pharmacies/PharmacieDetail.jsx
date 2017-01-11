@@ -64,7 +64,7 @@ export default class PharmacieDetail extends TrackerReact(React.Component){
             label="Edit Pharmacie"
             labelPosition="before"
             primary={false}
-            href={`/doctors/${this.props.id}/edit`}
+            href={`/pharmacies/${this.props.id}/edit`}
           />
           <RaisedButton
             label="Delete Pharmacie"

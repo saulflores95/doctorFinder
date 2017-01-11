@@ -43,7 +43,7 @@ export default class HospitalMap extends Component {
             attribution='<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
           />
-          <Marker icon={hospital} position={position}>
+          <Marker icon={hospitalMapIcon} position={position}>
             <Popup>
               <span>{hospital.name}</span>
             </Popup>

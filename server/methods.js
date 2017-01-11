@@ -126,16 +126,16 @@ Meteor.methods({
     Pharmacies.remove(pharmacie._id);
   },
   editPharmacie(pharmacie, newPharmacie){
-    check(doctor, Object);
+    check(pharmacie, Object);
     if(!Meteor.userId()){
       throw new Meteor.Error('No esta autorizado');
     }
-    Pharmacies.update(doctor._id, {
+    Pharmacies.update(pharmacie._id, {
       $set:{
-        name: doctor.name,
-        img: doctor.img,
-        coordenates: doctor.coordenates,
-        phone: doctor.phone,
+        name: newPharmacie.name,
+        img: newPharmacie.img,
+        coordenates: newPharmacie.coordenates,
+        phone: newPharmacie.phone,
         createdAt: new Date(),
         user: Meteor.userId()
       },
@@ -166,7 +166,7 @@ Meteor.methods({
     Hospitals.remove(hospital._id);
   },
   editHospital(hospital, newHospital){
-    check(doctor, Object);
+    check(hospital, Object);
     if(!Meteor.userId()){
       throw new Meteor.Error('No esta autorizado');
     }

@@ -28,6 +28,19 @@ export default class DoctorDetail extends TrackerReact(React.Component){
     return Doctors.findOne(this.props.id);
   }
 
+  delete(event){
+    event.preventDefault();
+    if(Meteor.userId()){
+      Meteor.call('deleteDoctor', this.doctor(), (error, data) => {
+        if(error){
+          Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-right' );
+        }else{
+          Bert.alert('Doctor Eliminated', 'danger', 'fixed-top');
+        }
+      });
+    }
+  }
+
   render(){
     let doctor = this.doctor();
     const styles = {
@@ -50,6 +63,12 @@ export default class DoctorDetail extends TrackerReact(React.Component){
             labelPosition="before"
             primary={false}
             href={`/doctors/${this.props.id}/edit`}
+          />
+          <RaisedButton
+            label="Delete Doctor"
+            labelPosition="before"
+            primary={false}
+            onClick={this.delete.bind(this)}
           />
         </div>
       );

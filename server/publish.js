@@ -1,6 +1,7 @@
 Doctors = new Mongo.Collection("doctors");
 Clinics = new Mongo.Collection("clinics");
 Pharmacies = new Mongo.Collection("pharmacies");
+Hospitals = new Mongo.Collection("hospitals");
 
 Meteor.publish("allDoctors", function(){
   return Doctors.find();
@@ -20,4 +21,12 @@ Meteor.publish("userClinics", function(){
 
 Meteor.publish("allPharmacies", function(){
   return Pharmacies.find();
+});
+
+Meteor.publish("allHospitals", function(){
+  return Hospitals.find();
+});
+
+Meteor.publish("userHospitals", function(){
+  return Hospitals.find({user: this.userId});
 });

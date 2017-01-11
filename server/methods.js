@@ -1,5 +1,5 @@
 Meteor.methods({
-/*Doctor methods*/
+/*Doctor Methods*/
   addDoctor(doctor){
     check(doctor, Object);
     if(!Meteor.userId()){
@@ -53,9 +53,9 @@ Meteor.methods({
       },
     });
   },
-  /*Doctor methods End*/
+/*Doctor Methods End*/
 
-
+/*Clinic Methods*/
   addClinic(clinic){
     check(clinic, Object);
     if(!Meteor.userId()){
@@ -75,6 +75,35 @@ Meteor.methods({
         user: Meteor.userId()
       });
     },
+  deleteClinic(clinic){
+    check(clinic, Object);
+    if(!Meteor.userId()){
+      throw new Meteor.Error('Login');
+    }
+    Clinics.remove(clinic._id);
+  },
+  editClinic(clinic, newClinic){
+    check(clinic, Object);
+    if(!Meteor.userId()){
+      throw new Meteor.Error('No esta autorizado');
+    }
+    Clinics.update(clinic._id, {
+      $set:{
+        name: newClinic.name,
+        img: newClinic.img,
+        specificOne: newClinic.specific.one,
+        specificTwo: newClinic.specific.two,
+        specificThree: newClinic.specific.three,
+        specificFour: newClinic.specific.four,
+        specificFive: newClinic.specific.five,
+        specificSix: newClinic.specific.six,
+        email: newClinic.email,
+      },
+    });
+  },
+/*Clinic Method End*/
+
+/*Pharmacie Method*/
   addPharmacie(pharmacie){
     check(pharmacie, Object);
     if (!Meteor.userId()) {
@@ -89,6 +118,71 @@ Meteor.methods({
       user: Meteor.userId()
     });
   },
+  deletePharmacie(pharmacie){
+    check(pharmacie, Object);
+    if(!Meteor.userId()){
+      throw new Meteor.Error('Unothorized user');
+    }
+    Pharmacies.remove(pharmacie._id);
+  },
+  editPharmacie(pharmacie, newPharmacie){
+    check(doctor, Object);
+    if(!Meteor.userId()){
+      throw new Meteor.Error('No esta autorizado');
+    }
+    Pharmacies.update(doctor._id, {
+      $set:{
+        name: doctor.name,
+        img: doctor.img,
+        coordenates: doctor.coordenates,
+        phone: doctor.phone,
+        createdAt: new Date(),
+        user: Meteor.userId()
+      },
+    });
+  },
+/*Pharmacie Method End*/
+
+/*Hospital Method*/
+  addHospital(hospital){
+    check(hospital, Object);
+    if(!Meteor.userId()){
+      throw new Meteor.Error('No esta autorizado');
+    }
+    Hospitals.insert({
+      name: hospital.name,
+      img: hospital.img,
+      coordenates: hospital.coordenates,
+      phone: hospital.phone,
+      createdAt: new Date(),
+      user: Meteor.userId()
+    });
+  },
+  deleteHospital(hospital){
+    check(hospital, Object);
+    if(!Meteor.userId()){
+      throw new Meteor.Error('No esta autorizado');
+    }
+    Hospitals.remove(hospital._id);
+  },
+  editHospital(hospital, newHospital){
+    check(doctor, Object);
+    if(!Meteor.userId()){
+      throw new Meteor.Error('No esta autorizado');
+    }
+    Hospitals.update(hospital._id, {
+      $set:{
+        name: newHospital.name,
+        img: newHospital.img,
+        coordenates: newHospital.coordenates,
+        phone: newHospital.phone,
+        createdAt: new Date(),
+        user: Meteor.userId()
+      },
+    });
+  },
+/*Hospital Method End*/
+
   sendMessage(message){
     console.log(message);
   }

@@ -55,6 +55,8 @@ export default class UpperNavigation extends Component{
                 <MenuItem href="/registermd" primaryText="Add Doctor" />
                 <MenuItem href="/pharmaciesRegistration" primaryText="Add Pharmacie" />
                 <MenuItem href="/registerClinic" primaryText="Add Clinic" />
+                <MenuItem href="/HospitalRegistration" primaryText="Add Hospital" />
+
               </IconMenu>
             }
           />

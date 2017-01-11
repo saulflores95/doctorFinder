@@ -15,6 +15,9 @@ import PharmacieWrapper from './pharmacies/PharmacieWrapper.jsx';
 import PharmacieDetail from './pharmacies/PharmacieDetail.jsx';
 import PharmacieRegistrationForm from './pharmacies/PharmacieRegistrationForm.jsx';
 import PharmacieMap from './maps/PharmacieMap.jsx';
+import HospitalWrapper from './hospitals/HospitalWrapper.jsx';
+import HospitalRegistrationForm from './hospitals/HospitalRegistrationForm.jsx';
+import HospitalDetail from './hospitals/HospitalDetail.jsx';
 
 FlowRouter.route('/', {
   action() {
@@ -119,6 +122,31 @@ FlowRouter.route('/Pharmacies/:id', {
   action(params){
     mount(MainLayout,{
       content: (<PharmacieDetail id={params.id} />),
+    })
+  }
+});
+
+FlowRouter.route('/Hospitals', {
+  action() {
+    mount(MainLayout,{
+      content: (<HospitalWrapper />),
+    })
+  }
+});
+
+FlowRouter.route('/HospitalRegistration', {
+  action() {
+    mount(MainLayout,{
+      content: (<HospitalRegistrationForm />),
+    })
+  }
+});
+
+
+FlowRouter.route('/Hospitals/:id', {
+  action(params){
+    mount(MainLayout,{
+      content: (<HospitalDetail id={params.id} />),
     })
   }
 });

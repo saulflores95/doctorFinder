@@ -37,8 +37,8 @@ export default class DoctorMap extends Component {
     //  shadowSize: [68, 95],
     //  shadowAnchor: [22, 94]
     });
-  const position = [this.state.lat, this.state.lng];
   let doctor = this.doctor();
+  const position = [doctor.latitude, doctor.longitude];
 
   return (
     <div style={styles.leafletContainer}>

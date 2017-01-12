@@ -134,7 +134,6 @@ Meteor.methods({
       $set:{
         name: newPharmacie.name,
         img: newPharmacie.img,
-        coordenates: newPharmacie.coordenates,
         phone: newPharmacie.phone,
         createdAt: new Date(),
         user: Meteor.userId()
@@ -174,7 +173,6 @@ Meteor.methods({
       $set:{
         name: newHospital.name,
         img: newHospital.img,
-        coordenates: newHospital.coordenates,
         phone: newHospital.phone,
         createdAt: new Date(),
         user: Meteor.userId()

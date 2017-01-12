@@ -33,8 +33,9 @@ export default class ClinicMap extends Component {
       popupAnchor: [18, 0],
     });
 
-  const position = [this.state.lat, this.state.lng];
   let clinic = this.clinic();
+  const position = [this.state.lat, this.state.lng];
+
 
   return (
     <div style={styles.leafletContainer}>

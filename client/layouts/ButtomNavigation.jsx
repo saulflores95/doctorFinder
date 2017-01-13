@@ -22,11 +22,19 @@ const styles = {
     bottom: "0",
     width: "100%",
     zIndex: '1000',
+    height: '120px'
 
   },
   icon: {
     textAlign: 'center',
+    fontSize: '72px'
   },
+  img: {
+    height: '72px'
+  },
+  bottom: {
+    height: '120px'
+  }
 
 };
 
@@ -45,12 +53,13 @@ export default class ButtomNavigation extends Component{
 
   render() {
     return (
-      <div style={styles.footer}>
+
+      <div className="footer">
         <MuiThemeProvider>
-          <Paper zDepth={1}>
-            <BottomNavigation selectedIndex={this.state.selectedIndex}>
+          <Paper zDepth={1} >
+            <BottomNavigation selectedIndex={this.state.selectedIndex} className="bottom">
               <BottomNavigationItem
-                icon={doctorIcon}
+                icon={<LocalHospital className="icon-pixel"/>}
                 onTouchTap={() => this.select(0)}
                  href="/"
               />
@@ -70,7 +79,7 @@ export default class ButtomNavigation extends Component{
                 href="/hospitals"
               />
               <BottomNavigationItem
-                icon={nearbyIcon}
+                icon={<IconLocationOn className="icon-pixel"/>}
                 onTouchTap={() => this.select(2)}
                 href="/map"
               />

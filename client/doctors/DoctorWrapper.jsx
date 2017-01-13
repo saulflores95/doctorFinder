@@ -53,7 +53,7 @@ export default class DoctorWrapper extends TrackerReact(React.Component) {
     const styles = {
       input: {
         transition: '1s',
-        marginTop: '10px',
+        marginTop: '120px',
         width: '85px',
         border: '0',
         outline: '0',

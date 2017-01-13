@@ -31,30 +31,16 @@ export default class HospitalEditForm extends Component {
     var name = this.refs.hospitalName.getValue();
     var img = this.refs.hospitalImgUrl.getValue();
     var phone = this.refs.phone.getValue();
-    var lat = [];
-    var lng = [];
-    var coordenates = [];
+    var latitude = this.refs.latitude.getValue();
+    var longitude = this.refs.longitude.getValue()
 
-    let formElements = event.target.elements;
-     Object.keys(formElements).forEach((key) => {
-       if(key.search('lat') != -1){
-         lat.push(formElements[key].value)
-       }else if (key.search('lng') != -1) {
-         lng.push(formElements[key].value)
-       }
-     });
-
-     coordenates = {
-       lat: lat,
-       lng: lng
-     }
-    console.log('Coordenates:', coordenates);
 
     var hospital = {
       name: name,
       img: img,
       phone: phone,
-      coordenates:coordenates,
+      latitude:latitude,
+      longitude:longitude,
     };
     console.log(hospital);
       if(hospital){
@@ -126,6 +112,22 @@ export default class HospitalEditForm extends Component {
                     ref="hospitalImgUrl"
                     fullWidth={true}
                     defaultValue={hospital.img}
+                  />
+                </Col>
+                <Col sm={6} md={6} lg={6}>
+                  <TextField
+                    hintText="Latitude"
+                    ref="latitude"
+                    fullWidth={true}
+                    defaultValue={hospital.latitude}
+                  />
+                </Col>
+                <Col sm={6} md={6} lg={6}>
+                  <TextField
+                    hintText="Longitude"
+                    ref="longitude"
+                    fullWidth={true}
+                    defaultValue={hospital.longitude}
                   />
                 </Col>
               </Row>

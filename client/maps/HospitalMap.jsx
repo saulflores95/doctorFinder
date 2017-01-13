@@ -33,8 +33,8 @@ export default class HospitalMap extends Component {
       popupAnchor: [18, 0],
     });
 
-  const position = [this.state.lat, this.state.lng];
   let hospital = this.hospital();
+  const position = [hospital.latitude, hospital.longitude];
 
   return (
     <div style={styles.leafletContainer}>

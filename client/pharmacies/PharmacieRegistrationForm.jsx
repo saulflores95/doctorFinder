@@ -15,7 +15,6 @@ export default class PharmacieRegistrationForm extends Component {
     this.state = {
       toogleState: false,
       value:'Podologia',
-      inputs:[1],
     }
   }
 
@@ -24,31 +23,18 @@ export default class PharmacieRegistrationForm extends Component {
     var name = this.refs.clinicName.getValue();
     var img = this.refs.clinicImgUrl.getValue();
     var phone = this.refs.phone.getValue();
-    var lat = [];
-    var lng = [];
-    var coordenates = [];
-
-    let formElements = event.target.elements;
-     Object.keys(formElements).forEach((key) => {
-       if(key.search('lat') != -1){
-         lat.push(formElements[key].value)
-       }else if (key.search('lng') != -1) {
-         lng.push(formElements[key].value)
-       }
-     });
-
-     coordenates = {
-       lat: lat,
-       lng: lng
-     }
-    console.log('Coordenates:', coordenates);
-
+    var latitude = this.refs.latitude.getValue();
+    var longitude = this.refs.longitude.getValue();
+    var tag = this.refs.tag.getValue();
     var pharmacie = {
       name: name,
       img: img,
       phone: phone,
-      coordenates:coordenates,
+      latitude:latitude,
+      longitude:longitude,
+      tag:tag,
     };
+
     console.log(pharmacie);
       if(pharmacie){
         Meteor.call('addPharmacie', pharmacie, (error, data)=>{
@@ -58,21 +44,7 @@ export default class PharmacieRegistrationForm extends Component {
             Bert.alert( 'Registrado!', 'info', 'fixed-top' );
           }
       });
-
     }
-  }
-
-  addInputField(event){
-    event.preventDefault();
-    var newInput = this.state.inputs.length;
-    this.state.inputs.push(newInput);
-    this.setState({});
-  }
-
-  removeInputField(event){
-    event.preventDefault();
-    this.state.inputs.pop();
-    this.setState({});
   }
 
   render(){
@@ -119,23 +91,32 @@ export default class PharmacieRegistrationForm extends Component {
                     fullWidth={true}
                   />
                 </Col>
-                <Col sm={12} md={12} lg={12}>
-                  <button type="button" onClick={this.addInputField.bind(this)}>Add input field</button>
-                  <button type="button" onClick={this.removeInputField.bind(this)}>Remove input field</button>
-                </Col>
-                {this.state.inputs.map((input, index)=>{
-                  return <div key={index}>
-                    <Col sm={6} md={6} lg={6}>
-                      <TextField name="lat" type="dynamic" hintText="Add Latitude"/>
-                    </Col>
-                    <Col sm={6} md={6} lg={6}>
-                    <TextField name="lng" type="dynamic" hintText="Add Longitude"/>
-                    </Col>
-                  </div>
-                })}
               </Row>
             </div>
             <div style={styles.formDivisor}>
+              <Row>
+                <Col sm={6} md={6} lg={6}>
+                  <TextField
+                    hintText="Latitude"
+                    ref="latitude"
+                    fullWidth={false}
+                  />
+                </Col>
+                <Col sm={6} md={6} lg={6}>
+                  <TextField
+                    hintText="Longitude"
+                    ref="longitude"
+                    fullWidth={false}
+                  />
+                </Col>
+                <Col sm={12} md={12} lg={12}>
+                  <TextField
+                    hintText="tag"
+                    ref="tag"
+                    fullWidth={true}
+                  />
+                </Col>
+              </Row>
               <Row>
                 <Col sm={6} md={6} lg={6}>
                   <TextField

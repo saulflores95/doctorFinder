@@ -3,7 +3,7 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import ReactDOM from 'react-dom';
 
 
-export default class PharmacieMap extends Component {
+export default class PharmacieGeneralMap extends Component {
 
   constructor() {
     super();
@@ -21,13 +21,12 @@ export default class PharmacieMap extends Component {
     this.state.subscription.pharmacies.stop();
   }
 
-  pharmacie(){
-    return Pharmacies.findOne(this.props.id);
+  pharmacies(){
+    return Pharmacies.find({tag: this.props.name}).fetch();
   }
 
   render() {
-    let pharmacie = this.pharmacie();
-    const position = [pharmacie.latitude, pharmacie.longitude];
+    let pharmacies = this.pharmacies();
     const positionState = [this.state.lat, this.state.lng];
 
     const styles = {
@@ -48,17 +47,21 @@ export default class PharmacieMap extends Component {
 
     return (
       <div style={styles.leafletContainer}>
-        <Map center={position} zoom={this.state.zoom}>
+        <Map center={positionState} zoom={this.state.zoom}>
           <TileLayer
             attribution='<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
           />
             <div>
-            <Marker icon={PharmacieMapIcon} position={position}>
-              <Popup>
-                <span>Location. <br/>{pharmacie.name}</span>
-              </Popup>
-            </Marker>
+            {this.pharmacies().map((pharmacie)=>{
+              return(
+                <Marker icon={PharmacieMapIcon} position={[pharmacie.latitude, pharmacie.longitude]}>
+                  <Popup>
+                    <span>Location. <br/>{pharmacie.name}</span>
+                  </Popup>
+                </Marker>
+              )
+            })}
             </div>
         </Map>
       </div>

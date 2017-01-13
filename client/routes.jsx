@@ -16,11 +16,13 @@ import PharmacieWrapper from './pharmacies/PharmacieWrapper.jsx';
 import PharmacieDetail from './pharmacies/PharmacieDetail.jsx';
 import PharmacieRegistrationForm from './pharmacies/PharmacieRegistrationForm.jsx';
 import PharmacieEditForm from './pharmacies/PharmacieEditForm.jsx';
+import PharmacieSingleList from './pharmacies/PharmacieSingleList.jsx';
 import PharmacieMap from './maps/PharmacieMap.jsx';
 import HospitalWrapper from './hospitals/HospitalWrapper.jsx';
 import HospitalRegistrationForm from './hospitals/HospitalRegistrationForm.jsx';
 import HospitalDetail from './hospitals/HospitalDetail.jsx';
 import HospitalEditForm from './hospitals/HospitalEditForm.jsx';
+import PharmaciesInformationWrapper from './pharmacies/PharmaciesInformationWrapper.jsx';
 
 FlowRouter.route('/', {
   action() {
@@ -128,15 +130,24 @@ FlowRouter.route('/pharmaciesRegistration', {
 });
 
 
-FlowRouter.route('/pharmacies/:id', {
+FlowRouter.route('/pharmacies/:name', {
   action(params){
     mount(MainLayout,{
-      content: (<PharmacieDetail id={params.id} />),
+      content: (<PharmaciesInformationWrapper name={params.name} />),
     })
   }
 });
 
-FlowRouter.route('/pharmacies/:id/edit', {
+FlowRouter.route('/pharmacies/:name/:id', {
+  action(params){
+    mount(MainLayout,{
+      content: (<PharmacieDetail name={params.name} id={params.id} />),
+    })
+  }
+});
+
+
+FlowRouter.route('/pharmacies/:name/:id/edit', {
   action(params) {
     mount(MainLayout,{
       content: (<PharmacieEditForm id={params.id} />),

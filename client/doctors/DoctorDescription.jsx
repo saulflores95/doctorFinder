@@ -35,10 +35,6 @@ export default class DoctorDescription extends Component {
     this.setState({open: false});
   }
 
-  doctor(){
-    return Doctors.findOne(this.props.id);
-  }
-
   render(){
     let doctor = this.doctor();
     const styles = {

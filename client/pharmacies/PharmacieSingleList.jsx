@@ -1,11 +1,26 @@
 import React, {Component} from 'react';
 import {Container, Row, Col, Visible, Hidden } from 'react-grid-system';
 import ReactDOM from 'react-dom';
-import Radium from 'radium'
+import TrackerReact from 'meteor/ultimatejs:tracker-react';
+import PharmacieSingle from './PharmacieSingle.jsx';
 
-export default class PharmacieList extends Component {
+export default class PharmacieSingleList extends TrackerReact(Component) {
+  constructor(){
+    super();
+
+    this.state = {
+      subscription: {
+        pharmacies: Meteor.subscribe("allPharmacies")
+      }
+    }
+  }
+
+  pharmacies(){
+    return Pharmacies.find({tag: this.props.name}).fetch();
+  }
 
   render() {
+    let pharmacies = this.pharmacies();
     var styles = {
       img: {
         width: '100%',
@@ -38,19 +53,11 @@ export default class PharmacieList extends Component {
       },
     }
     return(
-      <Col xs={12} sm={6} md={6} lg={4}>
-          <div style={styles.back}>
-              <a href={`/pharmacies/${this.props.pharmacie}`}>
-                <img
-                  style={styles.img}
-                  src='http://www.medicacampestre.com/images/stories/medica/servicios/farmacia.jpg'
-                />
-              </a>
-            <h1 style={styles.h2}> {this.props.pharmacie} </h1>
+          <div>
+            {pharmacies.map((pharmacie)=>{
+              return <PharmacieSingle name={this.props.name} pharmacie={pharmacie} />
+            })}
           </div>
-      </Col>
-
     )
   }
 }
-module.exports = Radium(PharmacieList);

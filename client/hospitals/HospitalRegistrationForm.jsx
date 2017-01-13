@@ -24,30 +24,15 @@ export default class HospitalRegistrationForm extends Component {
     var name = this.refs.hospitalName.getValue();
     var img = this.refs.hospitalImgUrl.getValue();
     var phone = this.refs.phone.getValue();
-    var lat = [];
-    var lng = [];
-    var coordenates = [];
-
-    let formElements = event.target.elements;
-     Object.keys(formElements).forEach((key) => {
-       if(key.search('lat') != -1){
-         lat.push(formElements[key].value)
-       }else if (key.search('lng') != -1) {
-         lng.push(formElements[key].value)
-       }
-     });
-
-     coordenates = {
-       lat: lat,
-       lng: lng
-     }
-    console.log('Coordenates:', coordenates);
+    var latitude = this.refs.latitude.getValue();
+    var longitude = this.refs.longitude.getValue()
 
     var hospital = {
       name: name,
       img: img,
       phone: phone,
-      coordenates:coordenates,
+      latitude:latitude,
+      longitude:longitude,
     };
     console.log(hospital);
       if(hospital){
@@ -119,20 +104,20 @@ export default class HospitalRegistrationForm extends Component {
                     fullWidth={true}
                   />
                 </Col>
-                <Col sm={12} md={12} lg={12}>
-                  <button type="button" onClick={this.addInputField.bind(this)}>Add input field</button>
-                  <button type="button" onClick={this.removeInputField.bind(this)}>Remove input field</button>
+                <Col sm={6} md={6} lg={6}>
+                  <TextField
+                    hintText="Latitude"
+                    ref="latitude"
+                    fullWidth={false}
+                  />
                 </Col>
-                {this.state.inputs.map((input, index)=>{
-                  return <div key={index}>
-                    <Col sm={6} md={6} lg={6}>
-                      <TextField name="lat" type="dynamic" hintText="Add Latitude"/>
-                    </Col>
-                    <Col sm={6} md={6} lg={6}>
-                    <TextField name="lng" type="dynamic" hintText="Add Longitude"/>
-                    </Col>
-                  </div>
-                })}
+                <Col sm={6} md={6} lg={6}>
+                  <TextField
+                    hintText="Longitude"
+                    ref="longitude"
+                    fullWidth={false}
+                  />
+                </Col>
               </Row>
             </div>
             <div style={styles.formDivisor}>

@@ -25,6 +25,20 @@ export default class PharmacieWrapper extends TrackerReact(React.Component) {
     return Pharmacies.find().fetch();
   }
 
+  pharmaciesList(){
+    var arr = this.pharmacies().map((pharmacie) => {
+      return pharmacie.tag;
+    });
+    console.log(arr);
+    var uniqueArr = arr.filter(function(elem, index, self){
+      return index == self.indexOf(elem);
+    });
+    console.log(uniqueArr);
+    return uniqueArr;
+  }
+
+
+
 
   render(){
 
@@ -32,7 +46,7 @@ export default class PharmacieWrapper extends TrackerReact(React.Component) {
         <div>
           <Container>
             <Row>
-              {this.pharmacies().map((pharmacie)=>{
+              {this.pharmaciesList().map((pharmacie)=>{
                 return <PharmacieList key={pharmacie._id} pharmacie={pharmacie} />
             })}
             </Row>

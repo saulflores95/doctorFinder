@@ -29,30 +29,17 @@ export default class PharmacieEditForm extends Component {
     var name = this.refs.clinicName.getValue();
     var img = this.refs.clinicImgUrl.getValue();
     var phone = this.refs.phone.getValue();
-    var lat = [];
-    var lng = [];
-    var coordenates = [];
-
-    let formElements = event.target.elements;
-     Object.keys(formElements).forEach((key) => {
-       if(key.search('lat') != -1){
-         lat.push(formElements[key].value)
-       }else if (key.search('lng') != -1) {
-         lng.push(formElements[key].value)
-       }
-     });
-
-     coordenates = {
-       lat: lat,
-       lng: lng
-     }
-    console.log('Coordenates:', coordenates);
+    var latitude = this.refs.latitude.getValue();
+    var longitude = this.refs.longitude.getValue();
+    var tag = this.refs.tag.getValue();
 
     var pharmacie = {
       name: name,
       img: img,
       phone: phone,
-      coordenates:coordenates,
+      latitude:latitude,
+      longitude:longitude,
+      tag:tag,
     };
     console.log(pharmacie);
       if(pharmacie){
@@ -124,6 +111,32 @@ export default class PharmacieEditForm extends Component {
                     ref="clinicImgUrl"
                     fullWidth={true}
                     defaultValue={pharmacie.img}
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col sm={6} md={6} lg={6}>
+                  <TextField
+                    hintText="Latitude"
+                    ref="latitude"
+                    fullWidth={false}
+                    defaultValue={pharmacie.latitude}
+                  />
+                </Col>
+                <Col sm={6} md={6} lg={6}>
+                  <TextField
+                    hintText="Longitude"
+                    ref="longitude"
+                    fullWidth={false}
+                    defaultValue={pharmacie.longitude}
+                  />
+                </Col>
+                <Col sm={12} md={12} lg={12}>
+                  <TextField
+                    hintText="tag"
+                    ref="tag"
+                    fullWidth={true}
+                    defaultValue={pharmacie.tag}
                   />
                 </Col>
               </Row>

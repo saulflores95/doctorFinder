@@ -112,8 +112,10 @@ Meteor.methods({
     Pharmacies.insert({
       name: pharmacie.name,
       img: pharmacie.img,
-      coordenates: pharmacie.coordenates,
+      latitude: pharmacie.latitude,
+      longitude:pharmacie.longitude,
       phone: pharmacie.phone,
+      tag:pharmacie.tag,
       createdAt: new Date(),
       user: Meteor.userId()
     });
@@ -151,7 +153,8 @@ Meteor.methods({
     Hospitals.insert({
       name: hospital.name,
       img: hospital.img,
-      coordenates: hospital.coordenates,
+      latitude: hospital.latitude,
+      longitude:hospital.longitude,
       phone: hospital.phone,
       createdAt: new Date(),
       user: Meteor.userId()
@@ -174,6 +177,8 @@ Meteor.methods({
         name: newHospital.name,
         img: newHospital.img,
         phone: newHospital.phone,
+        latitude: hospital.latitude,
+        longitude:hospital.longitude,
         createdAt: new Date(),
         user: Meteor.userId()
       },

@@ -21,19 +21,33 @@ deleteDoctor(){
     const styles = {
       ListItem:{
         color:'white',
-      }
+        height: '180px'
+      },
+      svg: {
+        height: '72px',
+        width: '72px',
+        '@media (max-width: 800px)': {
+          height: '24px',
+          width: '24px',
+        },
+      },
+      img: {
+        width: '120px',
+        height: '120px'
+      },
+
     }
     return(
       <div>
       <MuiThemeProvider>
           <List>
               <ListItem
-              leftAvatar={<Avatar src={this.props.doctor.img}/>}
-              rightIcon={<ActionInfo onClick={this.deleteDoctor.bind(this)}/>}
+              leftAvatar={<Avatar className="img-doctor"  src={this.props.doctor.img}/>}
+              rightIcon={<ActionInfo className="img-svg" />}
               href={`/doctors/${this.props.doctor._id}`}
               primaryText={this.props.doctor.name}
               secondaryText={this.props.doctor.specialty}
-              style={styles.ListItem}
+              className="img-item"
             />
             <Divider inset={true} />
           </List>

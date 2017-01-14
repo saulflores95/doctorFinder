@@ -5,6 +5,7 @@ import Divider from 'material-ui/Divider';
 import Avatar from 'material-ui/Avatar';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 import DoctorRaiting from './DoctorRaiting.jsx';
+import {Container, Row, Col, Visible, Hidden } from 'react-grid-system';
 
 export default class DoctorList extends Component {
 
@@ -35,7 +36,6 @@ deleteDoctor(){
         width: '120px',
         height: '120px'
       },
-
     }
     return(
       <div>
@@ -45,8 +45,8 @@ deleteDoctor(){
               leftAvatar={<Avatar className="img-doctor"  src={this.props.doctor.img}/>}
               rightIcon={<ActionInfo className="img-svg" />}
               href={`/doctors/${this.props.doctor._id}`}
-              primaryText={this.props.doctor.name}
-              secondaryText={this.props.doctor.specialty}
+              secondaryText={<div className="secondaryText">{this.props.doctor.specialty}</div>}
+              primaryText={<div className="primaryText">{this.props.doctor.name}</div>}
               className="img-item"
             />
             <Divider inset={true} />

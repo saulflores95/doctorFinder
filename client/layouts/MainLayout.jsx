@@ -27,6 +27,7 @@ export const MainLayout = ({content}) => (
         <ButtomNavigation/>
       </footer>
     </div>
+
   </StyleRoot>
 )
 

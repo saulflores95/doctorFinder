@@ -7,76 +7,63 @@
       font-family: 'Roboto', sans-serif;
       background-color: rgb(0, 188, 212);
     }
+    .bottom-paper {
+      height: 60px !important;
+    }
     .leaflet-container {
         height: 100%;
         width: 100%;
     }
-
     /* Buttom Navigation */
-
     .iconFont {
       font-size: 24px;
     }
-
     .icon-pixel {
       height: 24px;
       text-align: center !important;
     }
-
     .bottom {
-      height: 40px;
+      height: 60px;
     }
-
      /* Main Layout */
-
      .main-content {
        margin-top: 20px;
      }
-
      /* Upper Navigation */
-
      .app-bar {
        background-color: white !important;
        height: 70px;
      }
-
      .icon-menu {
        color: rgb(0, 188, 212) !important;
      }
-
      .img-logo {
        height: 40px;
      }
-
      .left-icon {
        height: 24px;
        width: 24px;
      }
-
      /* Doctor List */
-
      .img-svg {
        height: 24px ;
        width: 24px;
      }
-
      .list-item {
        color: white;
        height: 60px;
      }
-
      .img-doctor {
        width: 40px;
        height: 40px;
+       top: 20px;
      }
-
      .img-item {
        height: 77px;
        font-size: 24px;
-       line-height: 35px;
+       line-height: 18px;
        padding: 20px 40px 16px 72px;
      }
-
      .footer{
        position: fixed;
        left: 0;
@@ -85,72 +72,78 @@
        z-index: 1000;
        height: 60px;
      }
+     .primaryText {
+       font-size: 16px;
+       margin-left: 100px;
+       padding-top: 18px;
+     }
+     .secondaryText {
+       font-size: 16px;
+       color: white !important;
+     }
      @media only screen
-       and (min-device-width: 320px)
-       and (max-device-width: 568px)
-       and (-webkit-min-device-pixel-ratio: 2) {
-
-      .icon-pixel {
-         height: 72px !important;
-       }
-
-       .bottom {
-         height: 120px !important;
-       }
-
-       .img-doctor {
-         width: 100px !important;
-         height: 100px !important;
-         top: 0px !important;
-       }
-
-       .app-bar {
-         background-color: white !important;
-         height: 120px !important;
-       }
-
-       .icon-menu {
-         color: rgb(0, 188, 212) !important;
-       }
-
-       .img-logo {
-         height: 100px !important;
-       }
-
-       .left-icon {
-         height: 72px !important;
-         width: 72px !important;
-       }
-
-       .img-svg {
-         height: 72px !important;
-         width: 72px !important;
-       }
-
-       .list-item {
-         color: white !important;
-         height: 180px !important;
-       }
-
-       .main-content {
-         margin-top: 100px !important;
-       }
-
-       .left-icon {
-         height: 72px !important;
-         width: 72px !important;
-       }
-
-       .img-item {
-         height: 120px !important;
-         font-size: 52px !important;
-         line-height: 40px !important;
-       }
-
-       .footer {
-         height: 120px !important;
-       }
+     and (min-device-width: 320px)
+     and (max-device-width: 480px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+        .icon-pixel {
+          height: 72px !important;
+        }
+        .bottom {
+          height: 120px !important;
+        }
+        .img-doctor {
+          width: 130px !important;
+          height: 130px !important;
+          top: 25px !important;
+        }
+        .app-bar {
+          background-color: white !important;
+          height: 120px !important;
+        }
+        .icon-menu {
+          color: rgb(0, 188, 212) !important;
+        }
+        .img-logo {
+          height: 60px !important;
+        }
+        .left-icon {
+          height: 72px !important;
+          width: 72px !important;
+        }
+        .img-svg {
+          height: 50px !important;
+          width: 50px !important;
+          padding-top: 48px !important;
+        }
+        .list-item {
+          color: white !important;
+          height: 180px !important;
+        }
+        .main-content {
+          margin-top: 100px !important;
+        }
+        .left-icon {
+          height: 72px !important;
+          width: 72px !important;
+        }
+        .img-item {
+          height: 210px !important;
+          font-size: 52px !important;
+          line-height: 50px !important;
+        }
+        .footer {
+          height: 120px !important;
+        }
+        .secondaryText {
+          margin-left: 200px !important;
+          font-size: 36px !important;
+          color: white !important;
+        }
+        .primaryText {
+          margin-left: 200px !important;
+          font-size: 36px !important;
+          padding-top: 35px !important;
+        }
       }
-
   </style>
 </head>

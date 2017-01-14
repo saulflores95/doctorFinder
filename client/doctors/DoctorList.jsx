@@ -45,8 +45,8 @@ deleteDoctor(){
               leftAvatar={<Avatar className="img-doctor"  src={this.props.doctor.img}/>}
               rightIcon={<ActionInfo className="img-svg" />}
               href={`/doctors/${this.props.doctor._id}`}
-              primaryText={this.props.doctor.name}
-              secondaryText={this.props.doctor.specialty}
+              secondaryText={<div className="secondaryText">{this.props.doctor.specialty}</div>}
+              primaryText={<div className="primaryText">{this.props.doctor.name}</div>}
               className="img-item"
             />
             <Divider inset={true} />

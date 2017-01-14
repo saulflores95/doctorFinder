@@ -9,6 +9,9 @@ import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 import ContentPaste from 'material-ui/svg-icons/content/content-paste'
 import LocalHospital from 'material-ui/svg-icons/maps/local-hospital';
 import Assignment from 'material-ui/svg-icons/action/assignment';
+import FaHospitalO from 'react-icons/lib/fa/hospital-o';
+import FaHeartbeat from 'react-icons/lib/fa/heartbeat';
+import FaPlusSquareO from 'react-icons/lib/fa/plus-square-o';
 
 const assignment = <Assignment />;
 const doctorIcon = <LocalHospital />;
@@ -56,7 +59,7 @@ export default class ButtomNavigation extends Component{
 
       <div className="footer">
         <MuiThemeProvider>
-          <Paper zDepth={1} >
+          <Paper zDepth={1} className="bottom-paper">
             <BottomNavigation selectedIndex={this.state.selectedIndex} className="bottom">
               <BottomNavigationItem
                 icon={<LocalHospital className="icon-pixel"/>}
@@ -64,23 +67,23 @@ export default class ButtomNavigation extends Component{
                  href="/"
               />
               <BottomNavigationItem
-                icon={<FontIcon style={styles.icon} className="fa fa-heartbeat"></FontIcon>}
-                onTouchTap={() => this.select(4)}
+                icon={<FaHeartbeat className="icon-pixel"/>}
+                onTouchTap={() => this.select(1)}
                 href="/clinics"
               />
               <BottomNavigationItem
-                icon={<FontIcon style={styles.icon} className="fa fa-hospital-o"></FontIcon>}
-                onTouchTap={() => this.select(6)}
+                icon={<FaPlusSquareO className="icon-pixel"/>}
+                onTouchTap={() => this.select(2)}
                 href="/pharmacies"
               />
               <BottomNavigationItem
-                icon={<FontIcon style={styles.icon} className="fa fa-hospital-o"></FontIcon>}
-                onTouchTap={() => this.select(6)}
+                icon={<FaHospitalO className="icon-pixel"/>}
+                onTouchTap={() => this.select(3)}
                 href="/hospitals"
               />
               <BottomNavigationItem
                 icon={<IconLocationOn className="icon-pixel"/>}
-                onTouchTap={() => this.select(2)}
+                onTouchTap={() => this.select(4)}
                 href="/map"
               />
             </BottomNavigation>

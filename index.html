@@ -85,9 +85,12 @@
        z-index: 1000;
        height: 60px;
      }
+     @media only screen
+       and (min-device-width: 320px)
+       and (max-device-width: 568px)
+       and (-webkit-min-device-pixel-ratio: 2) {
 
-     @media only screen and (max-width: 900px) {
-       .icon-pixel {
+      .icon-pixel {
          height: 72px !important;
        }
 

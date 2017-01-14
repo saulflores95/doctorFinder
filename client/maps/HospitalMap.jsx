@@ -29,7 +29,7 @@ export default class HospitalMap extends Component {
       },
     }
     var hospitalMapIcon = L.icon({
-      iconUrl: 'https://s27.postimg.org/cfa26e24z/clinic.png',
+      iconUrl: 'https://s28.postimg.org/d819g8c0d/Hospitals.png',
       popupAnchor: [18, 0],
     });
 

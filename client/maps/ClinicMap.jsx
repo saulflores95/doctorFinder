@@ -29,7 +29,7 @@ export default class ClinicMap extends Component {
       },
     }
     var clinicMapIcon = L.icon({
-      iconUrl: 'https://s27.postimg.org/cfa26e24z/clinic.png',
+      iconUrl: 'https://s28.postimg.org/gb1zjlqz1/clinic.png',
       popupAnchor: [18, 0],
     });
 

@@ -29,7 +29,7 @@ export default class DoctorMap extends Component {
       },
     }
     var DoctorMapIcon = L.icon({
-      iconUrl: 'https://s28.postimg.org/3xsvniynh/doc.png',
+      iconUrl: 'https://s28.postimg.org/ohtzb6h1p/Doctores.png',
     //iconSize: [80, 80],
     // iconAnchor: [38, 38],
     popupAnchor: [18, 0],

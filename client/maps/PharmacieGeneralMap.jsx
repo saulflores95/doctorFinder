@@ -36,7 +36,7 @@ export default class PharmacieGeneralMap extends Component {
       },
     }
     var PharmacieMapIcon = L.icon({
-      iconUrl: 'https://s23.postimg.org/m6i58o9a3/farmacies.png',
+      iconUrl: 'https://s28.postimg.org/t501cy4el/Farmacias.png',
     //iconSize: [80, 80],
     // iconAnchor: [38, 38],
     popupAnchor: [18, 0],

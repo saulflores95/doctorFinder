@@ -46,11 +46,6 @@ export default class GeneralMap extends TrackerReact(Component) {
   }
 
   render() {
-    let pharmacies = this.pharmacies();
-    let hospitals = this.hospitals();
-    let doctors = this.doctors();
-    let clinics = this.clinics();
-
     const positionState = [this.state.lat, this.state.lng];
     const styles = {
       leafletContainer: {
@@ -59,7 +54,7 @@ export default class GeneralMap extends TrackerReact(Component) {
       },
     }
     var PharmacieMapIcon = L.icon({
-      iconUrl: 'https://s23.postimg.org/m6i58o9a3/farmacies.png',
+      iconUrl: 'https://s28.postimg.org/t501cy4el/Farmacias.png',
       //iconSize: [80, 80],
       // iconAnchor: [38, 38],
       popupAnchor: [18, 0],
@@ -68,11 +63,11 @@ export default class GeneralMap extends TrackerReact(Component) {
       //  shadowAnchor: [22, 94]
     });
     var clinicMapIcon = L.icon({
-      iconUrl: 'https://s27.postimg.org/cfa26e24z/clinic.png',
+      iconUrl: 'https://s28.postimg.org/gb1zjlqz1/clinic.png',
       popupAnchor: [18, 0],
     });
     var DoctorMapIcon = L.icon({
-      iconUrl: 'https://s28.postimg.org/3xsvniynh/doc.png',
+      iconUrl: 'https://s28.postimg.org/ohtzb6h1p/Doctores.png',
       //iconSize: [80, 80],
       // iconAnchor: [38, 38],
       popupAnchor: [18, 0],
@@ -81,7 +76,7 @@ export default class GeneralMap extends TrackerReact(Component) {
       //  shadowAnchor: [22, 94]
     });
     var hospitalMapIcon = L.icon({
-      iconUrl: 'https://s27.postimg.org/cfa26e24z/clinic.png',
+      iconUrl: 'https://s28.postimg.org/d819g8c0d/Hospitals.png',
       popupAnchor: [18, 0],
     });
     return (

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+  import React, {Component} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {List, ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
@@ -27,10 +27,10 @@ deleteDoctor(){
       <MuiThemeProvider>
           <List>
               <ListItem
-              leftAvatar={<Avatar src={this.props.pharmacie.img}/>}
-              rightIcon={<ActionInfo />}
+              leftAvatar={<Avatar className="img-pharmacieSingle"src={this.props.pharmacie.img}/>}
+              rightIcon={<ActionInfo className="icon-pharmacie"/>}
               href={`/pharmacies/${this.props.name}/${this.props.pharmacie._id}`}
-              primaryText={this.props.pharmacie.name}
+              primaryText={<div className="pharmacie-primaryText">{this.props.pharmacie.name}</div>}
               style={styles.ListItem}
             />
             <Divider inset={true} />

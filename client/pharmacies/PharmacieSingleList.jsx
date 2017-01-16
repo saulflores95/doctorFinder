@@ -22,38 +22,13 @@ export default class PharmacieSingleList extends TrackerReact(Component) {
   render() {
     let pharmacies = this.pharmacies();
     var styles = {
-      img: {
-        width: '100%',
-        height: '250px',
-        position: 'relative',
-        filter: 'brightness(40%)',
-        transition: '1s',
+      container: {
+        overflow: 'scroll',
 
-        ':hover': {
-           borderRadius: '50%',
-           transition: '1s',
-        },
-      },
-      h2: {
-        position: 'absolute',
-        width: '80%',
-        top: '100px',
-        left: '0px',
-        color: 'white',
-        textAlign: 'center',
-        marginLeft: '10%',
-        height: '15%',
-      },
-      back: {
-        overflow: 'hidden',
-        height: '250px',
-        width: '100%',
-        marginTop: '30px',
-        padding: '5 5 5 5',
-      },
+      }
     }
     return(
-          <div>
+          <div className="pharmacieSingle-container">
             {pharmacies.map((pharmacie)=>{
               return <PharmacieSingle name={this.props.name} pharmacie={pharmacie} />
             })}

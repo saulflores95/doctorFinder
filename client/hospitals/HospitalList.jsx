@@ -38,15 +38,15 @@ export default class HospitalList extends Component {
       },
     }
     return(
-      <Col xs={12} sm={6} md={6} lg={4}>
-          <div style={styles.back}>
+      <Col xs={12} sm={12} md={12} lg={4}>
+          <div className="list-back">
               <a href={`/hospitals/${this.props.hospital._id}`}>
                 <img
-                  style={styles.img}
+                  className="img-list"
                   src={this.props.hospital.img}
                 />
               </a>
-            <h1 style={styles.h2}> {this.props.hospital.name} </h1>
+            <h1 className="list-h1"> {this.props.hospital.name} </h1>
           </div>
       </Col>
 

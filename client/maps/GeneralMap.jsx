@@ -16,7 +16,8 @@ export default class GeneralMap extends TrackerReact(Component) {
         pharmacies: Meteor.subscribe("allPharmacies"),
         hospitals: Meteor.subscribe("allHospitals"),
         clinics: Meteor.subscribe("allClinics"),
-        doctors: Meteor.subscribe("allDoctors")
+        doctors: Meteor.subscribe("allDoctors"),
+        labs: Meteor.subscribe("allLabs")
       }
     };
   }
@@ -26,6 +27,7 @@ export default class GeneralMap extends TrackerReact(Component) {
     this.state.subscription.hospitals.stop();
     this.state.subscription.clinics.stop();
     this.state.subscription.doctors.stop();
+    this.state.subscription.labs.stop();
 
   }
 
@@ -43,6 +45,10 @@ export default class GeneralMap extends TrackerReact(Component) {
 
   clinics(){
     return Clinics.find().fetch();
+  }
+
+  labs(){
+    return Labs.find().fetch();
   }
 
   render() {
@@ -79,6 +85,10 @@ export default class GeneralMap extends TrackerReact(Component) {
       iconUrl: 'https://s28.postimg.org/d819g8c0d/Hospitals.png',
       popupAnchor: [18, 0],
     });
+    var labMapIcon = L.icon({
+      iconUrl: 'https://s29.postimg.org/6p57i16k7/lab.png',
+      popupAnchor: [18, 0],
+    });
     return (
       <div style={styles.leafletContainer}>
         <Map center={positionState} zoom={this.state.zoom}>
@@ -91,7 +101,7 @@ export default class GeneralMap extends TrackerReact(Component) {
               return(
                 <Marker icon={PharmacieMapIcon} position={[pharmacie.latitude, pharmacie.longitude]}>
                   <Popup>
-                    <span>Location. <br/>{pharmacie.name}</span>
+                    <span> <br/>{pharmacie.name}</span>
                   </Popup>
                 </Marker>
               )
@@ -102,7 +112,7 @@ export default class GeneralMap extends TrackerReact(Component) {
               return(
                 <Marker icon={hospitalMapIcon} position={[hospital.latitude, hospital.longitude]}>
                   <Popup>
-                    <span>Location. <br/>{hospital.name}</span>
+                    <span> <br/>{hospital.name}</span>
                   </Popup>
                 </Marker>
               )
@@ -113,7 +123,7 @@ export default class GeneralMap extends TrackerReact(Component) {
               return(
                 <Marker icon={clinicMapIcon} position={[clinic.latitude, clinic.longitude]}>
                   <Popup>
-                    <span>Location. <br/>{clinic.name}</span>
+                    <span> <br/>{clinic.name}</span>
                   </Popup>
                 </Marker>
               )
@@ -124,7 +134,18 @@ export default class GeneralMap extends TrackerReact(Component) {
               return(
                 <Marker icon={DoctorMapIcon} position={[doctor.latitude, doctor.longitude]}>
                   <Popup>
-                    <span>Location. <br/>{doctor.name}</span>
+                    <span><br/>{doctor.name}</span>
+                  </Popup>
+                </Marker>
+              )
+            })}
+            </div>
+            <div>
+            {this.labs().map((lab)=>{
+              return(
+                <Marker icon={labMapIcon} position={[lab.latitude, lab.longitude]}>
+                  <Popup>
+                    <span><br/>{lab.name}</span>
                   </Popup>
                 </Marker>
               )

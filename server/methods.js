@@ -103,6 +103,47 @@ Meteor.methods({
   },
 /*Clinic Method End*/
 
+/*Lab Method*/
+  addLab(lab){
+    check(lab, Object);
+    if (!Meteor.userId()) {
+      throw  new Meteor.Error('No esta autorizado');
+    }
+    Labs.insert({
+      name: lab.name,
+      img: lab.img,
+      latitude: lab.latitude,
+      longitude:lab.longitude,
+      phone: lab.phone,
+      tag:lab.tag,
+      createdAt: new Date(),
+      user: Meteor.userId()
+    });
+  },
+  deleteLab(lab){
+    check(lab, Object);
+    if(!Meteor.userId()){
+      throw new Meteor.Error('Unothorized user');
+    }
+    Labs.remove(lab._id);
+  },
+  editLab(lab, newLab){
+    check(lab, Object);
+    if(!Meteor.userId()){
+      throw new Meteor.Error('No esta autorizado');
+    }
+    Labs.update(lab._id, {
+      $set:{
+        name: newLab.name,
+        img: newLab.img,
+        phone: newLab.phone,
+        createdAt: new Date(),
+        user: Meteor.userId()
+      },
+    });
+  },
+/*Labs Method End*/
+
 /*Pharmacie Method*/
   addPharmacie(pharmacie){
     check(pharmacie, Object);
@@ -143,6 +184,7 @@ Meteor.methods({
     });
   },
 /*Pharmacie Method End*/
+
 
 /*Hospital Method*/
   addHospital(hospital){

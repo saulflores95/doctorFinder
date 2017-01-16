@@ -18,11 +18,19 @@ import PharmacieRegistrationForm from './pharmacies/PharmacieRegistrationForm.js
 import PharmacieEditForm from './pharmacies/PharmacieEditForm.jsx';
 import PharmacieSingleList from './pharmacies/PharmacieSingleList.jsx';
 import PharmacieMap from './maps/PharmacieMap.jsx';
+import PharmaciesInformationWrapper from './pharmacies/PharmaciesInformationWrapper.jsx';
 import HospitalWrapper from './hospitals/HospitalWrapper.jsx';
 import HospitalRegistrationForm from './hospitals/HospitalRegistrationForm.jsx';
 import HospitalDetail from './hospitals/HospitalDetail.jsx';
 import HospitalEditForm from './hospitals/HospitalEditForm.jsx';
-import PharmaciesInformationWrapper from './pharmacies/PharmaciesInformationWrapper.jsx';
+import LabWrapper from './labs/LabWrapper.jsx';
+import LabDetail from './labs/LabDetail.jsx';
+import LabRegistrationForm from './labs/LabRegistrationForm.jsx';
+import LabEditForm from './labs/LabEditForm.jsx';
+import LabSingleList from './labs/LabSingleList.jsx';
+import LabMap from './maps/LabMap.jsx';
+import LabsInformationWrapper from './labs/LabsInformationWrapper.jsx';
+
 
 FlowRouter.route('/', {
   action() {
@@ -192,6 +200,49 @@ FlowRouter.route('/hospitals/:id/edit', {
   action(params) {
     mount(MainLayout,{
       content: (<HospitalEditForm id={params.id} />),
+    })
+  }
+});
+
+
+FlowRouter.route('/laboratories', {
+  action() {
+    mount(MainLayout,{
+      content: (<LabWrapper />),
+    })
+  }
+});
+
+FlowRouter.route('/laboratoriesRegistration', {
+  action() {
+    mount(MainLayout,{
+      content: (<LabRegistrationForm />),
+    })
+  }
+});
+
+
+FlowRouter.route('/laboratories/:name', {
+  action(params){
+    mount(MainLayout,{
+      content: (<LabsInformationWrapper name={params.name} />),
+    })
+  }
+});
+
+FlowRouter.route('/laboratories/:name/:id', {
+  action(params){
+    mount(MainLayout,{
+      content: (<LabDetail name={params.name} id={params.id} />),
+    })
+  }
+});
+
+
+FlowRouter.route('/laboratories/:name/:id/edit', {
+  action(params) {
+    mount(MainLayout,{
+      content: (<LabEditForm id={params.id} />),
     })
   }
 });

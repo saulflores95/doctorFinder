@@ -82,6 +82,11 @@ export default class ButtomNavigation extends Component{
                 href="/hospitals"
               />
               <BottomNavigationItem
+                icon={<FaHospitalO className="icon-pixel"/>}
+                onTouchTap={() => this.select(3)}
+                href="/laboratories"
+              />
+              <BottomNavigationItem
                 icon={<IconLocationOn className="icon-pixel"/>}
                 onTouchTap={() => this.select(4)}
                 href="/map"

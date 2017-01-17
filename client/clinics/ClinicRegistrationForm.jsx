@@ -31,12 +31,16 @@ export default class ClinicRegistrationForm extends Component {
       five:this.refs.specificFive.getValue(),
       six:this.refs.specificSix.getValue()
     };
+    var latitude = this.refs.latitude.getValue();
+    var longitude = this.refs.longitude.getValue();
     var email = this.refs.email.getValue();
     var clinic = {
       name: name,
       img: img,
       specific: specific,
       email: email,
+      latitude:latitude,
+      longitude:longitude,
       specialty:specialty
     };
     console.log(clinic);
@@ -180,6 +184,22 @@ export default class ClinicRegistrationForm extends Component {
                     hintText="Specific Speaciality 6"
                     ref="specificSix"
                     fullWidth={true}
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col sm={6} md={6} lg={6}>
+                  <TextField
+                    hintText="Latitude"
+                    ref="latitude"
+                    fullWidth={false}
+                  />
+                </Col>
+                <Col sm={6} md={6} lg={6}>
+                  <TextField
+                    hintText="Longitude"
+                    ref="longitude"
+                    fullWidth={false}
                   />
                 </Col>
               </Row>

@@ -22,7 +22,7 @@ export default class GeneralMap extends TrackerReact(Component) {
     };
   }
 
-/*  componentWillUnmount(){
+ componentWillUnmount(){
     this.state.subscription.pharmacies.stop();
     this.state.subscription.hospitals.stop();
     this.state.subscription.clinics.stop();
@@ -30,7 +30,6 @@ export default class GeneralMap extends TrackerReact(Component) {
     this.state.subscription.labs.stop();
 
   }
-*/
   pharmacies(){
     return Pharmacies.find().fetch();
   }

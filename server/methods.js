@@ -71,6 +71,8 @@ Meteor.methods({
         specificFive: clinic.specific.five,
         specificSix: clinic.specific.six,
         email: clinic.email,
+        latitude:clinic.latitude,
+        longitude:clinic.longitude,
         createdAt: new Date(),
         user: Meteor.userId()
       });

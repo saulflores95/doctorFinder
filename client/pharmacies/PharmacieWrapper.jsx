@@ -42,8 +42,15 @@ export default class PharmacieWrapper extends TrackerReact(React.Component) {
 
   render(){
 
+    const styles = {
+      body: {
+          overflow: 'hidden',
+          paddingTop: '45px'
+      }
+    }
+
     return (
-        <div>
+        <div style={styles.body}>
           <Container>
             <Row>
               {this.pharmaciesList().map((pharmacie)=>{

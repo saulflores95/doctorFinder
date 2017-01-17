@@ -28,8 +28,13 @@ export default class HospitalWrapper extends TrackerReact(React.Component) {
 
   render(){
 
+    const styles = {
+      container: {
+        paddingTop: '45px'
+      }
+    }
     return (
-        <div>
+        <div style={styles.container}>
           <Container>
             <Row>
               {this.hospitals().map((hospital)=>{

@@ -20,6 +20,7 @@ deleteDoctor(){
     const styles = {
       ListItem:{
         color:'white',
+        height: '100px'
       }
     }
     return(
@@ -31,7 +32,7 @@ deleteDoctor(){
               rightIcon={<ActionInfo className="icon-pharmacie"/>}
               href={`/pharmacies/${this.props.name}/${this.props.pharmacie._id}`}
               primaryText={<div className="pharmacie-primaryText">{this.props.pharmacie.name}</div>}
-              style={styles.ListItem}
+              className="pharmacieList-item"
             />
             <Divider inset={true} />
           </List>

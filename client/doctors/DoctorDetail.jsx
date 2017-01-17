@@ -85,8 +85,8 @@ export default class DoctorDetail extends TrackerReact(React.Component){
             <Row>
               <Col xs={12} sm={12} md={12} lg={12}><DoctorHeader id={this.props.id} /></Col>
               <Col xs={12} sm={12} md={12} lg={12}><DoctorDescription id={this.props.id} /></Col>
-              <Col xs={12} sm={6} md={6} lg={6}><DoctorContactForm id={this.props.id} /></Col>
-              <Col xs={12} sm={6} md={6} lg={6}><DoctorMap id={this.props.id} /></Col>
+              <Col xs={12} sm={12} md={12} lg={6}><DoctorContactForm id={this.props.id} /></Col>
+              <Col xs={12} sm={12} md={12} lg={6}><DoctorMap id={this.props.id} /></Col>
               <Col xs={12} sm={6} md={6} lg={6}>
                 {userChecker}
               </Col>

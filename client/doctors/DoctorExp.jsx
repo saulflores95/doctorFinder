@@ -38,14 +38,14 @@ export default class DoctorExp extends Component{
         <div style={styles.experienceContainer}>
           <Row>
           <Col xs={6} sm={6} md={6} lg={6}>
-              <p style={styles.expText}>{doctor.curriculumOne}</p>
-              <p style={styles.expText}>{doctor.curriculumTwo}</p>
-              <p style={styles.expText}>{doctor.curriculumThree}</p>
+              <p className="doctor-exp">{doctor.curriculumOne}</p>
+              <p className="doctor-exp">{doctor.curriculumTwo}</p>
+              <p className="doctor-exp">{doctor.curriculumThree}</p>
           </Col>
           <Col xs={6} sm={6} md={6} lg={6}>
-            <p style={styles.expText}>{doctor.curriculumFour}</p>
-            <p style={styles.expText}>{doctor.curriculumFive}</p>
-            <p style={styles.expText}>{doctor.curriculumSix}</p>
+            <p className="doctor-exp">{doctor.curriculumFour}</p>
+            <p className="doctor-exp">{doctor.curriculumFive}</p>
+            <p className="doctor-exp">{doctor.curriculumSix}</p>
           </Col>
           </Row>
         </div>

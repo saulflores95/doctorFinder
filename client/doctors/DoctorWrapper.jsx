@@ -50,29 +50,8 @@ export default class DoctorWrapper extends TrackerReact(React.Component) {
       return 0;
     });
 
-    const styles = {
-      input: {
-        transition: '1s',
-        marginTop: '120px',
-        width: '85px',
-        border: '0',
-        outline: '0',
-        borderBottom: '2px solid black',
-        fontSize: '16px',
-        backgroundColor: 'white',
-        backgroundImage: "url('http://www.scienceclass411.com/images/stylistica-icons-set/png/32x32/search.png')",
-        backgroundPosition: '4px 4px',
-        padding: '12px 12px 12px 40px',
-        backgroundRepeat: 'no-repeat',
-        ':focus': {
-          width: '200px',
-          ':hover': {
-                  }
-        }
-      }
-    }
     return (
-      <div style={styles.doctorList}>
+      <div className="doctor-wrapper">
             {SpecialityDoctors.map((doctor)=>{
               return <DoctorList key={doctor._id} doctor={doctor} />
             })}

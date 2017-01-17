@@ -30,6 +30,7 @@ export default class PharmacieDetail extends TrackerReact(React.Component){
         color:'white',
         fontFamily:'Roboto',
         marginTop:50,
+        paddingTop:35,
       },
       h2: {
         left: '0px',

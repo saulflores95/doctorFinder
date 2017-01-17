@@ -6,17 +6,13 @@ import {StyleRoot} from 'radium';
 import Radium from 'radium';
 
 const styles = {
-  content:{
-    paddingTop:50,
-  },
-
   mainContent: {
     marginTop: '100px'
   }
 };
 export const MainLayout = ({content}) => (
   <StyleRoot>
-    <div style={styles.content}>
+    <div>
       <header>
           <UpperNavigation />
       </header>

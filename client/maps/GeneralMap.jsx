@@ -56,7 +56,8 @@ export default class GeneralMap extends TrackerReact(Component) {
     const styles = {
       leafletContainer: {
         width: '100%',
-        height: 600,
+        height: '80vh',
+        paddingTop: 50
       },
     }
     var PharmacieMapIcon = L.icon({
@@ -90,7 +91,7 @@ export default class GeneralMap extends TrackerReact(Component) {
       popupAnchor: [18, 0],
     });
     return (
-      <div style={styles.leafletContainer}>
+      <div className="generalMap-container">
         <Map center={positionState} zoom={this.state.zoom}>
           <TileLayer
             attribution='<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

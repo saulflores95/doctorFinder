@@ -74,6 +74,7 @@
      }
      .primaryText {
        font-size: 16px;
+       color: white !important;
      }
      .secondaryText {
        font-size: 16px;
@@ -122,12 +123,18 @@
      }
 
      .pharmacieList-item {
-       color: white;
+       color: white !important;
        height: 60px;
      }
 
      .doctor-wrapper {
        margin-top: 80px;
+     }
+
+     .generalMap-container {
+       width: 100%;
+       height: 85vh;
+       padding-top: 55px;
      }
 
      @media only screen
@@ -236,6 +243,21 @@
         .doctor-exp {
           font-size: 40px !important;
         }
+
+        .generalMap-container {
+          height: 85vh !important;
+          padding-top: 30px !important;
+        }
+          /* Ipad */
+        @media only screen
+        and (min-device-width : 768px)
+        and (max-device-width : 1024px)
+        {
+          .generalMap-container {
+            padding-top: 35px !important;
+            height: 80vh !important;
+          }
       }
+    }
   </style>
 </head>

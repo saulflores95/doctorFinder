@@ -52,7 +52,7 @@ export default class LabList extends Component{
       },
     }
     return(
-      <Col xs={12} sm={6} md={6} lg={4}>
+      <Col xs={12} sm={12} md={12} lg={4}>
           <div style={styles.back}>
               <a href={`/laboratories/${this.props.lab}`}>
                 <img

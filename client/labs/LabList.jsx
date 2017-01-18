@@ -3,9 +3,23 @@ import {Container, Row, Col, Visible, Hidden } from 'react-grid-system';
 import ReactDOM from 'react-dom';
 import Radium from 'radium'
 
-export default class LabList extends Component {
+export default class LabList extends Component{
+
+  imageChooser(props){
+      if(props === 'Certus'){
+          return 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRe64dZvZJRZeb3IVkTYlnhPiVid5Ni60EbWFGjOiWPIi4tZW5G';
+        }
+      if(props === 'Benavides'){
+          return 'https://www.apestan.com/content_files/case_attached_images/861bdee9e598a41fda075895ad2db755.jpg';
+        }
+      else{
+        console.log('No tag fits the choosen image');
+      }
+  }
 
   render() {
+    var img = this.imageChooser(this.props.pharmacie);
+    console.log(img);
     var styles = {
       img: {
         width: '100%',
@@ -43,7 +57,7 @@ export default class LabList extends Component {
               <a href={`/laboratories/${this.props.lab}`}>
                 <img
                   style={styles.img}
-                  src='http://www.medicacampestre.com/images/stories/medica/servicios/farmacia.jpg'
+                  src={img}
                 />
               </a>
             <h1 style={styles.h2}> {this.props.lab} </h1>

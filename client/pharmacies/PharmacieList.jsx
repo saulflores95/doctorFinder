@@ -5,7 +5,23 @@ import Radium from 'radium'
 
 export default class PharmacieList extends Component {
 
+  imageChooser(props){
+      if(props === 'Roma'){
+          return 'http://zetatijuana.com/wp-content/uploads/2016/02/farmacias-roma-1.jpg';
+        }
+      if(props === 'Benavides'){
+          return 'https://www.apestan.com/content_files/case_attached_images/861bdee9e598a41fda075895ad2db755.jpg';
+        }
+      else{
+        console.log('No tag fits the choosen image');
+      }
+  }
+
+
+
   render() {
+    var img = this.imageChooser(this.props.pharmacie);
+    console.log(img);
     var styles = {
       img: {
         width: '100%',
@@ -43,7 +59,7 @@ export default class PharmacieList extends Component {
               <a href={`/pharmacies/${this.props.pharmacie}`}>
                 <img
                   className="img-list"
-                  src='http://www.medicacampestre.com/images/stories/medica/servicios/farmacia.jpg'
+                  src={img}
                 />
               </a>
             <h1 className="list-h1"> {this.props.pharmacie} </h1>

@@ -38,14 +38,14 @@ export default class ClinicSpeciality extends Component{
         <div style={styles.experienceContainer}>
           <Row>
           <Col xs={6} sm={6} md={6} lg={6}>
-              <p style={styles.expText}>{clinic.specificOne}</p>
-              <p style={styles.expText}>{clinic.specificTwo}</p>
-              <p style={styles.expText}>{clinic.specificThree}</p>
+              <p className="detail-text">{clinic.specificOne}</p>
+              <p className="detail-text">{clinic.specificTwo}</p>
+              <p className="detail-text">{clinic.specificThree}</p>
           </Col>
           <Col xs={6} sm={6} md={6} lg={6}>
-            <p style={styles.expText}>{clinic.specificFour}</p>
-            <p style={styles.expText}>{clinic.specificFive}</p>
-            <p style={styles.expText}>{clinic.specificSix}</p>
+            <p className="detail-text">{clinic.specificFour}</p>
+            <p className="detail-text">{clinic.specificFive}</p>
+            <p className="detail-text">{clinic.specificSix}</p>
           </Col>
           </Row>
         </div>

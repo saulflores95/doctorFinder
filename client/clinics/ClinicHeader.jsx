@@ -47,11 +47,11 @@ export default class ClinicHeader extends Component {
       <div style={styles.container}>
         <Row>
           <Col sm={6} md={6} lg={3}>
-            <img style={styles.img} src={clinic.img} />
+            <img className="img-clinic" src={clinic.img} />
           </Col>
-          <Col sm={6} md={6} lg={3}>
-            <h1>{clinic.name}</h1>
-            <ClinicRaiting />
+          <Col sm={6} md={6} lg={3} >
+            <h1 className="detail-name">{clinic.name}</h1>
+            <div className="raiting-star"><ClinicRaiting/></div>
           </Col>
           <Col sm={12} md={12} lg={6}>
             <ClinicSpeciality id={this.props.id} />

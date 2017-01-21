@@ -12,9 +12,7 @@ export default class AccountsUI extends Component {
     Blaze.remove(this.view);
   }
 
-
   render(){
     return <span ref="container" />
   }
-
 }

@@ -64,12 +64,12 @@ export default class DoctorHeader extends Component{
             <div style={styles.DoctorHeaderContainer}>
               <Row>
                 <Col sm={6} md={6} lg={2}>
-                  <img style={styles.doctorImg} src={doctor.img} />
+                  <img className="img-doctorHeader" src={doctor.img} />
                 </Col>
                 <Col sm={6} md={6} lg={6}>
-                  <h1 style={styles.h1}>{doctor.name}</h1>
-                  <span style={styles.specialtyText}>{doctor.specialty}</span>
-                  <DoctorRaiting />
+                  <h1 className="detail-name">{doctor.name}</h1>
+                  <span className="detail-name">{doctor.specialty}</span>
+                  <div className="raiting-star"><DoctorRaiting /></div>
                   <DoctorAppointment id={this.props.id} />
                 </Col>
                 <Col sm={12} md={12} lg={4}>

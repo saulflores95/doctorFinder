@@ -25,7 +25,7 @@ export default class ClinicMap extends Component {
     const styles = {
       leafletContainer: {
         width: '100%',
-        height: '250',
+        height: '400',
       },
     }
     var clinicMapIcon = L.icon({
@@ -38,7 +38,7 @@ export default class ClinicMap extends Component {
 
 
   return (
-    <div style={styles.leafletContainer}>
+    <div className="map-clinic">
       <Map center={position} zoom={this.state.zoom}>
           <TileLayer
             attribution='<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

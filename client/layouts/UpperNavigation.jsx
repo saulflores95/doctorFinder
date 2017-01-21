@@ -58,6 +58,7 @@ export default class UpperNavigation extends Component{
                 iconButtonElement={<MoreVertIcon className="left-icon"/>}
                 anchorOrigin={{horizontal: 'right', vertical: 'top'}}
                 targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                className="accounts-ui"
               >
                 <AccountsUI />
                 <MenuItem href="/registermd" primaryText="Add Doctor" />

@@ -128,7 +128,8 @@ export default class DoctorRegistrationForm extends Component {
         color:'white',
       },
       container: {
-        paddingTop: 35
+        paddingTop: 35,
+        height: 900
       }
     }
 

@@ -7,18 +7,24 @@ export default class LabList extends Component{
 
   imageChooser(props){
       if(props === 'Certus'){
-          return 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRe64dZvZJRZeb3IVkTYlnhPiVid5Ni60EbWFGjOiWPIi4tZW5G';
-        }
-      if(props === 'Benavides'){
-          return 'https://www.apestan.com/content_files/case_attached_images/861bdee9e598a41fda075895ad2db755.jpg';
-        }
+          return 'https://paginas.seccionamarillsa.com.mx/img/upload/certus-2_3-400726723.jpg';
+      }
+      if(props === 'Klein'){
+          return 'https://s3-media1.fl.yelpcdn.com/bphoto/wYeOng8pOYHa06gw2YATIA/l.jpg';
+      }
+      if(props === 'Gamboa'){
+          return 'https://s3-media1.fl.yelpcdn.com/bphoto/fv2LdF74AhE9NtgrmVEaAQ/l.jpg';
+      }
+      if(props === ''){
+          return 'http://cristianbriones.cl/wp-content/uploads/2016/02/error-2.png';
+      }
       else{
         console.log('No tag fits the choosen image');
       }
   }
 
   render() {
-    var img = this.imageChooser(this.props.pharmacie);
+    var img = this.imageChooser(this.props.lab);
     console.log(img);
     var styles = {
       img: {

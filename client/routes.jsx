@@ -30,6 +30,7 @@ import LabEditForm from './labs/LabEditForm.jsx';
 import LabSingleList from './labs/LabSingleList.jsx';
 import LabMap from './maps/LabMap.jsx';
 import LabsInformationWrapper from './labs/LabsInformationWrapper.jsx';
+import Uploader from './uploader/Uploader.jsx';
 
 
 FlowRouter.route('/', {
@@ -243,6 +244,14 @@ FlowRouter.route('/laboratories/:name/:id/edit', {
   action(params) {
     mount(MainLayout,{
       content: (<LabEditForm id={params.id} />),
+    })
+  }
+});
+
+FlowRouter.route('/uploader', {
+  action(params) {
+    mount(MainLayout,{
+      content: (<Uploader />),
     })
   }
 });

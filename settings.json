@@ -1,8 +1,4 @@
 {
-  "public":{
-    "test":"Hello"
-  },
-  "private":{
-    "ptest":"Hello Private"
-  }
+  "AWSAccessKeyId": "AKIAIJD77SGAMNWF3SPQ",
+  "AWSSecretAccessKey": "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"
 }

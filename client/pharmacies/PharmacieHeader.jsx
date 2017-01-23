@@ -31,20 +31,23 @@ export default class PharmacieHeader extends Component {
 
     var styles = {
       img: {
-        width: '200px',
-        height: '200px'
+        width:  200,
+        height: 200
       },
       container: {
-        marginTop: '30px',
+        marginTop: 30,
+        paddingBottom: 40,
       },
     }
     return(
       <div style={styles.container}>
         <Row>
-          <Col sm={6} md={6} lg={3}>
-            <img style={styles.img} src={pharmacie.img} />
-            <h1>{pharmacie.name}</h1>
-            <PharmacieRaiting />
+          <Col sm={6} md={6} lg={8}>
+            <img className="img-clinic" src={pharmacie.img} />
+          </Col>
+          <Col sm={6} md={6} lg={4}>
+            <h1 className="detail-name">{pharmacie.name}</h1>
+            <div className="raiting-star"><PharmacieRaiting /></div>
           </Col>
         </Row>
       </div>

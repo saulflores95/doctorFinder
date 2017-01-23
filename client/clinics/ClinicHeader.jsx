@@ -36,7 +36,7 @@ export default class ClinicHeader extends Component {
       },
       container: {
         'paddingTop':75,
-        'paddingBottom':75,
+        'paddingBottom':40,
         'height':200,
         'font-family': 'Roboto',
         'color':'white',

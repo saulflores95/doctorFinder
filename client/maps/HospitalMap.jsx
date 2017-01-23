@@ -37,7 +37,7 @@ export default class HospitalMap extends Component {
   const position = [hospital.latitude, hospital.longitude];
 
   return (
-    <div style={styles.leafletContainer}>
+    <div className="map-pharmacie">
       <Map center={position} zoom={this.state.zoom}>
           <TileLayer
             attribution='<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

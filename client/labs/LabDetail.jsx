@@ -43,7 +43,7 @@ export default class LabDetail extends TrackerReact(React.Component){
     const styles = {
       container: {
         height:200,
-        paddingTop:35,
+        paddingTop:85,
         paddingBottom:74,
         color:'white',
         fontFamily:'Roboto',
@@ -86,9 +86,9 @@ export default class LabDetail extends TrackerReact(React.Component){
             <MuiThemeProvider>
               <Container>
                 <Row>
-                  <Col xs={6} sm={6} md={4} lg={4}><LabHeader id={this.props.id}/></Col>
-                  <Col xs={6} sm={6} md={8} lg={8}> <LabMap id={this.props.id} /></Col>
-                  <Col xs={12} sm={6} md={6} lg={6}>{userChecker}</Col>
+                  <Col xs={12} sm={12} md={12} lg={6}><LabHeader id={this.props.id}/></Col>
+                  <Col xs={12} sm={12} md={12} lg={12}> <LabMap id={this.props.id} /></Col>
+                  <Col xs={12} sm={12} md={12} lg={6}>{userChecker}</Col>
                 </Row>
               </Container>
               </MuiThemeProvider>

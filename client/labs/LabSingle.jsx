@@ -25,11 +25,11 @@ deleteDoctor(){
       <MuiThemeProvider>
           <List>
               <ListItem
-              leftAvatar={<Avatar src={this.props.lab.img}/>}
-              rightIcon={<ActionInfo />}
+              leftAvatar={<Avatar className="img-pharmacieSingle" src={this.props.lab.img}/>}
+              rightIcon={<ActionInfo className="icon-pharmacie"/>}
               href={`/laboratories/${this.props.name}/${this.props.lab._id}`}
-              primaryText={this.props.lab.name}
-              style={styles.ListItem}
+              primaryText={<div className="pharmacie-primaryText">{this.props.lab.name}</div>}
+              className="pharmacieList-item"
             />
             <Divider inset={true} />
           </List>

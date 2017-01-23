@@ -53,7 +53,7 @@ export default class LabSingleList extends TrackerReact(Component) {
       },
     }
     return(
-          <div>
+          <div className="pharmacieSingle-container">
             {labs.map((lab)=>{
               return <LabSingle name={this.props.name} lab={lab} />
             })}

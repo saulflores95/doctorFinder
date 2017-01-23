@@ -28,7 +28,7 @@ deleteDoctor(){
       <MuiThemeProvider>
           <List>
               <ListItem
-              leftAvatar={<Avatar className="img-pharmacieSingle"src={this.props.pharmacie.img}/>}
+              leftAvatar={<Avatar className="img-pharmacieSingle" src={this.props.pharmacie.img}/>}
               rightIcon={<ActionInfo className="icon-pharmacie"/>}
               href={`/pharmacies/${this.props.name}/${this.props.pharmacie._id}`}
               primaryText={<div className="pharmacie-primaryText">{this.props.pharmacie.name}</div>}

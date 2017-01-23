@@ -26,13 +26,14 @@ export default class LabsInformationWrapper extends TrackerReact(React.Component
     const styles = {
       container: {
         height:50,
-        paddingTop:35,
         paddingBottom:74,
         color:'white',
         fontFamily:'Roboto',
-        marginTop:100,
+        marginTop:50,
+        paddingTop:35,
       },
       h2: {
+        fontSize: 50,
         left: '0px',
         color: 'white',
         textAlign: 'center',
@@ -45,8 +46,8 @@ export default class LabsInformationWrapper extends TrackerReact(React.Component
             <Container>
               <h1 style={styles.h2}>{this.props.name}</h1>
               <Row>
-                <Col xs={6} sm={6} md={4} lg={4}><LabSingleList name={this.props.name} /></Col>
-                <Col xs={6} sm={6} md={4} lg={4}><LabGeneralMap name={this.props.name} /></Col>
+                <Col xs={12} sm={12} md={12} lg={8}><LabGeneralMap name={this.props.name} /></Col>
+                <Col xs={12} sm={12} md={12} lg={4}><LabSingleList name={this.props.name} /></Col>
               </Row>
             </Container>
             </MuiThemeProvider>

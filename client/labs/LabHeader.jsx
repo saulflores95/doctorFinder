@@ -31,20 +31,23 @@ export default class LabHeader extends Component {
 
     var styles = {
       img: {
-        width: '200px',
-        height: '200px'
+        width: 200,
+        height: 200
       },
       container: {
-        marginTop: '30px',
+        marginTop: 30,
+        paddingBottom: 40,
       },
     }
     return(
       <div style={styles.container}>
         <Row>
-          <Col sm={6} md={6} lg={3}>
-            <img style={styles.img} src={lab.img} />
-            <h1>{lab.name}</h1>
-            <LabRaiting />
+          <Col sm={6} md={6} lg={8}>
+            <img className="img-clinic" src={lab.img} />
+          </Col>
+          <Col sm={6} md={6} lg={4}>
+            <h1 className="detail-name">{lab.name}</h1>
+            <div className="raiting-star"><LabRaiting /></div>
           </Col>
         </Row>
       </div>

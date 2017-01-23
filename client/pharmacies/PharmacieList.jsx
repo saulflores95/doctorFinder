@@ -55,15 +55,19 @@ export default class PharmacieList extends Component {
     }
     return(
       <Col xs={12} sm={12} md={12} lg={4}>
-          <div className="list-back">
-              <a href={`/pharmacies/${this.props.pharmacie}`}>
-                <img
-                  className="img-list"
-                  src={img}
-                />
-              </a>
-            <h1 className="list-h1"> {this.props.pharmacie} </h1>
-          </div>
+        <div className="list-back">
+          <a href={`/pharmacies/${this.props.pharmacie}`}>
+            <img
+              className="img-list"
+              src={img}
+            />
+          </a>
+          <h1 className="list-h1">
+            <a className="link" href={`/pharmacies/${this.props.pharmacie}`}>
+              {this.props.pharmacie}
+            </a>
+          </h1>
+        </div>
       </Col>
 
     )

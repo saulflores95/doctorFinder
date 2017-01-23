@@ -39,15 +39,19 @@ export default class ClinicList extends Component {
     }
     return(
       <Col xs={12} sm={12} md={12} lg={4}>
-          <div className="list-back">
-              <a href={`/clinics/${this.props.clinic._id}`}>
-                <img
-                  className="img-list"
-                  src={this.props.clinic.img}
-                />
-              </a>
-            <h1 className="list-h1"> {this.props.clinic.name} </h1>
-          </div>
+        <div className="list-back">
+          <a href={`/clinics/${this.props.clinic._id}`}>
+            <img
+              className="img-list"
+              src={this.props.clinic.img}
+            />
+          </a>
+          <h1 className="list-h1">
+            <a className="link" href={`/clinics/${this.props.clinic._id}`}>
+              {this.props.clinic.name}
+            </a>
+          </h1>
+        </div>
       </Col>
     )
   }

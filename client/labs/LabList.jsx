@@ -59,14 +59,18 @@ export default class LabList extends Component{
     }
     return(
       <Col xs={12} sm={12} md={12} lg={4}>
-          <div style={styles.back}>
-              <a href={`/laboratories/${this.props.lab}`}>
-                <img
-                  style={styles.img}
-                  src={img}
-                />
+          <div className="list-back">
+            <a href={`/laboratories/${this.props.lab}`}>
+              <img
+                className="img-list"
+                src={img}
+              />
+            </a>
+            <h1 className="list-h1" >
+              <a className="link" href={`/laboratories/${this.props.lab}`}>
+                {this.props.lab}
               </a>
-            <h1 style={styles.h2}> {this.props.lab} </h1>
+            </h1>
           </div>
       </Col>
 

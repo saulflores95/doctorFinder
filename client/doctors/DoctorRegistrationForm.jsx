@@ -21,13 +21,84 @@ export default class DoctorRegistrationForm extends Component {
       count:0,
       latitude:0,
       longitude:0,
+      url:'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQbPvqnfj0taeHk9BLFCYpySg2-eVk2i7kx4PE046Waix2-zM-NAILl-m8',
     }
   }
 
-  addDoctor(event){
-      event.preventDefault();
+  componentWillMount(){
+    // we create this rule both on client and server
+    Slingshot.fileRestrictions("myFileUploads", {
+      allowedFileTypes: ["image/png", "image/jpeg", "image/gif"],
+      maxSize: 10 * 1024 * 1024 // 10 MB (use null for unlimited)
+    });
+  }
+
+  componentDidMount(){
+    this.getLocation();
+  }
+
+  toggleChecked(Checkbox){
+    console.log('this was pressed');
+    if(this.state.toogleState == false){
+      this.state.toogleState = true;
+    }else{
+      this.state.toogleState = false;
+    }
+    console.log(this.state.toogleState);
+  }
+
+  handleChange(event, index, value){
+    this.setState({value: value});
+  }
+
+  getLocation(){
+    console.log('User Location:', Geolocation.latLng());
+    console.log(this.state.count);
+    if(this.state.count >= 1){
+      this.state.longitude = Geolocation.latLng().lng;
+      this.state.latitude = Geolocation.latLng().lat;
+    }
+    this.state.count++;
+    console.log('State longitude:', this.state.longitude);
+    console.log('State latitude:', this.state.latitude);
+
+  }
+
+  handleOpen(){
+    this.state.open = true;
+  };
+
+  handleClose(){
+    this.state.open = false;
+  };
+
+  handleImageChange(url){
+    this.setState({
+      url:url
+    });
+  }
+
+  upload(event){
+    event.preventDefault();
+    var uploader = new Slingshot.Upload("myFileUploads");
+    var self = this;
+
+    uploader.send(document.getElementById('input').files[0], function (error, downloadUrl) {
+      if (error) {
+        // Log service detailed response
+        alert (error);
+      }
+      else {
+        self.handleImageChange(downloadUrl);
+        console.log(self.state.url);
+        self.addDoctor();
+      }
+    });
+  }
+
+  addDoctor(){
       var name = this.refs.doctorName.getValue();
-      var img = this.refs.doctorImgUrl.getValue();
+      var img = this.state.url;
       var description = this.refs.description.getValue();
       var insurance = this.state.toogleState;
       var specialty = this.state.value;
@@ -68,45 +139,6 @@ export default class DoctorRegistrationForm extends Component {
     }
   }
 
-  toggleChecked(Checkbox){
-    console.log('this was pressed');
-    if(this.state.toogleState == false){
-      this.state.toogleState = true;
-    }else{
-      this.state.toogleState = false;
-    }
-    console.log(this.state.toogleState);
-  }
-
-  handleChange(event, index, value){
-    this.setState({value: value});
-  }
-
-  getLocation(){
-    console.log('User Location:', Geolocation.latLng());
-    console.log(this.state.count);
-    if(this.state.count >= 1){
-      this.state.longitude = Geolocation.latLng().lng;
-      this.state.latitude = Geolocation.latLng().lat;
-    }
-    this.state.count++;
-    console.log('State longitude:', this.state.longitude);
-    console.log('State latitude:', this.state.latitude);
-
-  }
-
-  componentDidMount(){
-    this.getLocation();
-  }
-
-  handleOpen(){
-    this.state.open = true;
-  };
-
-  handleClose(){
-    this.state.open = false;
-  };
-
   render(){
 
     const styles = {
@@ -139,7 +171,7 @@ export default class DoctorRegistrationForm extends Component {
             <Container>
               <Paper style={styles.paper} zDepth={3}>
                 <Container>
-                <form className="new-doctor" onSubmit={this.addDoctor.bind(this)}>
+                <form className="new-doctor" onSubmit={this.upload.bind(this)}>
                   <div style={styles.formDivisor}>
                     <Row>
                       <Col sm={6}>
@@ -150,11 +182,7 @@ export default class DoctorRegistrationForm extends Component {
                         />
                       </Col>
                       <Col sm={6}>
-                        <TextField
-                          hintText="url de imagen"
-                          ref="doctorImgUrl"
-                          fullWidth={true}
-                        />
+                      <input type="file" id="input" />
                       </Col>
                     </Row>
                     <SelectField

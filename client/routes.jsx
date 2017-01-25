@@ -240,14 +240,6 @@ FlowRouter.route('/laboratories/:name/:id', {
 });
 
 
-FlowRouter.route('/laboratories/:name/:id/edit', {
-  action(params) {
-    mount(MainLayout,{
-      content: (<LabEditForm id={params.id} />),
-    })
-  }
-});
-
 FlowRouter.route('/uploader', {
   action(params) {
     mount(MainLayout,{

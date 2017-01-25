@@ -1,75 +1,78 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
-import {Container, Row } from 'react-grid-system';
-export default class Uploader extends TrackerReact(React.Component) {
-  constructor(){
+
+export default class Uploader extends TrackerReact(React.Component){
+
+  constructor() {
     super();
     this.state = {
-      avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlDlIUjYUc86gEO2-EczzVaoPBzC3AHw_z68-UsMdWoeRCaoUld-9F1do' // this is passed from the router. Well add this later
-    }
+      url:'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQbPvqnfj0taeHk9BLFCYpySg2-eVk2i7kx4PE046Waix2-zM-NAILl-m8',
+    };
+    this.upload = this.upload.bind(this);
+
   }
 
 
   componentWillMount(){
-  // we create this rule both on client and server
+    // we create this rule both on client and server
     Slingshot.fileRestrictions("myFileUploads", {
       allowedFileTypes: ["image/png", "image/jpeg", "image/gif"],
-      maxSize: 10 * 1024 * 1024 // 10 MB (use null for unlimited).
+      maxSize: 10 * 1024 * 1024 // 10 MB (use null for unlimited)
     });
   }
 
+  handleImageChange(url){
+    this.setState({
+      url:url
+    });
+  }
+
+createUser(){
+  var newUser = {
+    name:'Dr. Ramirez',
+    img: this.state.url
+  }
+  console.log('New user added: ', newUser);
+}
+
   upload(){
     var uploader = new Slingshot.Upload("myFileUploads");
+    var newUrl = null;
+    var self = this;
+
     uploader.send(document.getElementById('input').files[0], function (error, downloadUrl) {
       if (error) {
-        // Log service detailed response.
-        console.error('Error uploading', uploader.xhr.response);
+        // Log service detailed response
         alert (error);
       }
       else {
         Meteor.users.update(Meteor.userId(), {$push: {"profile.files": downloadUrl}});
+        self.handleImageChange(downloadUrl);
+        self.createUser();
       }
     });
   }
 
-  formSubmit(){
-  // Ofcourse you'll have other fields...
-    let avatarUrl = this.state.avatar;
-    console.log(avatarUrl);
-  /*  Meteor.users.update( { _id: Meteor.userId() }, {
-      $set: {profile: avatarUrl}
-    });*/
-  }
-
   render(){
     let styles = {
-       uploader: {
-         paddingTop:100
-       }
+      form:{
+        paddingTop:100,
+      },
+      img: {
+        padding:50,
+        borderRadius:'50%',
+      }
     }
-    return (
-        <div style={styles.uploader}>
-          <h1>Upload an Image</h1>
+    return(
+      <div style={styles.form}>
           <form>
-            <div className="row well">
-             <div className="col-md-6">
-                <div className="form-group">
-                  <label htmlFor="exampleInputFile">File input</label>
-                  <input type="file" id="input" onChange={this.upload.bind(this)} />
-                  <p className="help-block">Image max restriction: 2MB, 500x500. Cropped: 200x200</p>
-                </div>
-              </div>
-              <div className="col-md-6 utar-r">
-                <img src={this.state.avatar} height="200" width="200" alt="..." className="img-rounded" />
-              </div>
-              <div className="form-group">
-                <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={this.formSubmit.bind(this)}>Update Profile</button>
-              </div>
-            </div>
+                <input type="file" id="input" />
+                <button type="button" onClick={this.upload.bind(this)}>Click Me!</button>
           </form>
-        </div>
-      )
+          <div style={styles.img}>
+            <img width="300" height="300" src={this.state.url} />
+          </div>
+      </div>
+    )
   }
-
 }

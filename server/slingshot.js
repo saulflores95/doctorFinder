@@ -1,13 +1,12 @@
 Slingshot.fileRestrictions("myFileUploads", {
   allowedFileTypes: ["image/png", "image/jpeg", "image/gif"],
-  maxSize: 10 * 1024 * 1024 // 10 MB (use null for unlimited).
+  maxSize: 10 * 1024 * 1024 // 10 MB (use null for unlimited)
 });
 
-
 Slingshot.createDirective("myFileUploads", Slingshot.S3Storage, {
-  bucket: "healthcareabajabuckit.s3-us-west-2.amazonaws.com",
-
-  acl: "public-read",
+  bucket:                "healthcarebaja",
+  region:                 "us-west-1",
+  acl:                    "public-read",
 
   authorize: function () {
     //Deny uploads if user is not logged in.

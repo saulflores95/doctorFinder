@@ -6,6 +6,7 @@ module.exports = {
       // pem:
       password: 'poloboy1',
       // or leave blank for authenticate from ssh-agent
+      //C:\Users\Saul\AppData\Roaming\npm
     }
   },
 

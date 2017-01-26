@@ -148,6 +148,9 @@ export default class DoctorRegistrationForm extends Component {
         marginTop: '50px'
 
       },
+      img: {
+        borderRadius:'50%',
+      },
       formStyle: {
       },
       formDivisor: {
@@ -174,17 +177,24 @@ export default class DoctorRegistrationForm extends Component {
                 <form className="new-doctor" onSubmit={this.upload.bind(this)}>
                   <div style={styles.formDivisor}>
                     <Row>
-                      <Col sm={6}>
+                    <Col sm={12} md={6} lg={6}>
+                      <img style={styles.img} width="150" height="150" src={this.state.url} />
+                    </Col>
+                    <Col sm={12} md={6} lg={6}>
+                      <input type="file" id="input" />
+                    </Col>
+                    </Row>
+
+                    <Row>
+
+                    <Col sm={12} md={6} lg={6}>
                         <TextField
                           hintText="Agrega una doctor"
                           ref="doctorName"
                           fullWidth={true}
                         />
                       </Col>
-                      <Col sm={6}>
-                      <input type="file" id="input" />
-                      </Col>
-                    </Row>
+                    <Col sm={12} md={6} lg={6}>
                     <SelectField
                       floatingLabelText="Specialty"
                       value={this.state.value}
@@ -220,6 +230,8 @@ export default class DoctorRegistrationForm extends Component {
                       <MenuItem value={'Surgeon'} primaryText="Surgeon  " />
                       <MenuItem value={'Urologist'} primaryText="Urologist  " />
                     </SelectField>
+                    </Col>
+                    </Row>
                   </div>
                   <div style={styles.formDivisor}>
                     <Row>

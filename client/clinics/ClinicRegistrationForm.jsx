@@ -15,13 +15,51 @@ export default class ClinicRegistrationForm extends Component {
     this.state = {
       toogleState: false,
       value:'Dermatology',
+      url:'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQbPvqnfj0taeHk9BLFCYpySg2-eVk2i7kx4PE046Waix2-zM-NAILl-m8',
     }
   }
 
-  addClinic(event){
+  toggleChecked(Checkbox){
+    console.log('this was pressed');
+    if(this.state.toogleState == false){
+      this.state.toogleState = true;
+    }else{
+      this.state.toogleState = false;
+    }
+    console.log(this.state.toogleState);
+  }
+
+  handleChange(event, index, value){
+    this.setState({value: value});
+  }
+
+  handleImageChange(url){
+    this.setState({
+      url:url
+    });
+  }
+
+  upload(event){
     event.preventDefault();
+    var uploader = new Slingshot.Upload("myFileUploads");
+    var self = this;
+
+    uploader.send(document.getElementById('input').files[0], function (error, downloadUrl) {
+      if (error) {
+        // Log service detailed response
+        alert (error);
+      }
+      else {
+        self.handleImageChange(downloadUrl);
+        console.log(self.state.url);
+        self.addClinic();
+      }
+    });
+  }
+
+  addClinic(){
     var name = this.refs.clinicName.getValue();
-    var img = this.refs.clinicImgUrl.getValue();
+    var img = this.state.url;
     var specialty = this.state.value;
     var specific = {
       one:this.refs.specificOne.getValue(),
@@ -56,22 +94,6 @@ export default class ClinicRegistrationForm extends Component {
     console.log(specific);
   }
 
-
-  toggleChecked(Checkbox){
-    console.log('this was pressed');
-    if(this.state.toogleState == false){
-      this.state.toogleState = true;
-    }else{
-      this.state.toogleState = false;
-    }
-    console.log(this.state.toogleState);
-  }
-
-  handleChange(event, index, value){
-    this.setState({value: value});
-  }
-
-
   render(){
 
     const styles = {
@@ -103,7 +125,7 @@ export default class ClinicRegistrationForm extends Component {
         <Container>
         <Paper style={styles.paper} zDepth={3}>
         <Container>
-          <form className="new-doctor" onSubmit={this.addClinic.bind(this)}>
+          <form className="new-doctor" onSubmit={this.upload.bind(this)}>
             <div style={styles.formDivisor}>
               <Row>
                 <Col sm={6}>
@@ -114,11 +136,7 @@ export default class ClinicRegistrationForm extends Component {
                   />
                 </Col>
                 <Col sm={6}>
-                  <TextField
-                    hintText="url de imagen"
-                    ref="clinicImgUrl"
-                    fullWidth={true}
-                  />
+                  <input type="file" id="input" />
                 </Col>
                 <Col sm={12} md={12} lg={12}>
                 <SelectField

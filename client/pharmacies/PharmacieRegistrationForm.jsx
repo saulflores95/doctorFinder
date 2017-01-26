@@ -15,13 +15,37 @@ export default class PharmacieRegistrationForm extends Component {
     this.state = {
       toogleState: false,
       value:'Podologia',
+      url:'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQbPvqnfj0taeHk9BLFCYpySg2-eVk2i7kx4PE046Waix2-zM-NAILl-m8',
     }
   }
 
-  addPharmacie(event){
+  handleImageChange(url){
+    this.setState({
+      url:url
+    });
+  }
+
+  upload(event){
     event.preventDefault();
+    var uploader = new Slingshot.Upload("myFileUploads");
+    var self = this;
+
+    uploader.send(document.getElementById('input').files[0], function (error, downloadUrl) {
+      if (error) {
+        // Log service detailed response
+        alert (error);
+      }
+      else {
+        self.handleImageChange(downloadUrl);
+        console.log(self.state.url);
+        self.addPharmacie();
+      }
+    });
+  }
+
+  addPharmacie(){
     var name = this.refs.clinicName.getValue();
-    var img = this.refs.clinicImgUrl.getValue();
+    var img = this.state.url;
     var phone = this.refs.phone.getValue();
     var latitude = this.refs.latitude.getValue();
     var longitude = this.refs.longitude.getValue();
@@ -89,11 +113,7 @@ export default class PharmacieRegistrationForm extends Component {
                   />
                 </Col>
                 <Col sm={6}>
-                  <TextField
-                    hintText="url de imagen"
-                    ref="clinicImgUrl"
-                    fullWidth={true}
-                  />
+                  <input type="file" id="input" />
                 </Col>
               </Row>
             </div>

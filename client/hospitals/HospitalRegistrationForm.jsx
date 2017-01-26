@@ -16,13 +16,38 @@ export default class HospitalRegistrationForm extends Component {
       toogleState: false,
       value:'Podologia',
       inputs:[1],
+      url:'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQbPvqnfj0taeHk9BLFCYpySg2-eVk2i7kx4PE046Waix2-zM-NAILl-m8',
     }
   }
 
-  addHospital(event){
+
+  handleImageChange(url){
+    this.setState({
+      url:url
+    });
+  }
+
+  upload(event){
     event.preventDefault();
+    var uploader = new Slingshot.Upload("myFileUploads");
+    var self = this;
+
+    uploader.send(document.getElementById('input').files[0], function (error, downloadUrl) {
+      if (error) {
+        // Log service detailed response
+        alert (error);
+      }
+      else {
+        self.handleImageChange(downloadUrl);
+        console.log(self.state.url);
+        self.addHospital();
+      }
+    });
+  }
+
+  addHospital(){
     var name = this.refs.hospitalName.getValue();
-    var img = this.refs.hospitalImgUrl.getValue();
+    var img = this.state.url;
     var phone = this.refs.phone.getValue();
     var latitude = this.refs.latitude.getValue();
     var longitude = this.refs.longitude.getValue()
@@ -91,7 +116,7 @@ export default class HospitalRegistrationForm extends Component {
         <Container>
         <Paper style={styles.paper} zDepth={3}>
         <Container>
-          <form className="new-doctor" onSubmit={this.addHospital.bind(this)}>
+          <form className="new-doctor" onSubmit={this.upload.bind(this)}>
             <div style={styles.formDivisor}>
               <Row>
                 <Col sm={6}>
@@ -102,11 +127,7 @@ export default class HospitalRegistrationForm extends Component {
                   />
                 </Col>
                 <Col sm={6}>
-                  <TextField
-                    hintText="url de imagen"
-                    ref="hospitalImgUrl"
-                    fullWidth={true}
-                  />
+                  <input type="file" id="input" />
                 </Col>
                 <Col sm={6} md={6} lg={6}>
                   <TextField

@@ -18,8 +18,32 @@ export default class LabRegistrationForm extends Component {
     }
   }
 
-  addLab(event){
+  handleImageChange(url){
+    this.setState({
+      url:url
+    });
+  }
+
+  upload(event){
     event.preventDefault();
+    var uploader = new Slingshot.Upload("myFileUploads");
+    var self = this;
+
+    uploader.send(document.getElementById('input').files[0], function (error, downloadUrl) {
+      if (error) {
+        // Log service detailed response
+        alert (error);
+      }
+      else {
+        self.handleImageChange(downloadUrl);
+        console.log(self.state.url);
+        self.addLab();
+      }
+    });
+  }
+
+
+  addLab(){
     var name = this.refs.clinicName.getValue();
     var img = this.refs.clinicImgUrl.getValue();
     var phone = this.refs.phone.getValue();
@@ -89,11 +113,7 @@ export default class LabRegistrationForm extends Component {
                   />
                 </Col>
                 <Col sm={6}>
-                  <TextField
-                    hintText="url de imagen"
-                    ref="clinicImgUrl"
-                    fullWidth={true}
-                  />
+                  <input type="file" id="input" />
                 </Col>
               </Row>
             </div>

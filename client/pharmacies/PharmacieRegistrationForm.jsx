@@ -8,6 +8,8 @@ import Paper from 'material-ui/Paper';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Close from 'material-ui/svg-icons/navigation/close';
+import Uploader from '../uploader/Uploader.jsx';
+
 export default class PharmacieRegistrationForm extends Component {
 
   constructor(){
@@ -15,32 +17,19 @@ export default class PharmacieRegistrationForm extends Component {
     this.state = {
       toogleState: false,
       value:'Podologia',
-      url:'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQbPvqnfj0taeHk9BLFCYpySg2-eVk2i7kx4PE046Waix2-zM-NAILl-m8',
+      url:'http://plainicon.com/download-icons/60447/plainicon.com-60447-f430-512px.png',
     }
   }
 
   handleImageChange(url){
-    this.setState({
-      url:url
-    });
-  }
-
-  upload(event){
-    event.preventDefault();
-    var uploader = new Slingshot.Upload("myFileUploads");
-    var self = this;
-
-    uploader.send(document.getElementById('input').files[0], function (error, downloadUrl) {
-      if (error) {
-        // Log service detailed response
-        alert (error);
-      }
-      else {
-        self.handleImageChange(downloadUrl);
-        console.log(self.state.url);
-        self.addPharmacie();
-      }
-    });
+    if(url){
+      this.setState({
+        url:url
+      });
+      console.log('State From Parent Change: ', this.state.url);
+    }else if(!url){
+    console.log('url not found');
+    }
   }
 
   addPharmacie(){
@@ -102,18 +91,21 @@ export default class PharmacieRegistrationForm extends Component {
         <Container>
         <Paper style={styles.paper} zDepth={3}>
         <Container>
-          <form className="new-doctor" onSubmit={this.addPharmacie.bind(this)}>
+          <form className="new-doctor">
             <div style={styles.formDivisor}>
               <Row>
+                <Col sm={12} md={6} lg={6}>
+                  <img width="150" height="150" src={this.state.url} />
+                </Col>
+                <Col sm={12} md={6} lg={6}>
+                  <Uploader handle={this.handleImageChange.bind(this)}></Uploader>
+                </Col>
                 <Col sm={6}>
                   <TextField
                     hintText="Pharmacie Name"
                     ref="clinicName"
                     fullWidth={true}
                   />
-                </Col>
-                <Col sm={6}>
-                  <input type="file" id="input" />
                 </Col>
               </Row>
             </div>
@@ -152,7 +144,7 @@ export default class PharmacieRegistrationForm extends Component {
                 <Col sm={2}>
                   <RaisedButton
                     label="Register"
-                    type="submit"
+                    onClick={this.addPharmacie.bind(this)}
                     className="button-submit"
                     primary={true}
                   />

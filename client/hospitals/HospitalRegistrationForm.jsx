@@ -8,6 +8,8 @@ import Paper from 'material-ui/Paper';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Close from 'material-ui/svg-icons/navigation/close';
+import Uploader from '../uploader/Uploader.jsx';
+
 export default class HospitalRegistrationForm extends Component {
 
   constructor(){
@@ -16,33 +18,20 @@ export default class HospitalRegistrationForm extends Component {
       toogleState: false,
       value:'Podologia',
       inputs:[1],
-      url:'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQbPvqnfj0taeHk9BLFCYpySg2-eVk2i7kx4PE046Waix2-zM-NAILl-m8',
+      url:'http://clipart-finder.com/data/mini/15-hospital_lineart.png',
     }
   }
 
 
   handleImageChange(url){
-    this.setState({
-      url:url
-    });
-  }
-
-  upload(event){
-    event.preventDefault();
-    var uploader = new Slingshot.Upload("myFileUploads");
-    var self = this;
-
-    uploader.send(document.getElementById('input').files[0], function (error, downloadUrl) {
-      if (error) {
-        // Log service detailed response
-        alert (error);
-      }
-      else {
-        self.handleImageChange(downloadUrl);
-        console.log(self.state.url);
-        self.addHospital();
-      }
-    });
+    if(url){
+      this.setState({
+        url:url
+      });
+      console.log('State From Parent Change: ', this.state.url);
+    }else if(!url){
+    console.log('url not found');
+    }
   }
 
   addHospital(){
@@ -116,18 +105,21 @@ export default class HospitalRegistrationForm extends Component {
         <Container>
         <Paper style={styles.paper} zDepth={3}>
         <Container>
-          <form className="new-doctor" onSubmit={this.upload.bind(this)}>
+          <form className="new-doctor">
             <div style={styles.formDivisor}>
               <Row>
+              <Col sm={12} md={6} lg={6}>
+                <img width="150" height="150" src={this.state.url} />
+              </Col>
+              <Col sm={12} md={6} lg={6}>
+                <Uploader handle={this.handleImageChange.bind(this)}></Uploader>
+              </Col>
                 <Col sm={6}>
                   <TextField
                     hintText="Hospital Name"
                     ref="hospitalName"
                     fullWidth={true}
                   />
-                </Col>
-                <Col sm={6}>
-                  <input type="file" id="input" />
                 </Col>
                 <Col sm={6} md={6} lg={6}>
                   <TextField
@@ -157,7 +149,7 @@ export default class HospitalRegistrationForm extends Component {
                 <Col sm={2}>
                   <RaisedButton
                     label="Register"
-                    type="submit"
+                    onClick={this.addHospital.bind(this)}
                     className="button-submit"
                     primary={true}
                   />

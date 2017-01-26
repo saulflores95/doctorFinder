@@ -32,7 +32,6 @@ import LabMap from './maps/LabMap.jsx';
 import LabsInformationWrapper from './labs/LabsInformationWrapper.jsx';
 import Uploader from './uploader/Uploader.jsx';
 
-
 FlowRouter.route('/', {
   action() {
     mount(MainLayout,{

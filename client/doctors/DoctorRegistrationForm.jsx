@@ -10,6 +10,7 @@ import MenuItem from 'material-ui/MenuItem';
 import { Geolocation } from 'meteor/mdg:geolocation';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import Uploader from '../uploader/Uploader.jsx';
 
 export default class DoctorRegistrationForm extends Component {
 
@@ -23,14 +24,6 @@ export default class DoctorRegistrationForm extends Component {
       longitude:0,
       url:'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQbPvqnfj0taeHk9BLFCYpySg2-eVk2i7kx4PE046Waix2-zM-NAILl-m8',
     }
-  }
-
-  componentWillMount(){
-    // we create this rule both on client and server
-    Slingshot.fileRestrictions("myFileUploads", {
-      allowedFileTypes: ["image/png", "image/jpeg", "image/gif"],
-      maxSize: 10 * 1024 * 1024 // 10 MB (use null for unlimited)
-    });
   }
 
   componentDidMount(){
@@ -51,6 +44,16 @@ export default class DoctorRegistrationForm extends Component {
     this.setState({value: value});
   }
 
+  handleImageChange(url){
+    if(url){
+      this.setState({
+        url:url
+      });
+      console.log('State From Parent Change: ', this.state.url);
+    }else if(!url){
+    console.log('url not found');
+    }
+  }
   getLocation(){
     console.log('User Location:', Geolocation.latLng());
     console.log(this.state.count);
@@ -71,30 +74,6 @@ export default class DoctorRegistrationForm extends Component {
   handleClose(){
     this.state.open = false;
   };
-
-  handleImageChange(url){
-    this.setState({
-      url:url
-    });
-  }
-
-  upload(event){
-    event.preventDefault();
-    var uploader = new Slingshot.Upload("myFileUploads");
-    var self = this;
-
-    uploader.send(document.getElementById('input').files[0], function (error, downloadUrl) {
-      if (error) {
-        // Log service detailed response
-        alert (error);
-      }
-      else {
-        self.handleImageChange(downloadUrl);
-        console.log(self.state.url);
-        self.addDoctor();
-      }
-    });
-  }
 
   addDoctor(){
       var name = this.refs.doctorName.getValue();
@@ -174,14 +153,14 @@ export default class DoctorRegistrationForm extends Component {
             <Container>
               <Paper style={styles.paper} zDepth={3}>
                 <Container>
-                <form className="new-doctor" onSubmit={this.upload.bind(this)}>
+                <form className="new-doctor">
                   <div style={styles.formDivisor}>
                     <Row>
                     <Col sm={12} md={6} lg={6}>
                       <img style={styles.img} width="150" height="150" src={this.state.url} />
                     </Col>
                     <Col sm={12} md={6} lg={6}>
-                      <input type="file" id="input" />
+                      <Uploader handle={this.handleImageChange.bind(this)}></Uploader>
                     </Col>
                     </Row>
 
@@ -327,7 +306,7 @@ export default class DoctorRegistrationForm extends Component {
                       <Col sm={12} md={6} lg={6}>
                         <RaisedButton
                           label="Register"
-                          type="submit"
+                          onClick={this.addDoctor.bind(this)}
                           className="button-submit"
                           primary={true}
                         />

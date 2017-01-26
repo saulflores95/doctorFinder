@@ -8,6 +8,8 @@ import Paper from 'material-ui/Paper';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Close from 'material-ui/svg-icons/navigation/close';
+import Uploader from '../uploader/Uploader.jsx';
+
 export default class LabRegistrationForm extends Component {
 
   constructor(){
@@ -15,37 +17,24 @@ export default class LabRegistrationForm extends Component {
     this.state = {
       toogleState: false,
       value:'Podologia',
+      url:'http://www.gatt.org/re/clt/wp-content/uploads/wovaxproperty-images/3224367/3224367-default.jpg',
     }
   }
 
   handleImageChange(url){
-    this.setState({
-      url:url
-    });
+    if(url){
+      this.setState({
+        url:url
+      });
+      console.log('State From Parent Change: ', this.state.url);
+    }else if(!url){
+    console.log('url not found');
+    }
   }
-
-  upload(event){
-    event.preventDefault();
-    var uploader = new Slingshot.Upload("myFileUploads");
-    var self = this;
-
-    uploader.send(document.getElementById('input').files[0], function (error, downloadUrl) {
-      if (error) {
-        // Log service detailed response
-        alert (error);
-      }
-      else {
-        self.handleImageChange(downloadUrl);
-        console.log(self.state.url);
-        self.addLab();
-      }
-    });
-  }
-
 
   addLab(){
     var name = this.refs.clinicName.getValue();
-    var img = this.refs.clinicImgUrl.getValue();
+    var img = this.state.url;
     var phone = this.refs.phone.getValue();
     var latitude = this.refs.latitude.getValue();
     var longitude = this.refs.longitude.getValue();
@@ -102,18 +91,21 @@ export default class LabRegistrationForm extends Component {
         <Container>
         <Paper style={styles.paper} zDepth={3}>
         <Container>
-          <form className="new-doctor" onSubmit={this.addLab.bind(this)}>
+          <form className="new-doctor">
             <div style={styles.formDivisor}>
               <Row>
+                <Col sm={12} md={6} lg={6}>
+                  <img width="150" height="150" src={this.state.url} />
+                </Col>
+                <Col sm={12} md={6} lg={6}>
+                  <Uploader handle={this.handleImageChange.bind(this)}></Uploader>
+                </Col>
                 <Col sm={6}>
                   <TextField
                     hintText="Laboratory Name"
                     ref="clinicName"
                     fullWidth={true}
                   />
-                </Col>
-                <Col sm={6}>
-                  <input type="file" id="input" />
                 </Col>
               </Row>
             </div>
@@ -152,7 +144,7 @@ export default class LabRegistrationForm extends Component {
                 <Col sm={2}>
                   <RaisedButton
                     label="Register"
-                    type="submit"
+                    onClick={this.addLab.bind(this)}
                     className="button-submit"
                     primary={true}
                   />

@@ -58,18 +58,24 @@ export default class DoctorDetail extends TrackerReact(React.Component){
     }else {
       userChecker = (
         <div>
-          <RaisedButton
-            label="Edit Doctor"
-            labelPosition="before"
-            primary={false}
-            href={`/doctors/${this.props.id}/edit`}
-          />
-          <RaisedButton
-            label="Delete Doctor"
-            labelPosition="before"
-            primary={false}
-            onClick={this.delete.bind(this)}
-          />
+          <Row>
+            <Col xs={4} sm={4} md={4} lg={4}>
+              <RaisedButton
+                label={<span className="label-text">Edit Doctor</span>}
+                labelPosition="before"
+                primary={false}
+                href={`/doctors/${this.props.id}/edit`}
+              />
+            </Col>
+            <Col xs={5} sm={5} md={5} lg={5}>
+              <RaisedButton
+                label={<span className="label-text">Delete Doctor</span>}
+                labelPosition="before"
+                primary={false}
+                onClick={this.delete.bind(this)}
+              />
+            </Col>
+          </Row>
         </div>
       );
     }
@@ -87,7 +93,7 @@ export default class DoctorDetail extends TrackerReact(React.Component){
               <Col xs={12} sm={12} md={12} lg={12}><DoctorDescription id={this.props.id} /></Col>
               <Col xs={12} sm={12} md={12} lg={6}><DoctorContactForm id={this.props.id} /></Col>
               <Col xs={12} sm={12} md={12} lg={6}><DoctorMap id={this.props.id} /></Col>
-              <Col xs={12} sm={6} md={6} lg={6}>
+              <Col xs={11} sm={11} md={11} lg={5}>
                 {userChecker}
               </Col>
 

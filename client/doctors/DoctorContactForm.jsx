@@ -45,22 +45,22 @@ export default class DoctorContactForm extends Component {
       <MuiThemeProvider>
             <form className="new-doctor" onSubmit={this.addDoctor.bind(this)}>
                 <TextField
-                  hintText="First Name"
+                  hintText={<span className="label-text">First Name</span>}
                   ref="firstName"
                   fullWidth={true}
                 />
                 <TextField
-                  hintText="Last Name"
+                  hintText={<span className="label-text">Last Name</span>}
                   ref="lastName"
                   fullWidth={true}
                 />
                 <TextField
-                  hintText="Email"
+                  hintText={<span className="label-text">Email</span>}
                   ref="email"
                   fullWidth={true}
                 />
                 <TextField
-                  hintText="Messege"
+                  hintText={<span className="label-text">Messege</span>}
                   ref="message"
                   fullWidth={true}
                   multiLine={true}
@@ -68,16 +68,16 @@ export default class DoctorContactForm extends Component {
                   rowsMax={4}
                 />
                 <RaisedButton
-                  label="Send"
+                  label={<span className="label-text">Send</span>}
                   type="submit"
                   primary={true}
 
                 />
                 <RaisedButton
-                  label="Call"
+                  label={<span className="label-text">Call</span>}
                   labelPosition="before"
                   primary={false}
-                  icon={<FaPhone />}
+                  icon={<FaPhone className="label-icon"/>}
                 />
             </form>
       </MuiThemeProvider>

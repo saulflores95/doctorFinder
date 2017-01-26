@@ -58,7 +58,7 @@ export default class DoctorDescription extends Component {
 
     const actions = [
       <FlatButton
-        label="Close"
+        label={<span className="label-text">Close</span>}
         primary={true}
         onTouchTap={this.handleClose.bind(this)}
       />
@@ -69,8 +69,8 @@ export default class DoctorDescription extends Component {
           <Paper zDepth={1} style={styles.paper}>
             <Container>
             <div style={styles.text}>
-              <p style={styles.p}>{doctor.description}</p>
-              <RaisedButton label="Read more" onTouchTap={this.handleOpen.bind(this)}/>
+              <p className="doctor-description">{doctor.description}</p>
+              <RaisedButton label={<span className="label-text">Read more</span>} onTouchTap={this.handleOpen.bind(this)}/>
               </div>
             </Container>
           </Paper>
@@ -78,13 +78,13 @@ export default class DoctorDescription extends Component {
         <div>
           <MuiThemeProvider>
             <Dialog
-             title="Doctor Description"
+             title={<span className="doctor-descriptionTitle">Doctor Description</span>}
              actions={actions}
              modal={false}
              open={this.state.open}
              onRequestClose={this.handleClose.bind(this)}
              >
-             <p>{doctor.description}</p>
+             <p className="doctor-descriptionFull">{doctor.description}</p>
             </Dialog>
        </MuiThemeProvider>
         </div>

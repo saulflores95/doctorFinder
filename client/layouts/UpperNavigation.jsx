@@ -42,6 +42,9 @@ export default class UpperNavigation extends Component{
       leftIcon: {
         height: '72px',
         width: '72px'
+      },
+      iconMenu: {
+        left: '0px !important',
       }
     };
 
@@ -52,20 +55,20 @@ export default class UpperNavigation extends Component{
           <AppBar
             title=""
             className="app-bar"
-            iconElementLeft={<img className="img-logo" src={imgUrl}/>}
+            iconElementLeft={<a href="/"><img className="img-logo" src={imgUrl} /></a>}
             iconElementRight={
               <IconMenu
                 iconButtonElement={<MoreVertIcon className="left-icon"/>}
                 anchorOrigin={{horizontal: 'right', vertical: 'top'}}
                 targetOrigin={{horizontal: 'right', vertical: 'top'}}
-                className="accounts-ui"
+                style={styles.iconMenu}
               >
                 <AccountsUI />
-                <MenuItem href="/registermd" primaryText="Add Doctor" />
-                <MenuItem href="/pharmaciesRegistration" primaryText="Add Pharmacie" />
-                <MenuItem href="/registerClinic" primaryText="Add Clinic" />
-                <MenuItem href="/HospitalRegistration" primaryText="Add Hospital" />
-                <MenuItem href="/laboratoriesRegistration" primaryText="Add Laboratory" />
+                <MenuItem className="menu-item" href="/registermd" primaryText="Add Doctor" />
+                <MenuItem className="menu-item" href="/pharmaciesRegistration" primaryText="Add Pharmacie" />
+                <MenuItem className="menu-item" href="/registerClinic" primaryText="Add Clinic" />
+                <MenuItem className="menu-item" href="/HospitalRegistration" primaryText="Add Hospital" />
+                <MenuItem className="menu-item" href="/laboratoriesRegistration" primaryText="Add Laboratory" />
 
               </IconMenu>
             }

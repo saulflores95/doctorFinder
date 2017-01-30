@@ -13,6 +13,6 @@ export default class AccountsUI extends Component {
   }
 
   render(){
-    return <span ref="container" />
+    return <span ref="container" className="account-label"/>
   }
 }

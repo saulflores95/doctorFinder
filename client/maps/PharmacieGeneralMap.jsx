@@ -96,7 +96,7 @@ export default class PharmacieGeneralMap extends Component {
             docked={false}
             width={600}
             onRequestChange={(open) => this.setState({open})}>
-            <MenuItem onClick={this.handleClose} href="/rutas">
+            <MenuItem onClick={this.handleClose}>
               <PharmacieSingleList name={this.props.name} />
             </MenuItem>
           </Drawer>

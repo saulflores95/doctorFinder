@@ -50,13 +50,13 @@ export default class ClinicDetail extends TrackerReact(React.Component){
       userChecker = (
         <div>
           <RaisedButton
-            label="Edit Clinic"
+            label={<span className="label-text">Edit Clinic</span>}
             labelPosition="before"
             primary={false}
             href={`/clinics/${this.props.id}/edit`}
           />
           <RaisedButton
-            label="Delete Clinic"
+            label={<span className="label-text">Delete Clinic</span>}
             labelPosition="before"
             primary={false}
             onClick={this.delete.bind(this)}
@@ -77,7 +77,7 @@ export default class ClinicDetail extends TrackerReact(React.Component){
               <Row>
                 <Col xs={12} sm={12} md={12} lg={12}><ClinicHeader id={this.props.id}/></Col>
                 <Col xs={12} sm={12} md={12} lg={12}><ClinicMap id={this.props.id}/></Col>
-                <Col xs={12} sm={6} md={6} lg={6}>{userChecker}</Col>
+                <Col xs={12} sm={11} md={11} lg={12}>{userChecker}</Col>
               </Row>
             </Container>
             </MuiThemeProvider>

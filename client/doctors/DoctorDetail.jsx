@@ -57,18 +57,18 @@ export default class DoctorDetail extends TrackerReact(React.Component){
       );
     }else {
       userChecker = (
-        <form>
-        <RaisedButton
-          label={<span className="label-text">Delete Doctor</span>}
-          primary={false}
-          onClick={this.delete.bind(this)}
-        />
+        <div>
           <RaisedButton
-            label={<span className="label-text">Edit Doctor</span>}
+            label={<span className="label-text">Delete Doctor</span>}
             primary={false}
-        
+            onClick={this.delete.bind(this)}
           />
-        </form>
+            <RaisedButton
+              label={<span className="label-text">Edit Doctor</span>}
+              primary={false}
+              href={`/doctors/${this.props.name}/${this.props.id}/edit`}
+            />
+        </div>
       );
     }
 

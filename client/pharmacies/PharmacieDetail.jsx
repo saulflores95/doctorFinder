@@ -62,13 +62,13 @@ export default class PharmacieDetail extends TrackerReact(React.Component){
       userChecker = (
         <div>
           <RaisedButton
-            label="Edit Pharmacie"
+            label={<span className="label-text">Edit Pharmacie</span>}
             labelPosition="before"
             primary={false}
             href={`/pharmacies/${this.props.name}/${this.props.id}/edit`}
           />
           <RaisedButton
-            label="Delete Pharmacie"
+            label={<span className="label-text">Delete Pharmacie</span>}
             labelPosition="before"
             primary={false}
             onClick={this.delete.bind(this)}

@@ -19,7 +19,7 @@ export const MainLayout = ({content}) => (
       <main className="main-content">
           {content}
       </main>
-      <footer >
+      <footer className="footer">
         <ButtomNavigation/>
       </footer>
     </div>

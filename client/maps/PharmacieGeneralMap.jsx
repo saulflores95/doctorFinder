@@ -94,7 +94,7 @@ export default class PharmacieGeneralMap extends Component {
           <Drawer
             open={this.state.open}
             docked={false}
-            width={600}
+            className="sidenav"
             onRequestChange={(open) => this.setState({open})}>
             <MenuItem onClick={this.handleClose}>
               <PharmacieSingleList name={this.props.name} />

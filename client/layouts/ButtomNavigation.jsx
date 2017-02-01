@@ -39,6 +39,10 @@ const styles = {
   },
   bottom: {
     height: '120px'
+  },
+  bottomNavItem: {
+    maxWidth: '96dp',
+    minWidth: '56dp'
   }
 
 };
@@ -59,42 +63,46 @@ export default class ButtomNavigation extends Component{
   render() {
     return (
 
-      <div className="footer">
+      <div>
         <MuiThemeProvider>
-          <Paper zDepth={1} className="bottom-paper">
-            <BottomNavigation selectedIndex={this.state.selectedIndex} className="bottom">
-              <BottomNavigationItem
-                icon={<FaUserMd className="icon-pixel"/>}
-                onTouchTap={() => this.select(0)}
-                 href="/"
-              />
-              <BottomNavigationItem
-                icon={<FaHeartbeat className="icon-pixel"/>}
-                onTouchTap={() => this.select(1)}
-                href="/clinics"
-              />
-              <BottomNavigationItem
-                icon={<FaPlusSquare className="icon-pixel"/>}
-                onTouchTap={() => this.select(2)}
-                href="/pharmacies"
-              />
-              <BottomNavigationItem
-                icon={<FaHospitalO className="icon-pixel"/>}
-                onTouchTap={() => this.select(3)}
-                href="/hospitals"
-              />
-              <BottomNavigationItem
-                icon={<FaFlask className="icon-pixel"/>}
-                onTouchTap={() => this.select(4)}
-                href="/laboratories"
-              />
-              <BottomNavigationItem
-                icon={<IconLocationOn className="icon-pixel"/>}
-                onTouchTap={() => this.select(5)}
-                href="/map"
-              />
-            </BottomNavigation>
-          </Paper>
+          <BottomNavigation selectedIndex={this.state.selectedIndex} className="bottom">
+            <BottomNavigationItem
+              icon={<FaUserMd className="icon-pixel"/>}
+              onTouchTap={() => this.select(0)}
+              href="/"
+              style={styles.bottomNavItem}
+            />
+            <BottomNavigationItem
+              icon={<FaHeartbeat className="icon-pixel"/>}
+              onTouchTap={() => this.select(1)}
+              href="/clinics"
+              style={styles.bottomNavItem}
+            />
+            <BottomNavigationItem
+              icon={<FaPlusSquare className="icon-pixel"/>}
+              onTouchTap={() => this.select(2)}
+              href="/pharmacies"
+              style={styles.bottomNavItem}
+            />
+            <BottomNavigationItem
+              icon={<FaHospitalO className="icon-pixel"/>}
+              onTouchTap={() => this.select(3)}
+              href="/hospitals"
+              style={styles.bottomNavItem}
+            />
+            <BottomNavigationItem
+              icon={<FaFlask className="icon-pixel"/>}
+              onTouchTap={() => this.select(4)}
+              href="/laboratories"
+              style={styles.bottomNavItem}
+            />
+            <BottomNavigationItem
+              icon={<IconLocationOn className="icon-pixel"/>}
+              onTouchTap={() => this.select(5)}
+              href="/map"
+              style={styles.bottomNavItem}
+            />
+          </BottomNavigation>
         </MuiThemeProvider>
       </div>
     );

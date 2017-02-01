@@ -180,7 +180,7 @@ export default class GeneralMap extends TrackerReact(Component) {
           <Drawer
             open={this.state.open}
             docked={false}
-            width={600}
+            className="sidenav"
             onRequestChange={(open) => this.setState({open})}>
             <MenuItem onClick={this.handleClose} >
               <h3>Prueba </h3>

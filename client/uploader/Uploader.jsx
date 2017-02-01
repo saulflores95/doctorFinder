@@ -50,7 +50,7 @@ upload(){
 render(){
   let styles = {
     form:{
-      paddingTop:100,
+      paddingTop:50,
     },
     img: {
       padding:50,

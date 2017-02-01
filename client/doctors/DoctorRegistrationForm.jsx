@@ -132,9 +132,6 @@ export default class DoctorRegistrationForm extends Component {
       },
       formStyle: {
       },
-      formDivisor: {
-          padding: '0 0 30px 0'
-      },
       formMessageDivisor: {
         padding: '0 0 10px 0'
       },
@@ -143,7 +140,8 @@ export default class DoctorRegistrationForm extends Component {
       },
       container: {
         paddingTop: 35,
-        height: 900
+        height: 900,
+        paddingBottom: 50
       }
     }
 

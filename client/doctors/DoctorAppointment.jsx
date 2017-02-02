@@ -11,7 +11,7 @@ export default class DoctorAppointment extends Component {
     return (
       <MuiThemeProvider>
         <div style={styles}>
-          <DatePicker hintText={<span className="label-text">Set appointment </span>} mode="landscape" />
+          <DatePicker hintText={<span className="label-text">Set appointment </span>}/>
         </div>
       </MuiThemeProvider>
     )

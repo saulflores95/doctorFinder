@@ -73,8 +73,6 @@ export default class GeneralMap extends TrackerReact(Component) {
           })}
         </div>
       )
-    }else{
-      console.log('Pharmacies Disabled');
     }
   }
 
@@ -101,8 +99,6 @@ export default class GeneralMap extends TrackerReact(Component) {
           })}
         </div>
       )
-    }else{
-      console.log('Hospitals Disabled');
     }
   }
 
@@ -134,8 +130,6 @@ export default class GeneralMap extends TrackerReact(Component) {
           })}
         </div>
       )
-    }else{
-      console.log('Doctors Disabled');
     }
   }
 
@@ -162,8 +156,6 @@ export default class GeneralMap extends TrackerReact(Component) {
           })}
         </div>
       )
-    }else{
-      console.log('Clinics Disabled');
     }
   }
 
@@ -190,8 +182,6 @@ export default class GeneralMap extends TrackerReact(Component) {
         })}
         </div>
       )
-    }else{
-      console.log('Labs Disabled');
     }
   }
 

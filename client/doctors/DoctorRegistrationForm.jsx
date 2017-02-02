@@ -54,6 +54,7 @@ export default class DoctorRegistrationForm extends Component {
     console.log('url not found');
     }
   }
+  
   getLocation(){
     console.log('User Location:', Geolocation.latLng());
     console.log(this.state.count);

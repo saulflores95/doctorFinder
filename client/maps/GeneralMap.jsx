@@ -8,6 +8,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
+import { Geolocation } from 'meteor/mdg:geolocation';
 
 export default class GeneralMap extends TrackerReact(Component) {
 
@@ -16,8 +17,8 @@ export default class GeneralMap extends TrackerReact(Component) {
     this.handleToggle = this.handleToggle.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.state = {
-      lat: 32.5194358,
-      lng: -117.0101997,
+      latitude:32.50504,
+      longitude:-116.99056,
       zoom: 15,
       open: false,
       subscription: {
@@ -43,6 +44,7 @@ export default class GeneralMap extends TrackerReact(Component) {
     this.state.subscription.labs.stop();
 
   }
+
   pharmacies(){
     return Pharmacies.find().fetch();
   }
@@ -58,7 +60,6 @@ export default class GeneralMap extends TrackerReact(Component) {
         //  shadowSize: [68, 95],
         //  shadowAnchor: [22, 94]
       });
-      console.log('Pharmacies Enabled');
       return(
         <div>
           {this.pharmacies().map((pharmacie)=>{
@@ -86,8 +87,6 @@ export default class GeneralMap extends TrackerReact(Component) {
       iconUrl: 'https://s28.postimg.org/d819g8c0d/Hospitals.png',
       popupAnchor: [18, 0],
     });
-    console.log('Hospitals Enabled');
-
     if(this.state.showHospitals === true){
       return(
         <div>
@@ -122,7 +121,6 @@ export default class GeneralMap extends TrackerReact(Component) {
       //  shadowAnchor: [22, 94]
     });
     if(this.state.showDoctors === true){
-      console.log('Doctors Enabled');
       return(
         <div>
           {this.doctors().map((doctor)=>{
@@ -150,8 +148,6 @@ export default class GeneralMap extends TrackerReact(Component) {
       iconUrl: 'https://s28.postimg.org/gb1zjlqz1/clinic.png',
       popupAnchor: [18, 0],
     });
-    console.log('Clinics Enabled');
-
     if(this.state.showClinics === true){
       return(
         <div>
@@ -180,7 +176,6 @@ export default class GeneralMap extends TrackerReact(Component) {
       iconUrl: 'https://s29.postimg.org/6p57i16k7/lab.png',
       popupAnchor: [18, 0],
     });
-    console.log('Labs Enabled');
     if(this.state.showClinics === true){
       return(
         <div>
@@ -214,6 +209,7 @@ export default class GeneralMap extends TrackerReact(Component) {
         this.setState({
           showDoctors: false
         });
+        Bert.alert( 'Doctos Disabled!', 'warning', 'growl-top-left' );
       }else{
         this.setState({
           showDoctors:true
@@ -224,6 +220,7 @@ export default class GeneralMap extends TrackerReact(Component) {
         this.setState({
           showPharmacies: false
         });
+        Bert.alert( 'Pharmacies Disabled!', 'warning', 'growl-top-left' );
       }else{
         this.setState({
           showPharmacies:true
@@ -234,6 +231,8 @@ export default class GeneralMap extends TrackerReact(Component) {
         this.setState({
           showClinics: false
         });
+        Bert.alert( 'Clinics Disabled!', 'warning', 'growl-top-left' );
+
       }else{
         this.setState({
           showClinics:true
@@ -244,19 +243,21 @@ export default class GeneralMap extends TrackerReact(Component) {
         this.setState({
           showLabs:false
         });
+        Bert.alert( 'Labs Disabled!', 'warning', 'growl-top-left' );
       }else{
         this.setState({
           showLabs:true
         });
       }
     }else if(value === 'hospitals'){
-      if(this.state.hospitals === true){
-        this.setState({
-          showHospitals:true
-        });
-      }else{
+      if(this.state.showHospitals === true){
         this.setState({
           showHospitals:false
+        });
+        Bert.alert( 'Hospitals Disabled!', 'warning', 'growl-top-left' );
+      }else{
+        this.setState({
+          showHospitals:true
         });
       }
     }else{
@@ -266,26 +267,22 @@ export default class GeneralMap extends TrackerReact(Component) {
 
 
   render() {
-    const positionState = [this.state.lat, this.state.lng];
+    const userPosition = [this.state.lat, this.state.lng];
     var handlePharmacies = this.handlePharmacies();
     var handleDoctors = this.handleDoctors();
     var handleHospitals = this.handleHospitals();
     var handleClinics = this.handleClinics();
     var handleLabs = this.handleLabs();
-    /*
-    <MenuItem onClick={this.toogle.bind('hospitals'} >
-      <h3>Hospitals </h3>
-    </MenuItem>
-    <MenuItem onClick={this.toogle.bind('clinics'} >
-      <h3>Clinics </h3>
-    </MenuItem>
-    <MenuItem onClick={this.toogle.bind('labs'} >
-      <h3>Laboratories </h3>
-    </MenuItem>
-    <MenuItem onClick={this.toogle.bind('pharmacies'} >
-      <h3>Pharmacies </h3>
-    </MenuItem>
-    */
+    var UserIcon = L.icon({
+      iconUrl: 'https://unpkg.com/leaflet@1.0.1/dist/images/marker-icon-2x.png',
+      // iconAnchor: [38, 38],
+      popupAnchor: [0, -18],
+      iconSize:[25,41]
+      //  shadowUrl: '',
+      //  shadowSize: [68, 95],
+      //  shadowAnchor: [22, 94]
+    });
+    var mapCenter = [this.state.latitude, this.state.longitude]
     const styles = {
       leafletContainer: {
         width: '100%',
@@ -296,7 +293,7 @@ export default class GeneralMap extends TrackerReact(Component) {
 
     return (
       <div className="generalMap-container">
-        <Map center={positionState} zoom={this.state.zoom}>
+        <Map center={mapCenter} zoom={this.state.zoom}>
           <TileLayer
             attribution='<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
@@ -322,6 +319,13 @@ export default class GeneralMap extends TrackerReact(Component) {
             </div>
             <div>
               {handleDoctors}
+            </div>
+            <div>
+            <Marker icon={UserIcon} position={Geolocation.latLng()}>
+              <Popup>
+                <span> <br/>This is you</span>
+              </Popup>
+            </Marker>
             </div>
         </Map>
         <MuiThemeProvider>

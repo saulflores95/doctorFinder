@@ -26,7 +26,12 @@ export default class GeneralMap extends TrackerReact(Component) {
         clinics: Meteor.subscribe("allClinics"),
         doctors: Meteor.subscribe("allDoctors"),
         labs: Meteor.subscribe("allLabs")
-      }
+      },
+      showPharmacies:true,
+      showHospitals:true,
+      showDoctors:true,
+      showClinics:true,
+      showLabs:true,
     };
   }
 
@@ -42,20 +47,157 @@ export default class GeneralMap extends TrackerReact(Component) {
     return Pharmacies.find().fetch();
   }
 
+  handlePharmacies(){
+    if(this.state.showPharmacies === true){
+      var PharmacieMapIcon = L.icon({
+        iconUrl: 'https://s28.postimg.org/t501cy4el/Farmacias.png',
+        //iconSize: [80, 80],
+        // iconAnchor: [38, 38],
+        popupAnchor: [18, 0],
+        //  shadowUrl: '',
+        //  shadowSize: [68, 95],
+        //  shadowAnchor: [22, 94]
+      });
+      console.log('Pharmacies Enabled');
+      return(
+        <div>
+          {this.pharmacies().map((pharmacie)=>{
+            return(
+              <Marker icon={PharmacieMapIcon} position={[pharmacie.latitude, pharmacie.longitude]}>
+                <Popup>
+                  <span> <br/>{pharmacie.name}</span>
+                </Popup>
+              </Marker>
+            )
+          })}
+        </div>
+      )
+    }else{
+      console.log('Pharmacies Disabled');
+    }
+  }
+
   hospitals(){
     return Hospitals.find().fetch();
+  }
+
+  handleHospitals(){
+    var hospitalMapIcon = L.icon({
+      iconUrl: 'https://s28.postimg.org/d819g8c0d/Hospitals.png',
+      popupAnchor: [18, 0],
+    });
+    console.log('Hospitals Enabled');
+
+    if(this.state.showHospitals === true){
+      return(
+        <div>
+          {this.hospitals().map((hospital)=>{
+            return(
+              <Marker icon={hospitalMapIcon} position={[hospital.latitude, hospital.longitude]}>
+                <Popup>
+                  <span> <br/>{hospital.name}</span>
+                </Popup>
+              </Marker>
+            )
+          })}
+        </div>
+      )
+    }else{
+      console.log('Hospitals Disabled');
+    }
   }
 
   doctors(){
     return Doctors.find().fetch();
   }
 
+  handleDoctors(){
+    var DoctorMapIcon = L.icon({
+      iconUrl: 'https://s28.postimg.org/ohtzb6h1p/Doctores.png',
+      //iconSize: [80, 80],
+      // iconAnchor: [38, 38],
+      popupAnchor: [18, 0],
+      //  shadowUrl: '',
+      //  shadowSize: [68, 95],
+      //  shadowAnchor: [22, 94]
+    });
+    if(this.state.showDoctors === true){
+      console.log('Doctors Enabled');
+      return(
+        <div>
+          {this.doctors().map((doctor)=>{
+            return(
+              <Marker icon={DoctorMapIcon} position={[doctor.latitude, doctor.longitude]}>
+                <Popup>
+                  <span><br/>{doctor.name}</span>
+                </Popup>
+              </Marker>
+            )
+          })}
+        </div>
+      )
+    }else{
+      console.log('Doctors Disabled');
+    }
+  }
+
   clinics(){
     return Clinics.find().fetch();
   }
 
+  handleClinics(){
+    var clinicMapIcon = L.icon({
+      iconUrl: 'https://s28.postimg.org/gb1zjlqz1/clinic.png',
+      popupAnchor: [18, 0],
+    });
+    console.log('Clinics Enabled');
+
+    if(this.state.showClinics === true){
+      return(
+        <div>
+          {this.clinics().map((clinic)=>{
+            return(
+              <Marker icon={clinicMapIcon} position={[clinic.latitude, clinic.longitude]}>
+                <Popup>
+                  <span> <br/>{clinic.name}</span>
+                </Popup>
+              </Marker>
+            )
+          })}
+        </div>
+      )
+    }else{
+      console.log('Clinics Disabled');
+    }
+  }
+
   labs(){
     return Labs.find().fetch();
+  }
+
+  handleLabs(){
+    var labMapIcon = L.icon({
+      iconUrl: 'https://s29.postimg.org/6p57i16k7/lab.png',
+      popupAnchor: [18, 0],
+    });
+    console.log('Labs Enabled');
+    if(this.state.showClinics === true){
+      return(
+        <div>
+        {this.labs().map((lab)=>{
+          return(
+            <Marker icon={labMapIcon} position={[lab.latitude, lab.longitude]}>
+              <Popup>
+                <span><br/>{lab.name}</span>
+              </Popup>
+            </Marker>
+          )
+        })}
+        </div>
+      )
+    }else{
+      console.log('Labs Disabled');
+    }
   }
 
   handleToggle() {
@@ -66,8 +208,84 @@ export default class GeneralMap extends TrackerReact(Component) {
       this.setState({open: false});
   }
 
+  toogle(value){
+    if(value === 'doctors'){
+      if(this.state.showDoctors === true){
+        this.setState({
+          showDoctors: false
+        });
+      }else{
+        this.setState({
+          showDoctors:true
+        });
+      }
+    }else if(value === 'pharmacies'){
+      if(this.state.showPharmacies === true){
+        this.setState({
+          showPharmacies: false
+        });
+      }else{
+        this.setState({
+          showPharmacies:true
+        });
+      }
+    }else if(value === 'clinics'){
+      if(this.state.showClinics === true){
+        this.setState({
+          showClinics: false
+        });
+      }else{
+        this.setState({
+          showClinics:true
+        });
+      }
+    }else if(value === 'labs'){
+      if(this.state.showLabs === true){
+        this.setState({
+          showLabs:false
+        });
+      }else{
+        this.setState({
+          showLabs:true
+        });
+      }
+    }else if(value === 'hospitals'){
+      if(this.state.hospitals === true){
+        this.setState({
+          showHospitals:true
+        });
+      }else{
+        this.setState({
+          showHospitals:false
+        });
+      }
+    }else{
+      console.log('Not Working: ', value);
+    }
+}
+
+
   render() {
     const positionState = [this.state.lat, this.state.lng];
+    var handlePharmacies = this.handlePharmacies();
+    var handleDoctors = this.handleDoctors();
+    var handleHospitals = this.handleHospitals();
+    var handleClinics = this.handleClinics();
+    var handleLabs = this.handleLabs();
+    /*
+    <MenuItem onClick={this.toogle.bind('hospitals'} >
+      <h3>Hospitals </h3>
+    </MenuItem>
+    <MenuItem onClick={this.toogle.bind('clinics'} >
+      <h3>Clinics </h3>
+    </MenuItem>
+    <MenuItem onClick={this.toogle.bind('labs'} >
+      <h3>Laboratories </h3>
+    </MenuItem>
+    <MenuItem onClick={this.toogle.bind('pharmacies'} >
+      <h3>Pharmacies </h3>
+    </MenuItem>
+    */
     const styles = {
       leafletContainer: {
         width: '100%',
@@ -75,36 +293,7 @@ export default class GeneralMap extends TrackerReact(Component) {
         paddingTop: 50
       },
     }
-    var PharmacieMapIcon = L.icon({
-      iconUrl: 'https://s28.postimg.org/t501cy4el/Farmacias.png',
-      //iconSize: [80, 80],
-      // iconAnchor: [38, 38],
-      popupAnchor: [18, 0],
-      //  shadowUrl: '',
-      //  shadowSize: [68, 95],
-      //  shadowAnchor: [22, 94]
-    });
-    var clinicMapIcon = L.icon({
-      iconUrl: 'https://s28.postimg.org/gb1zjlqz1/clinic.png',
-      popupAnchor: [18, 0],
-    });
-    var DoctorMapIcon = L.icon({
-      iconUrl: 'https://s28.postimg.org/ohtzb6h1p/Doctores.png',
-      //iconSize: [80, 80],
-      // iconAnchor: [38, 38],
-      popupAnchor: [18, 0],
-      //  shadowUrl: '',
-      //  shadowSize: [68, 95],
-      //  shadowAnchor: [22, 94]
-    });
-    var hospitalMapIcon = L.icon({
-      iconUrl: 'https://s28.postimg.org/d819g8c0d/Hospitals.png',
-      popupAnchor: [18, 0],
-    });
-    var labMapIcon = L.icon({
-      iconUrl: 'https://s29.postimg.org/6p57i16k7/lab.png',
-      popupAnchor: [18, 0],
-    });
+
     return (
       <div className="generalMap-container">
         <Map center={positionState} zoom={this.state.zoom}>
@@ -120,59 +309,19 @@ export default class GeneralMap extends TrackerReact(Component) {
             </MuiThemeProvider>
           </Control>
             <div>
-            {this.pharmacies().map((pharmacie)=>{
-              return(
-                <Marker icon={PharmacieMapIcon} position={[pharmacie.latitude, pharmacie.longitude]}>
-                  <Popup>
-                    <span> <br/>{pharmacie.name}</span>
-                  </Popup>
-                </Marker>
-              )
-            })}
+              {handlePharmacies}
             </div>
             <div>
-            {this.hospitals().map((hospital)=>{
-              return(
-                <Marker icon={hospitalMapIcon} position={[hospital.latitude, hospital.longitude]}>
-                  <Popup>
-                    <span> <br/>{hospital.name}</span>
-                  </Popup>
-                </Marker>
-              )
-            })}
+              {handleClinics}
             </div>
             <div>
-            {this.clinics().map((clinic)=>{
-              return(
-                <Marker icon={clinicMapIcon} position={[clinic.latitude, clinic.longitude]}>
-                  <Popup>
-                    <span> <br/>{clinic.name}</span>
-                  </Popup>
-                </Marker>
-              )
-            })}
+              {handleHospitals}
             </div>
             <div>
-            {this.doctors().map((doctor)=>{
-              return(
-                <Marker icon={DoctorMapIcon} position={[doctor.latitude, doctor.longitude]}>
-                  <Popup>
-                    <span><br/>{doctor.name}</span>
-                  </Popup>
-                </Marker>
-              )
-            })}
+              {handleLabs}
             </div>
             <div>
-            {this.labs().map((lab)=>{
-              return(
-                <Marker icon={labMapIcon} position={[lab.latitude, lab.longitude]}>
-                  <Popup>
-                    <span><br/>{lab.name}</span>
-                  </Popup>
-                </Marker>
-              )
-            })}
+              {handleDoctors}
             </div>
         </Map>
         <MuiThemeProvider>
@@ -182,8 +331,20 @@ export default class GeneralMap extends TrackerReact(Component) {
             docked={false}
             className="sidenav"
             onRequestChange={(open) => this.setState({open})}>
-            <MenuItem onClick={this.handleClose} >
-              <h3>Prueba </h3>
+            <MenuItem onClick={() => this.toogle('doctors')} >
+              <h3>Doctors </h3>
+            </MenuItem>
+            <MenuItem onClick={() => this.toogle('pharmacies')} >
+              <h3>Pharmacies </h3>
+            </MenuItem>
+            <MenuItem onClick={() => this.toogle('clinics')} >
+              <h3>Clinics </h3>
+            </MenuItem>
+            <MenuItem onClick={() => this.toogle('labs')} >
+              <h3>Laboratories </h3>
+            </MenuItem>
+            <MenuItem onClick={() => this.toogle('hospitals')} >
+              <h3>Hospitals </h3>
             </MenuItem>
           </Drawer>
         </div>

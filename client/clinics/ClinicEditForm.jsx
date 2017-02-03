@@ -47,7 +47,7 @@ export default class ClinicEditForm extends Component {
       if(clinic){
         Meteor.call('editClinic', this.clinic(), clinic, (error, data)=>{
           if(error){
-            Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-right' );
+            Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-left' );
           }else{
             Bert.alert( 'Registrado!', 'info', 'fixed-top' );
           }
@@ -92,9 +92,14 @@ export default class ClinicEditForm extends Component {
       customWidth: {
         width: '95%',
       },
+      container: {
+        paddingTop: 40,
+        paddingBottom: 100
+      }
     }
 
     return (
+      <div style={styles.container}>
       <MuiThemeProvider>
         <Container>
         <Paper style={styles.paper} zDepth={3}>
@@ -233,6 +238,7 @@ export default class ClinicEditForm extends Component {
         </Paper>
         </Container>
       </MuiThemeProvider>
+      </div>
     )
   }
 

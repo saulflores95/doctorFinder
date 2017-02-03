@@ -29,7 +29,7 @@ export default class PharmacieDetail extends TrackerReact(React.Component){
     if(Meteor.userId()){
       Meteor.call('deletePharmacie', this.pharmacie(), (error, data) => {
         if(error){
-          Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-right' );
+          Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-left' );
         }else{
           Bert.alert('Pharmacie Eliminated', 'danger', 'fixed-top');
         }
@@ -43,8 +43,8 @@ export default class PharmacieDetail extends TrackerReact(React.Component){
     const styles = {
       container: {
         height:200,
-        paddingTop:85,
-        paddingBottom:74,
+        paddingTop:55,
+        paddingBottom:120,
         color:'white',
         fontFamily:'Roboto',
       }
@@ -83,7 +83,7 @@ export default class PharmacieDetail extends TrackerReact(React.Component){
     }
 
       return(
-          <div style={styles.container}>
+          <div className="component-detail">
           <MuiThemeProvider>
             <Container>
               <Row>

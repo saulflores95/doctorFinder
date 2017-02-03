@@ -45,7 +45,7 @@ export default class LabEditForm extends Component {
       if(lab){
         Meteor.call('editLab', this.lab(), Lab, (error, data)=>{
           if(error){
-            Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-right' );
+            Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-left' );
           }else{
             Bert.alert( 'Registrado!', 'info', 'fixed-top' );
           }

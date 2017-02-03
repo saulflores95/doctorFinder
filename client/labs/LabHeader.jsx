@@ -31,8 +31,9 @@ export default class LabHeader extends Component {
 
     var styles = {
       img: {
-        width: 200,
-        height: 200
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        display: 'block'
       },
       container: {
         marginTop: 30,
@@ -43,7 +44,7 @@ export default class LabHeader extends Component {
       <div style={styles.container}>
         <Row>
           <Col sm={6} md={6} lg={8}>
-            <img className="img-clinic" src={lab.img} />
+            <img width="250" height="200" style={styles.img} src={lab.img} />
           </Col>
           <Col sm={6} md={6} lg={4}>
             <h1 className="detail-name">{lab.name}</h1>

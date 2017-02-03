@@ -30,7 +30,7 @@ export default class DoctorContactForm extends Component {
     if(doctor){
       Meteor.call('sendMessage', message, (error, data)=>{
         if(error){
-          Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-right' );
+          Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-left' );
         }else{
           Bert.alert( 'Message Sent!', 'info', 'fixed-top' );
         }

@@ -29,7 +29,7 @@ export default class LabDetail extends TrackerReact(React.Component){
     if(Meteor.userId()){
       Meteor.call('deleteLab', this.lab(), (error, data) => {
         if(error){
-          Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-right' );
+          Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-left' );
         }else{
           Bert.alert('Laboratory Eliminated', 'danger', 'fixed-top');
         }
@@ -82,7 +82,7 @@ export default class LabDetail extends TrackerReact(React.Component){
     }
 
       return(
-          <div style={styles.container}>
+          <div className="component-detail">
             <MuiThemeProvider>
               <Container>
                 <Row>

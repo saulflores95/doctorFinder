@@ -30,7 +30,7 @@ export default class HospitalDetail extends TrackerReact(React.Component){
     if(Meteor.userId()){
       Meteor.call('deleteHospital', this.hospital(), (error, data) => {
         if(error){
-          Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-right' );
+          Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-left' );
         }else{
           Bert.alert('Hospital Eliminated', 'danger', 'fixed-top');
         }
@@ -70,7 +70,7 @@ export default class HospitalDetail extends TrackerReact(React.Component){
     const styles = {
       container: {
         height:200,
-        paddingTop:85,
+        paddingTop:55,
         paddingBottom:74,
         color:'white',
         fontFamily:'Roboto',
@@ -82,7 +82,7 @@ export default class HospitalDetail extends TrackerReact(React.Component){
     }
 
       return(
-          <div style={styles.container}>
+          <div className="component-detail">
           <MuiThemeProvider>
             <Container>
               <Row>

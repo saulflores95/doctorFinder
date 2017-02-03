@@ -64,7 +64,7 @@ export default class DoctorEditForm extends TrackerReact(React.Component){
       if(doctor){
         Meteor.call('editDoctor', this.doctor(), doctor, (error, data)=>{
           if(error){
-            Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-right' );
+            Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-left' );
           }else{
             Bert.alert( 'Edited Doctor!', 'info', 'fixed-top' );
           }
@@ -124,9 +124,14 @@ export default class DoctorEditForm extends TrackerReact(React.Component){
       },
       formStyle:{
         color:'white',
+      },
+      container: {
+        paddingTop: 40,
+        paddingBottom: 100
       }
     }
     return (
+    <div style={styles.container}>
       <MuiThemeProvider>
         <Container>
         <Paper style={styles.paper} zDepth={3}>
@@ -290,6 +295,7 @@ export default class DoctorEditForm extends TrackerReact(React.Component){
         </Paper>
         </Container>
       </MuiThemeProvider>
+    </div>
     )
   }
 

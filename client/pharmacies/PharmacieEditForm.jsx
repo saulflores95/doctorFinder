@@ -45,7 +45,7 @@ export default class PharmacieEditForm extends Component {
       if(pharmacie){
         Meteor.call('editPharmacie', this.pharmacie(), pharmacie, (error, data)=>{
           if(error){
-            Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-right' );
+            Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-left' );
           }else{
             Bert.alert( 'Registrado!', 'info', 'fixed-top' );
           }
@@ -87,9 +87,13 @@ export default class PharmacieEditForm extends Component {
       customWidth: {
         width: '95%',
       },
+      container: {
+        paddingTop: 50
+      }
     }
 
     return (
+      <div style={styles.container}>
       <MuiThemeProvider>
         <Container>
         <Paper style={styles.paper} zDepth={3}>
@@ -166,6 +170,7 @@ export default class PharmacieEditForm extends Component {
         </Paper>
         </Container>
       </MuiThemeProvider>
+      </div>
     )
   }
 

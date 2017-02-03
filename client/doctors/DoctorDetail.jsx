@@ -33,7 +33,7 @@ export default class DoctorDetail extends TrackerReact(React.Component){
     if(Meteor.userId()){
       Meteor.call('deleteDoctor', this.doctor(), (error, data) => {
         if(error){
-          Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-right' );
+          Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-left' );
         }else{
           Bert.alert('Doctor Eliminated', 'danger', 'fixed-top');
         }
@@ -59,15 +59,15 @@ export default class DoctorDetail extends TrackerReact(React.Component){
       userChecker = (
         <div>
           <RaisedButton
+            label={<span className="label-text">Edit Doctor</span>}
+            primary={false}
+            href={`/doctors/${this.props.id}/edit`}
+          />
+          <RaisedButton
             label={<span className="label-text">Delete Doctor</span>}
             primary={false}
             onClick={this.delete.bind(this)}
           />
-            <RaisedButton
-              label={<span className="label-text">Edit Doctor</span>}
-              primary={false}
-              href={`/doctors/${this.props.name}/${this.props.id}/edit`}
-            />
         </div>
       );
     }

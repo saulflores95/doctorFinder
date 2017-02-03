@@ -199,7 +199,7 @@ export default class GeneralMap extends TrackerReact(Component) {
         this.setState({
           showDoctors: false
         });
-        Bert.alert( 'Doctos Disabled!', 'warning', 'growl-top-left' );
+        Bert.alert( 'Doctos Disabled!', 'warning', 'fixed-top' );
       }else{
         this.setState({
           showDoctors:true
@@ -210,7 +210,7 @@ export default class GeneralMap extends TrackerReact(Component) {
         this.setState({
           showPharmacies: false
         });
-        Bert.alert( 'Pharmacies Disabled!', 'warning', 'growl-top-left' );
+        Bert.alert( 'Pharmacies Disabled!', 'warning', 'fixed-top' );
       }else{
         this.setState({
           showPharmacies:true
@@ -221,7 +221,7 @@ export default class GeneralMap extends TrackerReact(Component) {
         this.setState({
           showClinics: false
         });
-        Bert.alert( 'Clinics Disabled!', 'warning', 'growl-top-left' );
+        Bert.alert( 'Clinics Disabled!', 'warning', 'fixed-top' );
 
       }else{
         this.setState({
@@ -233,7 +233,7 @@ export default class GeneralMap extends TrackerReact(Component) {
         this.setState({
           showLabs:false
         });
-        Bert.alert( 'Labs Disabled!', 'warning', 'growl-top-left' );
+        Bert.alert( 'Labs Disabled!', 'warning', 'fixed-top' );
       }else{
         this.setState({
           showLabs:true
@@ -244,7 +244,7 @@ export default class GeneralMap extends TrackerReact(Component) {
         this.setState({
           showHospitals:false
         });
-        Bert.alert( 'Hospitals Disabled!', 'warning', 'growl-top-left' );
+        Bert.alert( 'Hospitals Disabled!', 'warning', 'fixed-top' );
       }else{
         this.setState({
           showHospitals:true

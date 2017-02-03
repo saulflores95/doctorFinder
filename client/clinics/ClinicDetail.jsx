@@ -29,7 +29,7 @@ export default class ClinicDetail extends TrackerReact(React.Component){
     if(Meteor.userId()){
       Meteor.call('deleteClinic', this.clinic(), (error, data) => {
         if(error){
-          Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-right' );
+          Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-left' );
         }else{
           Bert.alert('Clinic Eliminated', 'danger', 'fixed-top');
         }
@@ -38,6 +38,13 @@ export default class ClinicDetail extends TrackerReact(React.Component){
   }
 
   render(){
+
+    const styles = {
+      container: {
+        paddingBottom: 80
+      }
+    }
+
     let clinic = this.clinic();
     var userChecker = null;
     if(!Meteor.userId()){
@@ -71,7 +78,7 @@ export default class ClinicDetail extends TrackerReact(React.Component){
     }
 
       return(
-          <div>
+          <div style={styles.container}>
           <MuiThemeProvider>
             <Container>
               <Row>

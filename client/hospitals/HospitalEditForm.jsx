@@ -46,7 +46,7 @@ export default class HospitalEditForm extends Component {
       if(hospital){
         Meteor.call('editHospital', this.hospital(), hospital, (error, data)=>{
           if(error){
-            Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-right' );
+            Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-left' );
           }else{
             Bert.alert( 'Edit Succesfull!', 'info', 'fixed-top' );
           }
@@ -88,9 +88,13 @@ export default class HospitalEditForm extends Component {
       customWidth: {
         width: '95%',
       },
+      container: {
+        paddingTop: 50
+      }
     }
 
     return (
+      <div style={styles.container}>
       <MuiThemeProvider>
         <Container>
         <Paper style={styles.paper} zDepth={3}>
@@ -157,6 +161,7 @@ export default class HospitalEditForm extends Component {
         </Paper>
         </Container>
       </MuiThemeProvider>
+      </div>
     )
   }
 

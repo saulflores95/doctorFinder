@@ -40,10 +40,10 @@ export default class DoctorDescription extends Component {
     const styles = {
       paper: {
         padding: '5px 0 10px 0',
-        marginBottom: '20px'
+        marginBottom: '20px',
       },
       text: {
-        textAlign: 'center'
+        textAlign: 'center',
       },
       p: {
         lineHeight: '20px',
@@ -71,7 +71,7 @@ export default class DoctorDescription extends Component {
             <div style={styles.text}>
               <p className="doctor-description">{doctor.description}</p>
               <RaisedButton label={<span className="label-text">Read more</span>} onTouchTap={this.handleOpen.bind(this)}/>
-              </div>
+            </div>
             </Container>
           </Paper>
         </MuiThemeProvider>

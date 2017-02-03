@@ -31,8 +31,9 @@ export default class ClinicHeader extends Component {
 
     var styles = {
       img: {
-        width: '200px',
-        height: '200px'
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        display: 'block'
       },
       container: {
         'paddingTop':75,
@@ -47,7 +48,7 @@ export default class ClinicHeader extends Component {
       <div style={styles.container}>
         <Row>
           <Col sm={6} md={6} lg={3}>
-            <img className="img-clinic" src={clinic.img} />
+            <img width="250" height="200" style={styles.img}  src={clinic.img} />
           </Col>
           <Col sm={6} md={6} lg={3} >
             <h1 className="detail-name">{clinic.name}</h1>

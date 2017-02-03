@@ -12,9 +12,11 @@ export default class ButtomNavigation extends Component{
   render() {
     const styles = {
       centered: {
-        position: 'fixed', /* or absolute */
-        top: '50%',
+        position: 'fixed',
         left: '50%',
+        top: '50%',
+        marginTop: '-40px',
+        marginLeft: '-40px'
       }
     }
     return (

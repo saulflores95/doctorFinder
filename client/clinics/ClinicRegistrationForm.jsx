@@ -73,7 +73,7 @@ export default class ClinicRegistrationForm extends Component {
       if(clinic){
         Meteor.call('addClinic', clinic, (error, data)=>{
           if(error){
-            Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-right' );
+            Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-left' );
           }else{
             Bert.alert( 'Registrado!', 'info', 'fixed-top' );
           }
@@ -105,6 +105,12 @@ export default class ClinicRegistrationForm extends Component {
       container: {
         paddingTop:35,
         paddingBottom: 85
+      },
+      img: {
+        paddingTop: 25,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        display: 'block'
       }
     }
 
@@ -118,7 +124,7 @@ export default class ClinicRegistrationForm extends Component {
             <div style={styles.formDivisor}>
               <Row>
                 <Col sm={12} md={6} lg={6}>
-                  <img width="150" height="150" src={this.state.url} />
+                  <img width="250" height="200" style={styles.img} src={this.state.url} />
                 </Col>
                 <Col sm={12} md={6} lg={6}>
                   <Uploader handle={this.handleImageChange.bind(this)}></Uploader>

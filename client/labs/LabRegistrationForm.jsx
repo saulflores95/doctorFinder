@@ -81,7 +81,8 @@ export default class LabRegistrationForm extends Component {
         width: '95%',
       },
       container: {
-        paddingTop: 35
+        paddingTop: 35,
+        paddingBottom: 90
       }
     }
 

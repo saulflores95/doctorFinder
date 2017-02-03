@@ -30,7 +30,8 @@ export default class ClinicWrapper extends TrackerReact(React.Component) {
 
     const styles = {
       container: {
-        paddingTop: '45px'
+        paddingTop: 50,
+        paddingBottom: 90
       }
     }
 

@@ -54,7 +54,7 @@ export default class DoctorRegistrationForm extends Component {
     console.log('url not found');
     }
   }
-  
+
   getLocation(){
     console.log('User Location:', Geolocation.latLng());
     console.log(this.state.count);
@@ -124,7 +124,7 @@ export default class DoctorRegistrationForm extends Component {
     const styles = {
       paper: {
         width: '100%',
-        padding: '0 0 0 0',
+        paddingBottom: 35,
         marginTop: '50px'
 
       },
@@ -139,15 +139,11 @@ export default class DoctorRegistrationForm extends Component {
       formStyle:{
         color:'white',
       },
-      container: {
-        paddingTop: 35,
-        height: 900,
-        paddingBottom: 50
-      }
     }
 
+
     return (
-      <div style={styles.container}>
+      <div className="doctorRegistration">
       <MuiThemeProvider>
             <Container>
               <Paper style={styles.paper} zDepth={3}>

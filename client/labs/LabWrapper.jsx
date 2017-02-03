@@ -43,7 +43,8 @@ export default class LabWrapper extends TrackerReact(React.Component) {
   render(){
     const styles = {
       container: {
-        paddingTop: '45px'
+        paddingTop: 50,
+        paddingBottom: 90
       }
     }
 

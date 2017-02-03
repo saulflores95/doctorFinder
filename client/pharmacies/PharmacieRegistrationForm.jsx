@@ -81,7 +81,8 @@ export default class PharmacieRegistrationForm extends Component {
         width: '95%',
       },
       container: {
-        paddingTop: 35
+        paddingTop: 35,
+        paddingBottom: 90
       }
     }
 

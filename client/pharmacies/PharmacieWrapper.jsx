@@ -36,7 +36,7 @@ export default class PharmacieWrapper extends TrackerReact(React.Component) {
     console.log(uniqueArr);
     return uniqueArr;
   }
-  
+
 
 
 
@@ -44,14 +44,15 @@ export default class PharmacieWrapper extends TrackerReact(React.Component) {
   render(){
 
     const styles = {
-      body: {
+      container: {
           overflow: 'hidden',
-          paddingTop: '45px'
+          paddingTop: 50,
+          paddingBottom: 90
       }
     }
 
     return (
-        <div style={styles.body}>
+        <div style={styles.container}>
           <Container>
             <Row>
               {this.pharmaciesList().map((pharmacie)=>{

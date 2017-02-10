@@ -31,6 +31,11 @@ export default class DoctorWrapper extends TrackerReact(React.Component) {
     this.setState({placeholder: 'Search...'})
   }
 
+  componentWillMount(){
+    console.log('Service worker test');
+    navigator.serviceWorker.register('https://rawgit.com/NitroBAY/meteor-service-worker/master/sw.js').then() .catch(error => console.log(error));
+  }
+
   componentWillUnmount(){
     this.state.subscription.doctors.stop();
   }

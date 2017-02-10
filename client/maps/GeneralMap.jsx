@@ -66,7 +66,7 @@ export default class GeneralMap extends TrackerReact(Component) {
             return(
               <Marker icon={PharmacieMapIcon} position={[pharmacie.latitude, pharmacie.longitude]}>
                 <Popup>
-                  <span> <br/>{pharmacie.name}</span>
+                  <span><a href={'http://maps.google.com/?q=' + pharmacie.latitude + ',' + pharmacie.longitude}> <br/>{pharmacie.name}</a></span>
                 </Popup>
               </Marker>
             )
@@ -92,7 +92,7 @@ export default class GeneralMap extends TrackerReact(Component) {
             return(
               <Marker icon={hospitalMapIcon} position={[hospital.latitude, hospital.longitude]}>
                 <Popup>
-                  <span> <br/>{hospital.name}</span>
+                  <span><a href={'http://maps.google.com/?q=' + hospital.latitude + ',' + hospital.longitude}><br/>{hospital.name}</a></span>
                 </Popup>
               </Marker>
             )
@@ -123,7 +123,7 @@ export default class GeneralMap extends TrackerReact(Component) {
             return(
               <Marker icon={DoctorMapIcon} position={[doctor.latitude, doctor.longitude]}>
                 <Popup>
-                  <span><br/>{doctor.name}</span>
+                  <span><br/><a href={'http://maps.google.com/?q=' + doctor.latitude + ',' + doctor.longitude}>{doctor.name}</a></span>
                 </Popup>
               </Marker>
             )
@@ -149,7 +149,7 @@ export default class GeneralMap extends TrackerReact(Component) {
             return(
               <Marker icon={clinicMapIcon} position={[clinic.latitude, clinic.longitude]}>
                 <Popup>
-                  <span> <br/>{clinic.name}</span>
+                  <span><a href={'http://maps.google.com/?q=' + clinic.latitude + ',' + clinic.longitude}> <br/>{clinic.name}</a></span>
                 </Popup>
               </Marker>
             )
@@ -175,7 +175,7 @@ export default class GeneralMap extends TrackerReact(Component) {
           return(
             <Marker icon={labMapIcon} position={[lab.latitude, lab.longitude]}>
               <Popup>
-                <span><br/>{lab.name}</span>
+                <span><a href={'http://maps.google.com/?q=' + lab.latitude + ',' + lab.longitude}><br/>{lab.name}</a></span>
               </Popup>
             </Marker>
           )

@@ -69,7 +69,7 @@ export default class ButtomNavigation extends Component{
             <BottomNavigationItem
               icon={<FaUserMd className="icon-pixel"/>}
               onTouchTap={() => this.select(0)}
-              href="/"
+              href="/doc"
               style={styles.bottomNavItem}
             />
             <BottomNavigationItem

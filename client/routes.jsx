@@ -1,6 +1,7 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 import {MainLayout} from './layouts/MainLayout.jsx';
+import {LandingLayout} from './layouts/LandingLayout.jsx';
 import About from './About.jsx'
 import DoctorRegistrationForm from './doctors/DoctorRegistrationForm.jsx';
 import DoctorList from './doctors/DoctorList.jsx';
@@ -31,8 +32,23 @@ import LabSingleList from './labs/LabSingleList.jsx';
 import LabMap from './maps/LabMap.jsx';
 import LabsInformationWrapper from './labs/LabsInformationWrapper.jsx';
 import Uploader from './uploader/Uploader.jsx';
+import LandingPage from './layouts/LandingPage.jsx';
 
 FlowRouter.route('/', {
+  action() {
+    if(!Meteor.userId()){
+      mount(LandingLayout,{
+        content: (<LandingPage />),
+      })
+    }else{
+      mount(MainLayout,{
+        content: (<DoctorWrapper />),
+      })
+    }
+  }
+});
+
+FlowRouter.route('/doc', {
   action() {
     mount(MainLayout,{
       content: (<DoctorWrapper />),

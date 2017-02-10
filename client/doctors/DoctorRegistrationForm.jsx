@@ -158,6 +158,7 @@ export default class DoctorRegistrationForm extends Component {
                   <div style={styles.formDivisor}>
                     <Row>
                     <Col sm={12} md={6} lg={6}>
+                      <img style={styles.img} src={this.state.url} />
                     </Col>
                     <Col sm={12} md={6} lg={6}>
                       <Uploader handle={this.handleImageChange.bind(this)}></Uploader>

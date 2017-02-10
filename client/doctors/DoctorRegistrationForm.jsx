@@ -130,10 +130,12 @@ export default class DoctorRegistrationForm extends Component {
       },
       img: {
         borderRadius:'50%',
-        paddingTop: 25,
+        marginTop: 25,
         marginLeft: 'auto',
         marginRight: 'auto',
-        display: 'block'
+        display: 'block',
+        width: 200,
+        height: 200
       },
       formStyle: {
       },
@@ -156,7 +158,6 @@ export default class DoctorRegistrationForm extends Component {
                   <div style={styles.formDivisor}>
                     <Row>
                     <Col sm={12} md={6} lg={6}>
-                      <img width="200" height="200" style={styles.img} src={this.state.url} />
                     </Col>
                     <Col sm={12} md={6} lg={6}>
                       <Uploader handle={this.handleImageChange.bind(this)}></Uploader>

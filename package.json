@@ -1,39 +1,70 @@
 {
   "name": "drFinder",
+  "version": "1.0.0",
+  "description": "Find Doctors, Pharmacies, Clinics, and Hospitals",
+  "main": "index.js",
   "private": true,
   "scripts": {
     "start": "meteor --settings settings.json"
   },
-  "dependencies": {
-    "hammerjs": "^2.0.8",
-    "i": "^0.3.5",
-    "immutability-helper": "^2.0.0",
-    "jquery": "^3.1.1",
+  "scripts": {
+    "build": "webpack --config=webpack/webpack.prod.js -p",
+    "test": "jest",
+    "start": "webpack-dev-server --config=webpack/webpack.dev.js",
+    "predeploy": "webpack --config=webpack/webpack.prod.js -p",
+  },
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "clean-webpack-plugin": "^0.1.15",
+    "css-loader": "^0.26.1",
+    "enzyme": "^2.7.1",
+    "enzyme-to-json": "^1.4.5",
+    "extract-text-webpack-plugin": "2.0.0-rc.2",
+    "html-webpack-plugin": "^2.26.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^18.1.0",
+    "normalize.css": "^5.0.0",
+    "offline-plugin": "^4.6.1",
+    "preact": "^7.2.0",
+    "preact-compat": "^3.13.1",
     "leaflet": "^1.0.2",
-    "material-ui": "^0.16.4",
-    "meteor-node-stubs": "~0.2.0",
-    "radium": "^0.18.1",
-    "react": "^15.4.1",
-    "react-addons-create-fragment": "^15.3.2",
-    "react-addons-css-transition-group": "^15.3.2",
-    "react-addons-linked-state-mixin": "^15.3.2",
-    "react-addons-pure-render-mixin": "^15.3.2",
-    "react-addons-transition-group": "^15.3.2",
-    "react-addons-update": "^15.3.2",
-    "react-dom": "^15.4.1",
-    "react-dropzone": "^3.9.2",
-    "react-grid-system": "^2.0.2",
     "react-icons": "^2.2.1",
+    "material-ui": "^0.16.4",
     "react-leaflet": "^1.0.0",
     "react-leaflet-control": "^1.3.0",
-    "react-mixin": "^3.0.5",
-    "react-mounter": "^1.2.0",
+    "hammerjs": "^2.0.8",
     "react-star-rating-component": "^1.2.2",
-    "react-tap-event-plugin": "^2.0.0"
+    "react-tap-event-plugin": "^2.0.0",
+    "react-grid-system": "^2.0.2",
+    "react-router-dom": "next",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "standard": "^8.6.0",
+    "standard-loader": "^5.0.0",
+    "style-loader": "^0.13.1",
+    "surge": "^0.18.0",
+    "uglify-js": "https://github.com/mishoo/UglifyJS2/tarball/harmony",
+    "uglifyjs-webpack-plugin": "^0.1.4",
+    "webpack": "2.2.1",
+    "webpack-dev-server": "^1.16.2"
   },
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    },
+    "moduleNameMapper": {
+      "\\.css$": "identity-obj-proxy"
+    }
+  },
 }
